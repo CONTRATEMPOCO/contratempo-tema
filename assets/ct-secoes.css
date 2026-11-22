@@ -414,4 +414,4 @@
 
 .ct-cards--cartoes .ct-card__titulo,
 .ct-cards--cartoes .ct-card__texto { color: var(--ct-preto); }
-.ct-footer__nome-grande, .ct-conceito__texto, .ct-conceito__pontos { color: rgb(var(--color-foreground)); }
+.ct-conceito__texto, .ct-conceito__pontos { color: rgb(var(--color-foreground)); }

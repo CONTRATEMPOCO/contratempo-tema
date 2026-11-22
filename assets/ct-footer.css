@@ -179,3 +179,5 @@
   .ct-footer__campo input { flex-basis: 100%; border-right: 0.1rem solid rgb(var(--color-foreground)); }
   .ct-footer__campo .button { width: 100%; }
 }
+
+.ct-footer__nome-grande, .ct-footer__assinatura { color: rgb(var(--color-foreground)); }
