@@ -326,3 +326,7 @@ body,
   letter-spacing: 0;
   font-size: 1.5rem;
 }
+
+/* Espaçamento de letras como no projeto (o Dawn abre as letras) */
+body { letter-spacing: 0; }
+h1, h2, h3, .h0, .h1, .h2, .h3 { letter-spacing: -0.02em; }

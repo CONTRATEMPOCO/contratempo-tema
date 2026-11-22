@@ -1,79 +1,158 @@
 {{ 'ct-secoes.css' | asset_url | stylesheet_tag }}
 
 {%- liquid
-  assign tem_imagem = false
-  for block in section.blocks
-    if block.settings.imagem != blank
-      assign tem_imagem = true
-    endif
-  endfor
+  assign lateral_img = section.settings.imagem_lateral
+  assign p = section.settings.produto_lateral
+  if lateral_img == blank and p != blank
+    assign lateral_img = p.featured_image
+  endif
+  assign tem_lateral = false
+  if lateral_img != blank
+    assign tem_lateral = true
+  endif
+  assign tem_card = false
+  if section.settings.card_frase != blank
+    assign tem_card = true
+  endif
+  assign total = section.blocks.size
 -%}
 
 <div class="color-{{ section.settings.color_scheme }} gradient">
-  <div class="ct-wrap ct-hero{% if tem_imagem %} ct-hero--com-imagens{% endif %}">
-    <div class="ct-hero__texto">
-      {%- if section.settings.rotulo != blank -%}
-        <span class="ct-rotulo ct-rotulo--verde">{{ section.settings.rotulo }}</span>
+  <div class="ct-wrap ct-hero2{% unless tem_lateral %} ct-hero2--sem-lateral{% endunless %}">
+    <ct-carrossel class="ct-hero2__a" role="region" aria-roledescription="carrossel" aria-label="Destaques" data-autoplay="{{ section.settings.autoplay }}">
+      {%- for block in section.blocks -%}
+        {%- case block.settings.cor_destaque -%}
+          {%- when 'terracota' -%}{%- assign cor = 'var(--ct-terracota)' -%}
+          {%- when 'amarelo' -%}{%- assign cor = 'var(--ct-amarelo)' -%}
+          {%- when 'creme' -%}{%- assign cor = 'var(--ct-creme)' -%}
+          {%- else -%}{%- assign cor = 'var(--ct-verde)' -%}
+        {%- endcase -%}
+        <div class="ct-slide" role="group" aria-roledescription="slide" aria-label="{{ forloop.index }} de {{ total }}" data-slide {% unless forloop.first %}hidden{% endunless %} {{ block.shopify_attributes }}>
+          {%- if block.settings.imagem != blank -%}
+            {{ block.settings.imagem | image_url: width: 1800 | image_tag: class: 'ct-slide__img', loading: 'eager', widths: '750, 1100, 1500, 1800', sizes: '(min-width: 1000px) 60vw, 100vw', alt: '', style: block.settings.enquadramento }}
+          {%- endif -%}
+          <div class="ct-slide__veu" style="background: rgba(2,7,10,{{ block.settings.escurecer | divided_by: 100.0 }})" aria-hidden="true"></div>
+          <div class="ct-slide__conteudo">
+            <span class="ct-slide__rotulo" style="{% if block.settings.rotulo_destaque %}color: {{ cor }}{% endif %}">{{ block.settings.rotulo }}</span>
+            <div class="ct-slide__texto">
+              {%- if forloop.first -%}<h1 class="ct-slide__titulo">{%- else -%}<h2 class="ct-slide__titulo">{%- endif -%}
+                {{ block.settings.titulo }}
+                {%- if block.settings.destaque != blank %} <span style="color: {{ cor }}">{{ block.settings.destaque }}</span>{% endif -%}
+              {%- if forloop.first -%}</h1>{%- else -%}</h2>{%- endif -%}
+              {%- if block.settings.texto != blank -%}<p class="ct-slide__sub">{{ block.settings.texto }}</p>{%- endif -%}
+              <div class="ct-hero__botoes">
+                {%- if block.settings.botao1_texto != blank -%}
+                  <a href="{{ block.settings.botao1_link | default: routes.all_products_collection_url }}" class="ct-botao ct-botao--{{ block.settings.botao1_cor }}">{{ block.settings.botao1_texto }}</a>
+                {%- endif -%}
+                {%- if block.settings.botao2_texto != blank and block.settings.botao2_link != blank -%}
+                  <a href="{{ block.settings.botao2_link }}" class="ct-botao ct-botao--contorno">{{ block.settings.botao2_texto }}</a>
+                {%- endif -%}
+              </div>
+            </div>
+          </div>
+        </div>
+      {%- endfor -%}
+      {%- if total > 1 -%}
+        <div class="ct-carrossel__controles">
+          <div class="ct-carrossel__pontos" role="group" aria-label="Escolher slide">
+            {%- for block in section.blocks -%}
+              <button type="button" data-ir="{{ forloop.index0 }}" aria-label="Slide {{ forloop.index }}"{% if forloop.first %} aria-current="true"{% endif %}><span></span></button>
+            {%- endfor -%}
+          </div>
+          <div class="ct-carrossel__botoes">
+            <button type="button" class="ct-carrossel__tocar" data-tocar aria-pressed="false">Tocar</button>
+            <button type="button" data-anterior aria-label="Slide anterior"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true" focusable="false"><path d="M15 5l-7 7 7 7"></path></svg></button>
+            <button type="button" data-proximo aria-label="Próximo slide"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true" focusable="false"><path d="M9 5l7 7-7 7"></path></svg></button>
+          </div>
+        </div>
       {%- endif -%}
-      <h1 class="ct-hero__titulo">{{ section.settings.titulo }}</h1>
-      {%- if section.settings.texto != blank -%}
-        <p class="ct-hero__sub">{{ section.settings.texto }}</p>
-      {%- endif -%}
-      <div class="ct-hero__botoes">
-        {%- if section.settings.botao_texto != blank -%}
-          <a href="{{ section.settings.botao_link | default: routes.all_products_collection_url }}" class="ct-botao ct-botao--amarelo">{{ section.settings.botao_texto }}</a>
-        {%- endif -%}
-        {%- if section.settings.botao2_texto != blank and section.settings.botao2_link != blank -%}
-          <a href="{{ section.settings.botao2_link }}" class="ct-botao ct-botao--contorno">{{ section.settings.botao2_texto }}</a>
+    </ct-carrossel>
+
+    {%- if tem_card -%}
+      <div class="ct-hero2__c">
+        <div class="ct-hero2__c-texto">
+          <span class="ct-slide__rotulo">{{ section.settings.card_rotulo }}</span>
+          <p class="ct-hero2__c-frase">{{ section.settings.card_frase }}</p>
+        </div>
+        {%- if section.settings.card_imagem != blank -%}
+          {{ section.settings.card_imagem | image_url: width: 600 | image_tag: class: 'ct-hero2__c-img', loading: 'lazy', alt: '' }}
         {%- endif -%}
       </div>
-    </div>
-    {%- if tem_imagem -%}
-      <div class="ct-hero__imagens">
-        {%- for block in section.blocks -%}
-          {%- if block.settings.imagem != blank -%}
-            <figure class="ct-hero__figura" {{ block.shopify_attributes }}>
-              {%- if block.settings.link != blank -%}<a href="{{ block.settings.link }}" class="ct-hero__link">{%- endif -%}
-              {{ block.settings.imagem | image_url: width: 1400 | image_tag: loading: 'eager', widths: '375, 550, 750, 1100, 1400', sizes: '(min-width: 1000px) 30vw, 50vw' }}
-              {%- if block.settings.link != blank -%}</a>{%- endif -%}
-              {%- if block.settings.legenda != blank -%}
-                <figcaption class="ct-rotulo">{{ block.settings.legenda }}</figcaption>
-              {%- endif -%}
-            </figure>
-          {%- endif -%}
-        {%- endfor -%}
+    {%- endif -%}
+
+    {%- if tem_lateral -%}
+      <div class="ct-hero2__b">
+        {{ lateral_img | image_url: width: 1400 | image_tag: loading: 'eager', widths: '550, 750, 1100, 1400', sizes: '(min-width: 1000px) 40vw, 100vw', alt: lateral_img.alt | default: '' }}
+        {%- if p != blank -%}
+          <a href="{{ p.url }}" class="ct-hero2__produto">
+            <span class="ct-hero2__produto-info">
+              <span class="ct-hero2__produto-nome">{{ p.title }}</span>
+              {%- assign codigo = p.metafields.custom.codigo.value -%}
+              {%- if codigo != blank -%}<span class="ct-hero2__produto-cod">{{ codigo }}</span>{%- endif -%}
+            </span>
+            <span class="ct-hero2__produto-preco">{{ p.price | money }}</span>
+          </a>
+        {%- endif -%}
       </div>
     {%- endif -%}
   </div>
 </div>
+
+<script src="{{ 'ct-carrossel.js' | asset_url }}" defer="defer"></script>
 
 {% schema %}
 {
   "name": "Destaque principal",
   "tag": "section",
   "class": "section-ct-hero",
-  "max_blocks": 3,
+  "max_blocks": 5,
   "settings": [
     { "type": "color_scheme", "id": "color_scheme", "label": "Esquema de cores", "default": "scheme-1" },
-    { "type": "text", "id": "rotulo", "label": "Rótulo", "default": "Coleção 001" },
-    { "type": "text", "id": "titulo", "label": "Título", "default": "O Brasil no nosso próprio ritmo." },
-    { "type": "textarea", "id": "texto", "label": "Texto", "default": "Camisetas de criação autoral com o repertório daqui. Moda atemporal, identidade brasileira." },
-    { "type": "text", "id": "botao_texto", "label": "Botão: texto", "default": "Conheça as peças" },
-    { "type": "url", "id": "botao_link", "label": "Botão: link" },
-    { "type": "text", "id": "botao2_texto", "label": "Botão 2: texto", "default": "Ler o manifesto" },
-    { "type": "url", "id": "botao2_link", "label": "Botão 2: link" }
+    { "type": "checkbox", "id": "autoplay", "label": "Passar os slides sozinho", "default": false },
+    { "type": "header", "content": "Cartão amarelo" },
+    { "type": "text", "id": "card_rotulo", "label": "Rótulo", "default": "Fig. 01 · Orelhão" },
+    { "type": "text", "id": "card_frase", "label": "Frase", "default": "Contra o tempo.", "info": "Vazio esconde o cartão." },
+    { "type": "image_picker", "id": "card_imagem", "label": "Imagem decorativa" },
+    { "type": "header", "content": "Coluna da direita" },
+    { "type": "image_picker", "id": "imagem_lateral", "label": "Imagem" },
+    { "type": "product", "id": "produto_lateral", "label": "Produto em destaque", "info": "Mostra nome, código e preço sobre a imagem. Sem imagem, usa a foto do produto." }
   ],
   "blocks": [
     {
-      "type": "imagem",
-      "name": "Imagem",
+      "type": "slide",
+      "name": "Slide",
       "settings": [
-        { "type": "image_picker", "id": "imagem", "label": "Imagem" },
-        { "type": "text", "id": "legenda", "label": "Legenda", "default": "Fig. 01" },
-        { "type": "url", "id": "link", "label": "Link" }
+        { "type": "image_picker", "id": "imagem", "label": "Imagem de fundo" },
+        { "type": "select", "id": "enquadramento", "label": "Enquadramento", "options": [
+          { "value": "object-position: center center", "label": "Centro" },
+          { "value": "object-position: center 30%", "label": "Topo" },
+          { "value": "object-position: 70% center", "label": "Direita" },
+          { "value": "object-position: 30% center", "label": "Esquerda" }
+        ], "default": "object-position: center center" },
+        { "type": "range", "id": "escurecer", "label": "Escurecer a imagem", "min": 0, "max": 80, "step": 5, "unit": "%", "default": 45 },
+        { "type": "text", "id": "rotulo", "label": "Rótulo", "default": "Coleção 001" },
+        { "type": "checkbox", "id": "rotulo_destaque", "label": "Rótulo na cor de destaque", "default": false },
+        { "type": "text", "id": "titulo", "label": "Título", "default": "O Brasil no nosso" },
+        { "type": "text", "id": "destaque", "label": "Título (parte colorida)", "default": "próprio ritmo." },
+        { "type": "select", "id": "cor_destaque", "label": "Cor de destaque", "options": [
+          { "value": "verde", "label": "Verde" },
+          { "value": "terracota", "label": "Terracota" },
+          { "value": "amarelo", "label": "Amarelo" },
+          { "value": "creme", "label": "Creme" }
+        ], "default": "verde" },
+        { "type": "textarea", "id": "texto", "label": "Texto" },
+        { "type": "text", "id": "botao1_texto", "label": "Botão 1: texto", "default": "Conheça as peças" },
+        { "type": "url", "id": "botao1_link", "label": "Botão 1: link" },
+        { "type": "select", "id": "botao1_cor", "label": "Botão 1: cor", "options": [
+          { "value": "verde", "label": "Verde" },
+          { "value": "amarelo", "label": "Amarelo" },
+          { "value": "creme", "label": "Creme" }
+        ], "default": "verde" },
+        { "type": "text", "id": "botao2_texto", "label": "Botão 2: texto" },
+        { "type": "url", "id": "botao2_link", "label": "Botão 2: link" }
       ]
     }
   ],
-  "presets": [{ "name": "Destaque principal" }]
+  "presets": [{ "name": "Destaque principal", "blocks": [{ "type": "slide" }] }]
 }
 {% endschema %}

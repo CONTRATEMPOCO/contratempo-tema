@@ -1,0 +1,115 @@
+{{ 'ct-header.css' | asset_url | stylesheet_tag }}
+
+<ct-header class="ct-header color-{{ section.settings.color_scheme }} gradient">
+  <div class="ct-header__barra">
+    <div class="ct-header__esq">
+      <button type="button" class="ct-header__menu-botao" aria-expanded="false" aria-controls="CtMenu-{{ section.id }}" data-menu-botao>
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true" focusable="false"><path d="M3 6h18"></path><path d="M3 12h18"></path><path d="M3 18h18"></path></svg>
+        <span data-menu-rotulo>Menu</span>
+      </button>
+      {%- if section.settings.menu_topo != blank -%}
+        <nav class="ct-header__nav" aria-label="Principal">
+          {%- for link in section.settings.menu_topo.links -%}
+            <a href="{{ link.url }}"{% if link.current or link.child_active %} aria-current="page"{% endif %}>{{ link.title }}</a>
+          {%- endfor -%}
+        </nav>
+      {%- endif -%}
+    </div>
+
+    <a href="{{ routes.root_url }}" class="ct-header__logo" aria-label="{{ shop.name | escape }}, página inicial">
+      {%- if settings.logo != blank -%}
+        {{ settings.logo | image_url: width: 400 | image_tag: width: settings.logo_width, alt: shop.name, loading: 'eager' }}
+      {%- else -%}
+        {%- render 'ct-logo' -%}
+      {%- endif -%}
+    </a>
+
+    <div class="ct-header__icones">
+      <a href="{{ routes.search_url }}" class="ct-header__icone ct-header__opcional" aria-label="Buscar">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="square" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.5-3.5"></path></svg>
+      </a>
+      {%- if shop.customer_accounts_enabled -%}
+        <a href="{{ routes.account_url }}" class="ct-header__icone ct-header__opcional" aria-label="Minha conta">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="square" aria-hidden="true" focusable="false"><circle cx="12" cy="8" r="4"></circle><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"></path></svg>
+        </a>
+      {%- endif -%}
+      <a href="{{ routes.cart_url }}" class="ct-header__icone ct-header__sacola header__icon--cart" id="cart-icon-bubble">
+        {%- if cart == empty -%}
+          <span class="svg-wrapper">{{ 'icon-cart-empty.svg' | inline_asset_content }}</span>
+        {%- else -%}
+          <span class="svg-wrapper">{{ 'icon-cart.svg' | inline_asset_content }}</span>
+        {%- endif -%}
+        <span class="visually-hidden">{{ 'templates.cart.cart' | t }}</span>
+        {%- if cart != empty -%}
+          <div class="cart-count-bubble">
+            {%- if cart.item_count < 100 -%}
+              <span aria-hidden="true">{{ cart.item_count }}</span>
+            {%- endif -%}
+            <span class="visually-hidden">{{ 'sections.header.cart_count' | t: count: cart.item_count }}</span>
+          </div>
+        {%- endif -%}
+      </a>
+    </div>
+  </div>
+
+  <div id="CtMenu-{{ section.id }}" class="ct-header__painel" hidden>
+    <div class="ct-header__painel-grade">
+      {%- if section.settings.menu != blank -%}
+        <nav class="ct-header__grande" aria-label="Menu">
+          {%- for link in section.settings.menu.links -%}
+            <a href="{{ link.url }}"{% if link.current %} aria-current="page"{% endif %}>{{ link.title }}</a>
+          {%- endfor -%}
+        </nav>
+      {%- endif -%}
+      <div class="ct-header__lateral">
+        {%- if section.settings.menu_ajuda != blank -%}
+          <span class="ct-header__titulo">{{ section.settings.titulo_ajuda }}</span>
+          {%- for link in section.settings.menu_ajuda.links -%}
+            <a href="{{ link.url }}">{{ link.title }}</a>
+          {%- endfor -%}
+        {%- endif -%}
+        {%- if settings.social_instagram_link != blank or settings.social_tiktok_link != blank -%}
+          <span class="ct-header__titulo">Siga</span>
+          {%- if settings.social_instagram_link != blank -%}<a href="{{ settings.social_instagram_link }}" target="_blank" rel="noopener">Instagram</a>{%- endif -%}
+          {%- if settings.social_tiktok_link != blank -%}<a href="{{ settings.social_tiktok_link }}" target="_blank" rel="noopener">TikTok</a>{%- endif -%}
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+</ct-header>
+
+<script>
+  if (!customElements.get('ct-header')) {
+    customElements.define('ct-header', class extends HTMLElement {
+      connectedCallback() {
+        this.botao = this.querySelector('[data-menu-botao]');
+        this.rotulo = this.querySelector('[data-menu-rotulo]');
+        this.painel = this.querySelector('.ct-header__painel');
+        if (!this.botao || !this.painel) return;
+        this.botao.addEventListener('click', () => this.alternar());
+        this.addEventListener('keyup', (e) => { if (e.key === 'Escape' && !this.painel.hidden) { this.alternar(false); this.botao.focus(); } });
+      }
+      alternar(abrir) {
+        const aberto = typeof abrir === 'boolean' ? abrir : this.painel.hidden;
+        this.painel.hidden = !aberto;
+        this.botao.setAttribute('aria-expanded', aberto ? 'true' : 'false');
+        if (this.rotulo) this.rotulo.textContent = aberto ? 'Fechar' : 'Menu';
+      }
+    });
+  }
+</script>
+
+{% schema %}
+{
+  "name": "Cabeçalho CONTRATEMPO",
+  "tag": "header",
+  "class": "section-ct-header",
+  "settings": [
+    { "type": "color_scheme", "id": "color_scheme", "label": "Esquema de cores", "default": "scheme-1" },
+    { "type": "link_list", "id": "menu_topo", "label": "Links ao lado do botão Menu", "info": "Aparecem só no computador." },
+    { "type": "link_list", "id": "menu", "label": "Menu completo (painel)", "default": "main-menu" },
+    { "type": "text", "id": "titulo_ajuda", "label": "Título da coluna de ajuda", "default": "Ajuda" },
+    { "type": "link_list", "id": "menu_ajuda", "label": "Menu de ajuda (painel)" }
+  ]
+}
+{% endschema %}

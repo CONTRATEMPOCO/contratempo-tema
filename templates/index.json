@@ -3,25 +3,62 @@
     "hero": {
       "type": "ct-hero",
       "blocks": {
-        "img1": {
-          "type": "imagem",
+        "s1": {
+          "type": "slide",
           "settings": {
-            "legenda": "Fig. 01"
+            "rotulo": "Coleção 001",
+            "titulo": "O Brasil no nosso",
+            "destaque": "próprio ritmo.",
+            "cor_destaque": "verde",
+            "texto": "Camisetas de criação autoral com o repertório daqui. Moda atemporal, identidade brasileira.",
+            "botao1_texto": "Comprar a coleção 001",
+            "botao1_cor": "verde",
+            "botao2_texto": "O que é contratempo",
+            "botao2_link": "/pages/manifesto",
+            "escurecer": 55
           }
         },
-        "img2": {
-          "type": "imagem",
+        "s2": {
+          "type": "slide",
           "settings": {
-            "legenda": "Fig. 02"
+            "rotulo": "Fig. 02 · Calçada, 23h",
+            "titulo": "A gente conhece bem",
+            "destaque": "os contratempos.",
+            "cor_destaque": "terracota",
+            "texto": "",
+            "botao1_texto": "Ler o manifesto",
+            "botao1_link": "/pages/manifesto",
+            "botao1_cor": "creme",
+            "botao2_texto": "Sobre a marca",
+            "botao2_link": "/pages/sobre",
+            "escurecer": 35
+          }
+        },
+        "s3": {
+          "type": "slide",
+          "settings": {
+            "rotulo": "Lançamento",
+            "rotulo_destaque": true,
+            "titulo": "",
+            "destaque": "Abriu.",
+            "cor_destaque": "verde",
+            "texto": "A loja está no ar. Estampas autorais, cores de malha pensadas e tudo feito no Brasil.",
+            "botao1_texto": "Entrar na loja",
+            "botao1_cor": "verde",
+            "botao2_texto": "Ver coleções",
+            "botao2_link": "/collections",
+            "escurecer": 25
           }
         }
       },
       "block_order": [
-        "img1",
-        "img2"
+        "s1",
+        "s2",
+        "s3"
       ],
       "settings": {
-        "botao2_link": "/pages/manifesto"
+        "card_rotulo": "Fig. 01 · Orelhão",
+        "card_frase": "Contra o tempo."
       }
     },
     "beneficios": {

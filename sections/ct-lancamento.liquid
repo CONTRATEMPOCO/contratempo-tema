@@ -1,34 +1,39 @@
 {{ 'ct-secoes.css' | asset_url | stylesheet_tag }}
 
-{%- assign p = section.settings.produto -%}
+{%- liquid
+  assign p = section.settings.produto
+  assign fundo = section.settings.imagem
+  if fundo == blank and p != blank
+    assign fundo = p.featured_image
+  endif
+-%}
 {%- if p != blank or request.design_mode -%}
   <div class="color-{{ section.settings.color_scheme }} gradient" id="lancamento">
-    <div class="ct-wrap ct-grade-2 ct-lancamento">
-      <div class="ct-lancamento__midia">
-        {%- if p.featured_media -%}
-          <a href="{{ p.url }}" tabindex="-1" aria-hidden="true">
-            {{ p.featured_media | image_url: width: 1600 | image_tag: loading: 'lazy', widths: '550, 750, 1100, 1600', sizes: '(min-width: 750px) 50vw, 100vw', alt: p.featured_media.alt | default: p.title }}
-          </a>
-        {%- else -%}
-          <div class="ct-espaco-imagem" style="height: 100%">Escolha um produto</div>
+    <div class="ct-wrap ct-lanc">
+      <div class="ct-lanc__caixa" style="background: {{ section.settings.cor_fundo }}">
+        {%- if fundo != blank -%}
+          {{ fundo | image_url: width: 2000 | image_tag: class: 'ct-lanc__img', loading: 'lazy', widths: '750, 1100, 1500, 2000', sizes: '100vw', alt: '', style: section.settings.enquadramento }}
         {%- endif -%}
-      </div>
-      <div class="ct-lancamento__texto">
-        <div class="ct-lancamento__selos">
-          <span class="ct-selo-verde">{{ section.settings.selo }}</span>
-          {%- if p != blank -%}{%- render 'ct-produto-topo', product: p -%}{%- endif -%}
-        </div>
-        <h2 class="ct-lancamento__titulo">{{ p.title | default: 'Nome da peça' }}</h2>
-        {%- if section.settings.texto != blank -%}
-          <p class="ct-lancamento__sub">{{ section.settings.texto }}</p>
-        {%- endif -%}
-        <div class="ct-hero__botoes">
-          {%- if p != blank -%}
-            <a href="{{ p.url }}" class="ct-botao ct-botao--amarelo">{{ section.settings.botao_texto }}</a>
-          {%- endif -%}
-          {%- if section.settings.colecao != blank -%}
-            <a href="{{ section.settings.colecao.url }}" class="ct-botao ct-botao--contorno">{{ section.settings.botao2_texto }}</a>
-          {%- endif -%}
+        <div class="ct-lanc__veu" style="background: {{ section.settings.cor_fundo }}; opacity: {{ section.settings.escurecer | divided_by: 100.0 }}" aria-hidden="true"></div>
+        <div class="ct-lanc__conteudo">
+          <div class="ct-lancamento__selos">
+            <span class="ct-selo-verde">{{ section.settings.selo }}</span>
+            {%- if p != blank -%}{%- render 'ct-produto-topo', product: p -%}{%- endif -%}
+          </div>
+          <div class="ct-lanc__texto">
+            <h2 class="ct-lancamento__titulo">{{ p.title | default: 'Nome da peça' }}</h2>
+            {%- if section.settings.texto != blank -%}
+              <p class="ct-lancamento__sub">{{ section.settings.texto }}</p>
+            {%- endif -%}
+          </div>
+          <div class="ct-hero__botoes">
+            {%- if p != blank -%}
+              <a href="{{ p.url }}" class="ct-botao ct-botao--amarelo">{{ section.settings.botao_texto }}</a>
+            {%- endif -%}
+            {%- if section.settings.colecao != blank -%}
+              <a href="{{ section.settings.colecao.url }}" class="ct-botao ct-botao--contorno">{{ section.settings.botao2_texto }}</a>
+            {%- endif -%}
+          </div>
         </div>
       </div>
     </div>
@@ -43,6 +48,15 @@
   "settings": [
     { "type": "color_scheme", "id": "color_scheme", "label": "Esquema de cores", "default": "scheme-1" },
     { "type": "product", "id": "produto", "label": "Produto" },
+    { "type": "image_picker", "id": "imagem", "label": "Imagem de fundo", "info": "Vazio usa a foto principal do produto." },
+    { "type": "select", "id": "enquadramento", "label": "Enquadramento", "options": [
+      { "value": "object-position: center center", "label": "Centro" },
+      { "value": "object-position: 70% center", "label": "Direita" },
+      { "value": "object-position: 30% center", "label": "Esquerda" },
+      { "value": "object-position: center 25%", "label": "Topo" }
+    ], "default": "object-position: 70% center" },
+    { "type": "color", "id": "cor_fundo", "label": "Cor do véu", "default": "#1F002E" },
+    { "type": "range", "id": "escurecer", "label": "Intensidade do véu", "min": 0, "max": 90, "step": 5, "unit": "%", "default": 55 },
     { "type": "text", "id": "selo", "label": "Selo", "default": "Lançamento" },
     { "type": "textarea", "id": "texto", "label": "Texto" },
     { "type": "text", "id": "botao_texto", "label": "Botão: texto", "default": "Garantir a minha" },
