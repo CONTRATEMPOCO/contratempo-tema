@@ -1,0 +1,206 @@
+{{ 'ct-footer.css' | asset_url | stylesheet_tag }}
+
+{%- liquid
+  assign whatsapp = settings.ct_whatsapp | remove: ' ' | remove: '-' | remove: '(' | remove: ')' | remove: '+'
+-%}
+
+<footer class="ct-footer color-{{ section.settings.color_scheme }} gradient">
+  {%- if section.settings.mostrar_cadastro -%}
+    <div class="ct-footer__cadastro">
+      <div class="ct-footer__wrap ct-footer__cadastro-grid">
+        <h2 class="ct-footer__cadastro-titulo">{{ section.settings.cadastro_titulo }}</h2>
+        {%- form 'customer', id: 'ct-cadastro-rodape', class: 'ct-footer__form' -%}
+          <input type="hidden" name="contact[tags]" value="newsletter">
+          <label for="ct-email-rodape" class="ct-mono-sm">{{ section.settings.cadastro_rotulo }}</label>
+          {%- if form.posted_successfully? -%}
+            <p class="ct-footer__ok ct-mono" role="status" tabindex="-1" autofocus>Pronto. Você vai saber primeiro.</p>
+          {%- else -%}
+            <div class="ct-footer__campo">
+              <input
+                id="ct-email-rodape"
+                type="email"
+                name="contact[email]"
+                autocomplete="email"
+                placeholder="nome@email.com"
+                required
+                {% if form.errors %}aria-invalid="true" aria-describedby="ct-email-erro"{% endif %}
+              >
+              <button type="submit" class="button">Quero receber</button>
+            </div>
+            {%- if form.errors -%}
+              <p id="ct-email-erro" class="ct-footer__erro" role="alert">Confira o e-mail digitado.</p>
+            {%- endif -%}
+          {%- endif -%}
+        {%- endform -%}
+      </div>
+    </div>
+  {%- endif -%}
+
+  <div class="ct-footer__wrap">
+    <div class="ct-footer__grid">
+      <div class="ct-footer__marca">
+        {%- render 'ct-selo', tamanho: 112 -%}
+        <div class="ct-footer__marca-texto">
+          <p class="ct-footer__assinatura">{{ section.settings.assinatura }}</p>
+          {%- if settings.ct_horario != blank -%}
+            <p class="ct-footer__atendimento">
+              Atendimento: {{ settings.ct_horario | downcase -}}
+              {%- if settings.ct_prazo_resposta != blank %}. A gente responde em {{ settings.ct_prazo_resposta }}{% endif %}.
+            </p>
+          {%- endif -%}
+          {%- if whatsapp != blank -%}
+            <a href="https://wa.me/{{ whatsapp }}" class="button ct-footer__whatsapp" target="_blank" rel="noopener">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 20l1.3-3.9A8 8 0 1 1 8 19z"></path></svg>
+              Falar no WhatsApp
+            </a>
+          {%- endif -%}
+        </div>
+      </div>
+
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'menu' and block.settings.menu != blank -%}
+          <nav class="ct-footer__coluna" aria-label="{{ block.settings.titulo | escape }}" {{ block.shopify_attributes }}>
+            <h3 class="ct-footer__coluna-titulo">{{ block.settings.titulo }}</h3>
+            <ul>
+              {%- for link in block.settings.menu.links -%}
+                <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+              {%- endfor -%}
+            </ul>
+          </nav>
+        {%- endif -%}
+      {%- endfor -%}
+
+      {%- if settings.social_instagram_link != blank or settings.social_tiktok_link != blank -%}
+        <nav class="ct-footer__coluna" aria-label="Redes sociais">
+          <h3 class="ct-footer__coluna-titulo">Siga</h3>
+          <ul>
+            {%- if settings.social_instagram_link != blank -%}
+              <li><a href="{{ settings.social_instagram_link }}" target="_blank" rel="noopener">Instagram</a></li>
+            {%- endif -%}
+            {%- if settings.social_tiktok_link != blank -%}
+              <li><a href="{{ settings.social_tiktok_link }}" target="_blank" rel="noopener">TikTok</a></li>
+            {%- endif -%}
+          </ul>
+        </nav>
+      {%- endif -%}
+    </div>
+
+    <div class="ct-footer__legal">
+      <span>
+        © {{ 'now' | date: '%Y' }} CONTRATEMPO©
+        {%- if settings.ct_responsavel != blank %} · {{ settings.ct_responsavel }}{% endif -%}
+        {%- if settings.ct_endereco != blank %} · {{ settings.ct_endereco }}{% endif -%}
+      </span>
+      <span>{{ section.settings.pagamentos }}</span>
+    </div>
+    {%- if section.settings.mostrar_politicas and shop.policies.size > 0 -%}
+      <ul class="ct-footer__politicas">
+        {%- for policy in shop.policies -%}
+          {%- if policy != blank -%}
+            <li><a href="{{ policy.url }}">{{ policy.title }}</a></li>
+          {%- endif -%}
+        {%- endfor -%}
+      </ul>
+    {%- endif -%}
+  </div>
+
+  {%- if section.settings.mostrar_nome_grande -%}
+    <p class="ct-footer__nome-grande" aria-hidden="true">CONTRATEMPO<span>©</span></p>
+  {%- endif -%}
+</footer>
+
+{% schema %}
+{
+  "name": "Rodapé CONTRATEMPO",
+  "tag": "section",
+  "class": "section-ct-footer",
+  "max_blocks": 4,
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Esquema de cores",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "Cadastro de e-mail"
+    },
+    {
+      "type": "checkbox",
+      "id": "mostrar_cadastro",
+      "label": "Mostrar cadastro de e-mail",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "cadastro_titulo",
+      "label": "Título",
+      "default": "Os lançamentos chegam primeiro por aqui."
+    },
+    {
+      "type": "text",
+      "id": "cadastro_rotulo",
+      "label": "Rótulo do campo",
+      "default": "Seu e-mail · um por lançamento, sem enxurrada"
+    },
+    {
+      "type": "header",
+      "content": "Marca"
+    },
+    {
+      "type": "text",
+      "id": "assinatura",
+      "label": "Assinatura",
+      "default": "O Brasil no nosso próprio ritmo."
+    },
+    {
+      "type": "text",
+      "id": "pagamentos",
+      "label": "Formas de pagamento",
+      "default": "Pix, cartão e boleto"
+    },
+    {
+      "type": "checkbox",
+      "id": "mostrar_politicas",
+      "label": "Mostrar links das políticas da loja",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "mostrar_nome_grande",
+      "label": "Mostrar o nome grande no fim da página",
+      "default": true
+    },
+    {
+      "type": "paragraph",
+      "content": "Horário de atendimento, WhatsApp e dados legais vêm de Configurações do tema → Regras da loja. Instagram e TikTok vêm de Redes sociais."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "menu",
+      "name": "Coluna de links",
+      "settings": [
+        {
+          "type": "text",
+          "id": "titulo",
+          "label": "Título",
+          "default": "Loja"
+        },
+        {
+          "type": "link_list",
+          "id": "menu",
+          "label": "Menu",
+          "info": "Crie os menus em Loja virtual → Navegação."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Rodapé CONTRATEMPO"
+    }
+  ]
+}
+{% endschema %}
