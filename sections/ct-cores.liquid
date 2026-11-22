@@ -1,0 +1,42 @@
+{{ 'ct-secoes.css' | asset_url | stylesheet_tag }}
+
+<div class="color-{{ section.settings.color_scheme }} gradient">
+  <div class="ct-wrap ct-cores">
+    <h2 class="ct-titulo-l">{{ section.settings.titulo }}</h2>
+    <ul class="ct-cores__lista" role="list">
+      {%- for block in section.blocks -%}
+        <li {{ block.shopify_attributes }}>
+          <a href="{{ block.settings.link | default: routes.all_products_collection_url }}" class="ct-cor">
+            <span class="ct-cor__amostra" style="background: {{ block.settings.cor }}" aria-hidden="true"></span>
+            <span class="ct-rotulo">{{ block.settings.nome }}</span>
+          </a>
+        </li>
+      {%- endfor -%}
+    </ul>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Cores de malha",
+  "tag": "section",
+  "class": "section-ct-cores",
+  "max_blocks": 8,
+  "settings": [
+    { "type": "color_scheme", "id": "color_scheme", "label": "Esquema de cores", "default": "scheme-3" },
+    { "type": "text", "id": "titulo", "label": "Título", "default": "Escolha pela cor da malha" }
+  ],
+  "blocks": [
+    {
+      "type": "cor",
+      "name": "Cor",
+      "settings": [
+        { "type": "text", "id": "nome", "label": "Nome", "default": "Preto" },
+        { "type": "color", "id": "cor", "label": "Cor", "default": "#02070A" },
+        { "type": "url", "id": "link", "label": "Link", "info": "Ex.: a loja filtrada por essa cor." }
+      ]
+    }
+  ],
+  "presets": [{ "name": "Cores de malha" }]
+}
+{% endschema %}

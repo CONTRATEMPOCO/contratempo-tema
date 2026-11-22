@@ -1,0 +1,79 @@
+{{ 'ct-secoes.css' | asset_url | stylesheet_tag }}
+
+{%- liquid
+  assign tem_imagem = false
+  for block in section.blocks
+    if block.settings.imagem != blank
+      assign tem_imagem = true
+    endif
+  endfor
+-%}
+
+<div class="color-{{ section.settings.color_scheme }} gradient">
+  <div class="ct-wrap ct-hero{% if tem_imagem %} ct-hero--com-imagens{% endif %}">
+    <div class="ct-hero__texto">
+      {%- if section.settings.rotulo != blank -%}
+        <span class="ct-rotulo ct-rotulo--verde">{{ section.settings.rotulo }}</span>
+      {%- endif -%}
+      <h1 class="ct-hero__titulo">{{ section.settings.titulo }}</h1>
+      {%- if section.settings.texto != blank -%}
+        <p class="ct-hero__sub">{{ section.settings.texto }}</p>
+      {%- endif -%}
+      <div class="ct-hero__botoes">
+        {%- if section.settings.botao_texto != blank -%}
+          <a href="{{ section.settings.botao_link | default: routes.all_products_collection_url }}" class="ct-botao ct-botao--amarelo">{{ section.settings.botao_texto }}</a>
+        {%- endif -%}
+        {%- if section.settings.botao2_texto != blank and section.settings.botao2_link != blank -%}
+          <a href="{{ section.settings.botao2_link }}" class="ct-botao ct-botao--contorno">{{ section.settings.botao2_texto }}</a>
+        {%- endif -%}
+      </div>
+    </div>
+    {%- if tem_imagem -%}
+      <div class="ct-hero__imagens">
+        {%- for block in section.blocks -%}
+          {%- if block.settings.imagem != blank -%}
+            <figure class="ct-hero__figura" {{ block.shopify_attributes }}>
+              {%- if block.settings.link != blank -%}<a href="{{ block.settings.link }}" class="ct-hero__link">{%- endif -%}
+              {{ block.settings.imagem | image_url: width: 1400 | image_tag: loading: 'eager', widths: '375, 550, 750, 1100, 1400', sizes: '(min-width: 1000px) 30vw, 50vw' }}
+              {%- if block.settings.link != blank -%}</a>{%- endif -%}
+              {%- if block.settings.legenda != blank -%}
+                <figcaption class="ct-rotulo">{{ block.settings.legenda }}</figcaption>
+              {%- endif -%}
+            </figure>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Destaque principal",
+  "tag": "section",
+  "class": "section-ct-hero",
+  "max_blocks": 3,
+  "settings": [
+    { "type": "color_scheme", "id": "color_scheme", "label": "Esquema de cores", "default": "scheme-1" },
+    { "type": "text", "id": "rotulo", "label": "Rótulo", "default": "Coleção 001" },
+    { "type": "text", "id": "titulo", "label": "Título", "default": "O Brasil no nosso próprio ritmo." },
+    { "type": "textarea", "id": "texto", "label": "Texto", "default": "Camisetas de criação autoral com o repertório daqui. Moda atemporal, identidade brasileira." },
+    { "type": "text", "id": "botao_texto", "label": "Botão: texto", "default": "Conheça as peças" },
+    { "type": "url", "id": "botao_link", "label": "Botão: link" },
+    { "type": "text", "id": "botao2_texto", "label": "Botão 2: texto", "default": "Ler o manifesto" },
+    { "type": "url", "id": "botao2_link", "label": "Botão 2: link" }
+  ],
+  "blocks": [
+    {
+      "type": "imagem",
+      "name": "Imagem",
+      "settings": [
+        { "type": "image_picker", "id": "imagem", "label": "Imagem" },
+        { "type": "text", "id": "legenda", "label": "Legenda", "default": "Fig. 01" },
+        { "type": "url", "id": "link", "label": "Link" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "Destaque principal" }]
+}
+{% endschema %}

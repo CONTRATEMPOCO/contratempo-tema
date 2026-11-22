@@ -1,0 +1,54 @@
+{{ 'ct-secoes.css' | asset_url | stylesheet_tag }}
+
+{%- assign p = section.settings.produto -%}
+{%- if p != blank or request.design_mode -%}
+  <div class="color-{{ section.settings.color_scheme }} gradient" id="lancamento">
+    <div class="ct-wrap ct-grade-2 ct-lancamento">
+      <div class="ct-lancamento__midia">
+        {%- if p.featured_media -%}
+          <a href="{{ p.url }}" tabindex="-1" aria-hidden="true">
+            {{ p.featured_media | image_url: width: 1600 | image_tag: loading: 'lazy', widths: '550, 750, 1100, 1600', sizes: '(min-width: 750px) 50vw, 100vw', alt: p.featured_media.alt | default: p.title }}
+          </a>
+        {%- else -%}
+          <div class="ct-espaco-imagem" style="height: 100%">Escolha um produto</div>
+        {%- endif -%}
+      </div>
+      <div class="ct-lancamento__texto">
+        <div class="ct-lancamento__selos">
+          <span class="ct-selo-verde">{{ section.settings.selo }}</span>
+          {%- if p != blank -%}{%- render 'ct-produto-topo', product: p -%}{%- endif -%}
+        </div>
+        <h2 class="ct-lancamento__titulo">{{ p.title | default: 'Nome da peça' }}</h2>
+        {%- if section.settings.texto != blank -%}
+          <p class="ct-lancamento__sub">{{ section.settings.texto }}</p>
+        {%- endif -%}
+        <div class="ct-hero__botoes">
+          {%- if p != blank -%}
+            <a href="{{ p.url }}" class="ct-botao ct-botao--amarelo">{{ section.settings.botao_texto }}</a>
+          {%- endif -%}
+          {%- if section.settings.colecao != blank -%}
+            <a href="{{ section.settings.colecao.url }}" class="ct-botao ct-botao--contorno">{{ section.settings.botao2_texto }}</a>
+          {%- endif -%}
+        </div>
+      </div>
+    </div>
+  </div>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Lançamento",
+  "tag": "section",
+  "class": "section-ct-lancamento",
+  "settings": [
+    { "type": "color_scheme", "id": "color_scheme", "label": "Esquema de cores", "default": "scheme-1" },
+    { "type": "product", "id": "produto", "label": "Produto" },
+    { "type": "text", "id": "selo", "label": "Selo", "default": "Lançamento" },
+    { "type": "textarea", "id": "texto", "label": "Texto" },
+    { "type": "text", "id": "botao_texto", "label": "Botão: texto", "default": "Garantir a minha" },
+    { "type": "collection", "id": "colecao", "label": "Coleção do segundo botão" },
+    { "type": "text", "id": "botao2_texto", "label": "Botão 2: texto", "default": "Ver a coleção" }
+  ],
+  "presets": [{ "name": "Lançamento" }]
+}
+{% endschema %}

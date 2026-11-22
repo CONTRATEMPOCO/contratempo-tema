@@ -1,48 +1,79 @@
 {
   "sections": {
-    "image_banner": {
-      "type": "image-banner",
+    "hero": {
+      "type": "ct-hero",
       "blocks": {
-        "heading": {
-          "type": "heading",
+        "img1": {
+          "type": "imagem",
           "settings": {
-            "heading": "Browse our latest products",
-            "heading_size": "h0"
+            "legenda": "Fig. 01"
           }
         },
-        "button": {
-          "type": "buttons",
+        "img2": {
+          "type": "imagem",
           "settings": {
-            "button_label_1": "Shop all",
-            "button_link_1": "shopify://collections/all",
-            "button_style_secondary_1": true,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false
+            "legenda": "Fig. 02"
           }
         }
       },
       "block_order": [
-        "heading",
-        "button"
+        "img1",
+        "img2"
       ],
       "settings": {
-        "image_overlay_opacity": 40,
-        "image_height": "large",
-        "desktop_content_position": "bottom-center",
-        "show_text_box": false,
-        "image_behavior": "none",
-        "desktop_content_alignment": "center",
-        "color_scheme": "scheme-3",
-        "mobile_content_alignment": "center",
-        "stack_images_on_mobile": false,
-        "show_text_below": false
+        "botao2_link": "/pages/manifesto"
+      }
+    },
+    "beneficios": {
+      "type": "ct-beneficios",
+      "blocks": {
+        "b1": {
+          "type": "beneficio",
+          "settings": {
+            "rotulo": "Envio",
+            "texto": "Para todo o Brasil. Frete calculado pelo CEP"
+          }
+        },
+        "b2": {
+          "type": "beneficio",
+          "settings": {
+            "rotulo": "Parcelamento",
+            "texto": "Em até 3x sem juros"
+          }
+        },
+        "b3": {
+          "type": "beneficio",
+          "settings": {
+            "rotulo": "Pix",
+            "texto": "5% de desconto"
+          }
+        },
+        "b4": {
+          "type": "beneficio",
+          "settings": {
+            "rotulo": "Devolução",
+            "texto": "7 dias após a entrega, com postagem grátis"
+          }
+        }
+      },
+      "block_order": [
+        "b1",
+        "b2",
+        "b3",
+        "b4"
+      ],
+      "settings": {}
+    },
+    "lancamento": {
+      "type": "ct-lancamento",
+      "settings": {
+        "texto": ""
       }
     },
     "featured_collection": {
       "type": "featured-collection",
       "settings": {
-        "title": "Featured products",
+        "title": "Destaques da loja",
         "heading_size": "h2",
         "description": "",
         "show_description": false,
@@ -53,10 +84,10 @@
         "color_scheme": "scheme-1",
         "full_width": false,
         "show_view_all": true,
-        "view_all_style": "solid",
+        "view_all_style": "outline",
         "enable_desktop_slider": false,
         "swipe_on_mobile": false,
-        "image_ratio": "adapt",
+        "image_ratio": "portrait",
         "image_shape": "default",
         "show_secondary_image": true,
         "show_vendor": false,
@@ -66,10 +97,145 @@
         "padding_top": 44,
         "padding_bottom": 36
       }
+    },
+    "conceito": {
+      "type": "ct-conceito",
+      "settings": {
+        "botao_link": "/pages/manifesto"
+      }
+    },
+    "longe-perto": {
+      "type": "ct-imagens",
+      "blocks": {
+        "i1": {
+          "type": "imagem",
+          "settings": {
+            "rotulo": "De longe",
+            "legenda": "presença, composição, cor."
+          }
+        },
+        "i2": {
+          "type": "imagem",
+          "settings": {
+            "rotulo": "De perto",
+            "legenda": "o que só quem repara encontra."
+          }
+        }
+      },
+      "block_order": [
+        "i1",
+        "i2"
+      ],
+      "settings": {
+        "titulo": "Parece simples. Olha de novo.",
+        "espaco_abaixo": 88
+      }
+    },
+    "cores": {
+      "type": "ct-cores",
+      "blocks": {
+        "c1": {
+          "type": "cor",
+          "settings": {
+            "nome": "Verde-garrafa",
+            "cor": "#0E2A1E"
+          }
+        },
+        "c2": {
+          "type": "cor",
+          "settings": {
+            "nome": "Terracota",
+            "cor": "#CD6547"
+          }
+        },
+        "c3": {
+          "type": "cor",
+          "settings": {
+            "nome": "Bordô",
+            "cor": "#421210"
+          }
+        },
+        "c4": {
+          "type": "cor",
+          "settings": {
+            "nome": "Preto",
+            "cor": "#02070A"
+          }
+        },
+        "c5": {
+          "type": "cor",
+          "settings": {
+            "nome": "Creme",
+            "cor": "#EEE8DA"
+          }
+        }
+      },
+      "block_order": [
+        "c1",
+        "c2",
+        "c3",
+        "c4",
+        "c5"
+      ],
+      "settings": {}
+    },
+    "detalhes": {
+      "type": "ct-cards",
+      "blocks": {
+        "d1": {
+          "type": "card",
+          "settings": {
+            "numero": "01",
+            "titulo": "Malha",
+            "texto": "Malha penteada fio 30.1, 100% algodão. Macia, respirável e resistente."
+          }
+        },
+        "d2": {
+          "type": "card",
+          "settings": {
+            "numero": "02",
+            "titulo": "Impressão",
+            "texto": "Cada peça é impressa depois do seu pedido. Sem estoque parado, sem sobra."
+          }
+        },
+        "d3": {
+          "type": "card",
+          "settings": {
+            "numero": "03",
+            "titulo": "Prazo",
+            "texto": "Pronta em 3 a 5 dias úteis depois do pagamento. Depois, segue para entrega."
+          }
+        },
+        "d4": {
+          "type": "card",
+          "settings": {
+            "numero": "04",
+            "titulo": "Medidas",
+            "texto": "Modelagem ampla. Tabela de cada tamanho na página da peça. Não fazemos troca de tamanho, então vale conferir antes."
+          }
+        }
+      },
+      "block_order": [
+        "d1",
+        "d2",
+        "d3",
+        "d4"
+      ],
+      "settings": {
+        "titulo": "Vestir bem começa nos detalhes.",
+        "estilo": "lista",
+        "colunas": "4"
+      }
     }
   },
   "order": [
-    "image_banner",
-    "featured_collection"
+    "hero",
+    "beneficios",
+    "lancamento",
+    "featured_collection",
+    "conceito",
+    "longe-perto",
+    "cores",
+    "detalhes"
   ]
 }

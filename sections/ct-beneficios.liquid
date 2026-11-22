@@ -1,0 +1,35 @@
+{{ 'ct-secoes.css' | asset_url | stylesheet_tag }}
+
+<div class="color-{{ section.settings.color_scheme }} gradient ct-beneficios-wrap">
+  <ul class="ct-wrap ct-beneficios" role="list">
+    {%- for block in section.blocks -%}
+      <li class="ct-beneficio" {{ block.shopify_attributes }}>
+        <span class="ct-rotulo">{{ block.settings.rotulo }}</span>
+        <span class="ct-beneficio__texto">{{ block.settings.texto }}</span>
+      </li>
+    {%- endfor -%}
+  </ul>
+</div>
+
+{% schema %}
+{
+  "name": "Faixa de benefícios",
+  "tag": "section",
+  "class": "section-ct-beneficios",
+  "max_blocks": 4,
+  "settings": [
+    { "type": "color_scheme", "id": "color_scheme", "label": "Esquema de cores", "default": "scheme-1" }
+  ],
+  "blocks": [
+    {
+      "type": "beneficio",
+      "name": "Benefício",
+      "settings": [
+        { "type": "text", "id": "rotulo", "label": "Rótulo", "default": "Envio" },
+        { "type": "text", "id": "texto", "label": "Texto", "default": "Para todo o Brasil" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "Faixa de benefícios" }]
+}
+{% endschema %}
