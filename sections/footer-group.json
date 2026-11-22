@@ -15,7 +15,8 @@
         "ajuda": {
           "type": "menu",
           "settings": {
-            "titulo": "Ajuda"
+            "titulo": "Ajuda",
+            "menu": "menu-ajuda"
           }
         }
       },
