@@ -411,3 +411,7 @@
 .ct-breve__sub { margin: 0; max-width: 52rem; font-size: 1.7rem; line-height: 1.6; }
 .ct-breve__form { width: 100%; max-width: 56rem; text-align: left; }
 .ct-breve__selo { margin-top: 2.4rem; }
+
+.ct-cards--cartoes .ct-card__titulo,
+.ct-cards--cartoes .ct-card__texto { color: var(--ct-preto); }
+.ct-footer__nome-grande, .ct-conceito__texto, .ct-conceito__pontos { color: rgb(var(--color-foreground)); }
