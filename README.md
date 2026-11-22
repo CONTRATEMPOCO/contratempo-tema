@@ -14,7 +14,7 @@ Crie em *Configurações → Metacampos e metaobjetos → Produtos → Adicionar
 |---|---|---|---|
 | Código da peça | `custom.codigo` | Texto de linha única | Acima do nome (ex.: CT-009) |
 | Número da coleção | `custom.colecao_numero` | Texto de linha única | "Coleção 001", ao lado do código |
-| Tabela de medidas | `custom.tabela_medidas` | Texto rico (com tabela) ou texto de várias linhas | Botão "Tabela de medidas" |
+| Tabela de medidas | `custom.tabela_medidas` | Texto de várias linhas: uma linha por tamanho, colunas separadas por `|`, primeira linha = cabeçalho | Botão "Tabela de medidas" |
 | Modelagem | `custom.modelagem` | Texto de linha única | Detalhes da peça (vazio = "Modelagem ampla") |
 | Técnica de impressão | `custom.tecnica_impressao` | Texto de linha única (DTG ou DTF) | Uso interno, por enquanto |
 | Quem veste | `custom.modelo_veste` | Texto de linha única | Detalhes da peça (ex.: "A modelo veste M e tem 1,70 m") |

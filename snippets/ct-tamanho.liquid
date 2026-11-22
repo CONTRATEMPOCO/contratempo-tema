@@ -8,7 +8,32 @@
     <details class="ct-tabela" id="TabelaMedidas-{{ block_id }}">
       <summary class="ct-tabela__botao">Tabela de medidas</summary>
       <div class="ct-tabela__conteudo rte">
-        {{ tabela | metafield_tag }}
+        {%- if tabela.type == 'multi_line_text_field' -%}
+          {%- assign linhas = tabela.value | newline_to_br | split: '<br />' -%}
+          <table>
+            <caption class="visually-hidden">Medidas da peça</caption>
+            {%- assign cabecalho_feito = false -%}
+            {%- for linha in linhas -%}
+              {%- assign l = linha | strip -%}
+              {%- if l == blank -%}{%- continue -%}{%- endif -%}
+              {%- assign colunas = l | split: '|' -%}
+              <tr>
+                {%- for coluna in colunas -%}
+                  {%- if cabecalho_feito == false -%}
+                    <th scope="col">{{ coluna | strip | escape }}</th>
+                  {%- elsif forloop.first -%}
+                    <th scope="row">{{ coluna | strip | escape }}</th>
+                  {%- else -%}
+                    <td>{{ coluna | strip | escape }}</td>
+                  {%- endif -%}
+                {%- endfor -%}
+              </tr>
+              {%- assign cabecalho_feito = true -%}
+            {%- endfor -%}
+          </table>
+        {%- else -%}
+          {{ tabela | metafield_tag }}
+        {%- endif -%}
         <p class="ct-tabela__nota">Na dúvida, compare com uma camiseta sua que veste bem, medida deitada. Como não fazemos troca de tamanho, vale medir antes.</p>
       </div>
     </details>
