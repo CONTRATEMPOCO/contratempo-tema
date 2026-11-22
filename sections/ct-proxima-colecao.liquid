@@ -1,0 +1,33 @@
+{{ 'ct-secoes.css' | asset_url | stylesheet_tag }}
+
+{%- if section.settings.titulo != blank -%}
+  <div class="ct-wrap ct-proxima-wrap">
+    <aside class="ct-proxima color-{{ section.settings.color_scheme }} gradient" aria-label="{{ section.settings.rotulo | escape }}">
+      <div class="ct-proxima__texto">
+        <span class="ct-rotulo">{{ section.settings.rotulo }}</span>
+        <h2 class="ct-titulo-l">{{ section.settings.titulo }}</h2>
+        {%- if section.settings.texto != blank -%}<p>{{ section.settings.texto }}</p>{%- endif -%}
+      </div>
+      {%- if section.settings.botao_texto != blank -%}
+        <a href="{{ section.settings.botao_link | default: '#ct-cadastro-rodape' }}" class="ct-botao ct-botao--contorno">{{ section.settings.botao_texto }}</a>
+      {%- endif -%}
+    </aside>
+  </div>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Próxima coleção",
+  "tag": "section",
+  "class": "section-ct-proxima",
+  "settings": [
+    { "type": "color_scheme", "id": "color_scheme", "label": "Esquema de cores", "default": "scheme-4" },
+    { "type": "text", "id": "rotulo", "label": "Rótulo", "default": "Próxima coleção · em breve" },
+    { "type": "text", "id": "titulo", "label": "Título", "default": "Coleção 003", "info": "Deixe vazio para esconder a seção." },
+    { "type": "textarea", "id": "texto", "label": "Texto", "default": "Já estamos trabalhando nela. Acompanhe os bastidores no Instagram." },
+    { "type": "text", "id": "botao_texto", "label": "Botão: texto", "default": "Avise-me no lançamento" },
+    { "type": "url", "id": "botao_link", "label": "Botão: link", "info": "Vazio leva ao cadastro de e-mail do rodapé." }
+  ],
+  "presets": [{ "name": "Próxima coleção" }]
+}
+{% endschema %}

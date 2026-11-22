@@ -297,3 +297,19 @@
 @media (prefers-reduced-motion: reduce) {
   .ct-manifesto__palco, .ct-manifesto__ponto { transition: none; }
 }
+
+/* Próxima coleção */
+.ct-proxima-wrap { padding-top: 2rem; padding-bottom: 8rem; }
+
+.ct-proxima {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2.4rem;
+  flex-wrap: wrap;
+  padding: clamp(2.8rem, 4vw, 5.6rem);
+}
+
+.ct-proxima__texto { display: flex; flex-direction: column; gap: 1rem; max-width: 64rem; }
+.ct-proxima__texto p { margin: 0; font-size: 1.6rem; line-height: 1.6; }
+.ct-proxima .ct-rotulo { color: inherit; opacity: 0.8; }
