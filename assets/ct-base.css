@@ -209,3 +209,56 @@ a:not(.button):hover {
   letter-spacing: 0.08em;
   font-size: 1.2rem;
 }
+
+/* Sacola (página e lateral) */
+.ct-aviso-sacola {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  margin: 0 0 2rem;
+  text-align: left;
+}
+
+.drawer__footer .ct-aviso-sacola { margin: 1.2rem 0 1.6rem; }
+.drawer__footer .ct-aviso { font-size: 1.3rem; padding: 1.2rem 1.4rem; }
+
+.ct-aviso-sacola__producao {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  margin: 0;
+  font-size: 1.3rem;
+  line-height: 1.55;
+  color: rgba(var(--color-foreground), 0.82);
+}
+
+.ct-aviso-sacola__producao svg { flex-shrink: 0; margin-top: 0.1rem; color: var(--ct-verde); }
+
+.cart__footer .ct-parcelas,
+.cart-drawer__footer .ct-parcelas {
+  margin: 0.4rem 0 0;
+  text-align: right;
+  font-size: 1.3rem;
+}
+
+.totals__total {
+  font-family: var(--ct-mono);
+  font-size: 1.2rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.totals__total-value { font-weight: 700; }
+
+.cart__checkout-button,
+.drawer__footer .cart__checkout-button {
+  background-color: var(--ct-verde);
+  color: var(--ct-preto);
+  min-height: 5.6rem;
+}
+
+.cart__checkout-button::after { box-shadow: none; }
+
+@media screen and (min-width: 750px) {
+  .cart__footer .ct-aviso-sacola { max-width: 44rem; margin-left: auto; }
+}

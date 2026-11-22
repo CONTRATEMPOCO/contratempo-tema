@@ -37,6 +37,7 @@
         </cart-note>
       {%- endif -%}
 
+      {%- render 'ct-aviso-sacola' -%}
       <div class="cart__blocks">
         {% for block in section.blocks %}
           {%- case block.type -%}
@@ -62,6 +63,7 @@
                   <h2 class="totals__total">{{ 'sections.cart.estimated_total' | t }}</h2>
                   <p class="totals__total-value">{{ cart.total_price | money_with_currency }}</p>
                 </div>
+                {%- render 'ct-preco-parcelas', valor: cart.total_price -%}
 
                 <small class="tax-note caption-large rte">
                   {%- if cart.duties_included and cart.taxes_included -%}

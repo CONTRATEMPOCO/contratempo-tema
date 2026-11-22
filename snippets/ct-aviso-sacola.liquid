@@ -1,0 +1,13 @@
+{%- comment -%} Avisos da sacola: produção sob pedido e sem troca de tamanho. {%- endcomment -%}
+<div class="ct-aviso-sacola">
+  {%- if settings.ct_prazo_producao != blank -%}
+    <p class="ct-aviso-sacola__producao">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg>
+      <span>Cada peça é impressa depois do seu pedido. A produção começa assim que o pagamento é aprovado e leva de {{ settings.ct_prazo_producao }}.</span>
+    </p>
+  {%- endif -%}
+  <div class="ct-aviso" role="note">
+    {%- render 'ct-icone-aviso' -%}
+    <span><strong>Confira os tamanhos antes de finalizar.</strong> Como cada peça é feita sob pedido, não fazemos troca de tamanho. Na dúvida, veja a tabela de medidas na página de cada peça.</span>
+  </div>
+</div>
