@@ -1,0 +1,12 @@
+{%- comment -%} Código da peça e número da coleção (metacampos custom.codigo e custom.colecao_numero). {%- endcomment -%}
+{%- liquid
+  assign codigo = product.metafields.custom.codigo.value
+  assign colecao = product.metafields.custom.colecao_numero.value
+-%}
+{%- if codigo != blank or colecao != blank -%}
+  <p class="ct-produto-topo">
+    {%- if codigo != blank -%}{{ codigo }}{%- endif -%}
+    {%- if codigo != blank and colecao != blank %} · {% endif -%}
+    {%- if colecao != blank -%}Coleção {{ colecao }}{%- endif -%}
+  </p>
+{%- endif -%}

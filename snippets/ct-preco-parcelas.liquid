@@ -1,0 +1,24 @@
+{%- comment -%}
+  Parcelas sem juros e preço no Pix, a partir de Configurações do tema → Regras da loja.
+  Parâmetros: product (obrigatório), variant (opcional).
+{%- endcomment -%}
+{%- liquid
+  assign variante = variant | default: product.selected_or_first_available_variant
+  assign preco = variante.price | default: product.price
+  assign parcelas = settings.ct_parcelas | default: 1
+  assign desconto = settings.ct_desconto_pix | default: 0
+  assign valor_parcela = preco | divided_by: parcelas
+  assign fator_pix = 100 | minus: desconto
+  assign preco_pix = preco | times: fator_pix | divided_by: 100
+-%}
+{%- if parcelas > 1 or desconto > 0 -%}
+  <p class="ct-parcelas">
+    {%- if parcelas > 1 -%}
+      ou {{ parcelas }}x de {{ valor_parcela | money }} sem juros
+    {%- endif -%}
+    {%- if parcelas > 1 and desconto > 0 %} · {% endif -%}
+    {%- if desconto > 0 -%}
+      {{ preco_pix | money }} no Pix ({{ desconto }}% de desconto)
+    {%- endif -%}
+  </p>
+{%- endif -%}

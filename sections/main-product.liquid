@@ -10,6 +10,7 @@
   {% endif %}
 >
   {{ 'section-main-product.css' | asset_url | stylesheet_tag }}
+{{ 'ct-produto.css' | asset_url | stylesheet_tag }}
   {{ 'component-accordion.css' | asset_url | stylesheet_tag }}
   {{ 'component-price.css' | asset_url | stylesheet_tag }}
   {{ 'component-slider.css' | asset_url | stylesheet_tag }}
@@ -685,6 +686,17 @@
                   </product-recommendations>
                 {%- when 'icon-with-text' -%}
                   {% render 'icon-with-text', block: block %}
+                {%- comment -%} Blocos da CONTRATEMPO {%- endcomment -%}
+                {%- when 'ct_topo' -%}
+                  <div class="ct-bloco" {{ block.shopify_attributes }}>{% render 'ct-produto-topo', product: product %}</div>
+                {%- when 'ct_parcelas' -%}
+                  <div class="ct-bloco ct-bloco--parcelas" {{ block.shopify_attributes }}>{% render 'ct-preco-parcelas', product: product %}</div>
+                {%- when 'ct_tamanho' -%}
+                  <div class="ct-bloco" {{ block.shopify_attributes }}>{% render 'ct-tamanho', product: product, block_id: block.id %}</div>
+                {%- when 'ct_entrega' -%}
+                  <div class="ct-bloco" {{ block.shopify_attributes }}>{% render 'ct-entrega' %}</div>
+                {%- when 'ct_detalhes' -%}
+                  <div class="ct-bloco" {{ block.shopify_attributes }}>{% render 'ct-detalhes', product: product %}</div>
               {%- endcase -%}
             {%- endfor -%}
             <a href="{{ product.url }}" class="link product__view-details animate-arrow">
@@ -759,6 +771,11 @@
     {
       "type": "@app"
     },
+    {"type": "ct_topo", "name": "CONTRATEMPO: código e coleção", "limit": 1},
+    {"type": "ct_parcelas", "name": "CONTRATEMPO: parcelas e Pix", "limit": 1},
+    {"type": "ct_tamanho", "name": "CONTRATEMPO: tabela e aviso de tamanho", "limit": 1},
+    {"type": "ct_entrega", "name": "CONTRATEMPO: produção, envio e devolução", "limit": 1},
+    {"type": "ct_detalhes", "name": "CONTRATEMPO: detalhes da peça", "limit": 1},
     {
       "type": "text",
       "name": "t:sections.main-product.blocks.text.name",

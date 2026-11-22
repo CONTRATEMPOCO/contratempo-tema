@@ -1,0 +1,20 @@
+{%- comment -%}
+  Tabela de medidas (metacampo custom.tabela_medidas) e aviso de que não há troca de tamanho.
+  Parâmetros: product, block_id.
+{%- endcomment -%}
+{%- assign tabela = product.metafields.custom.tabela_medidas -%}
+<div class="ct-tamanho">
+  {%- if tabela != blank -%}
+    <details class="ct-tabela" id="TabelaMedidas-{{ block_id }}">
+      <summary class="ct-tabela__botao">Tabela de medidas</summary>
+      <div class="ct-tabela__conteudo rte">
+        {{ tabela | metafield_tag }}
+        <p class="ct-tabela__nota">Na dúvida, compare com uma camiseta sua que veste bem, medida deitada. Como não fazemos troca de tamanho, vale medir antes.</p>
+      </div>
+    </details>
+  {%- endif -%}
+  <div class="ct-aviso" role="note">
+    {%- render 'ct-icone-aviso' -%}
+    <span><strong>Não fazemos troca de tamanho.</strong> Cada peça é impressa sob pedido, então escolha com atenção e confira a tabela de medidas antes de finalizar.</span>
+  </div>
+</div>

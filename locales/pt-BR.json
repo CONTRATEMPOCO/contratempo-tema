@@ -40,9 +40,9 @@
       "reset": "Limpar termo de pesquisa"
     },
     "cart": {
-      "view": "Ver carrinho ({{ count }})",
-      "item_added": "Item adicionado ao carrinho",
-      "view_empty_cart": "Ver carrinho"
+      "view": "Ver sacola ({{ count }})",
+      "item_added": "Adicionado à sacola",
+      "view_empty_cart": "Ver sacola"
     },
     "share": {
       "copy_to_clipboard": "Copiar link",
@@ -107,7 +107,7 @@
   },
   "products": {
     "product": {
-      "add_to_cart": "Adicionar ao carrinho",
+      "add_to_cart": "Adicionar à sacola",
       "description": "Descrição",
       "on_sale": "Promoção",
       "quantity": {
@@ -118,11 +118,11 @@
         "minimum_of": "Mínimo de {{ quantity }}",
         "maximum_of": "Máximo de {{ quantity }}",
         "multiples_of": "Pacote com {{ quantity }}",
-        "in_cart_html": "<span class=\"quantity-cart\">{{ quantity }}</span> no carrinho",
+        "in_cart_html": "<span class=\"quantity-cart\">{{ quantity }}</span> na sacola",
         "note": "Ver regras de quantidade",
         "min_of": "Mínimo de {{ quantity }}",
         "max_of": "Máximo de {{ quantity }}",
-        "in_cart_aria_label": "Quantidade ({{ quantity }} no carrinho)"
+        "in_cart_aria_label": "Quantidade ({{ quantity }} na sacola)"
       },
       "price": {
         "from_price_html": "De {{ price }}",
@@ -260,7 +260,7 @@
       "pages": "Páginas"
     },
     "cart": {
-      "cart": "Carrinho"
+      "cart": "Sacola"
     },
     "contact": {
       "form": {
@@ -290,16 +290,16 @@
       }
     },
     "cart": {
-      "title": "Carrinho",
-      "caption": "Itens do carrinho",
+      "title": "Sacola",
+      "caption": "Itens da sacola",
       "remove_title": "Remover {{ title }}",
       "note": "Instruções especiais do pedido",
       "checkout": "Finalizar a compra",
-      "empty": "O carrinho está vazio",
+      "empty": "Sua sacola está vazia",
       "product_disclosure": "Informação de divulgação do produto",
       "product_disclosures": "Informações de divulgação do produto",
-      "cart_error": "Ocorreu um erro ao atualizar o carrinho. Tente de novo.",
-      "cart_quantity_error_html": "É possível adicionar apenas {{ quantity }} unidade(s) desse item ao carrinho.",
+      "cart_error": "Ocorreu um erro ao atualizar a sacola. Tente de novo.",
+      "cart_quantity_error_html": "É possível adicionar apenas {{ quantity }} unidade(s) desse item à sacola.",
       "headings": {
         "product": "Produto",
         "price": "Preço",
@@ -367,7 +367,7 @@
     },
     "quick_order_list": {
       "product_total": "Subtotal do produto",
-      "view_cart": "Ver carrinho",
+      "view_cart": "Ver sacola",
       "each": "{{ money }}/cada",
       "product": "Produto",
       "variant": "Variante",
@@ -384,10 +384,10 @@
       },
       "product_variants": "Variantes do produto",
       "total_items": "Total de itens",
-      "remove_all_items_confirmation": "Remover todos os {{ quantity }} itens do carrinho?",
+      "remove_all_items_confirmation": "Remover todos os {{ quantity }} itens da sacola?",
       "remove_all": "Remover tudo",
       "cancel": "Cancelar",
-      "remove_all_single_item_confirmation": "Remover 1 item do carrinho?",
+      "remove_all_single_item_confirmation": "Remover 1 item da sacola?",
       "min_error": "Este item apresenta um mínimo de {{ min }}",
       "max_error": "Este item apresenta um máximo de {{ max }}",
       "step_error": "Só é possível adicionar este item em incrementos de {{ step }}"

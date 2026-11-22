@@ -1,0 +1,153 @@
+/* CONTRATEMPO© — página de produto */
+
+.product__info-container > .ct-bloco { margin: 1.6rem 0; }
+.product__info-container > .ct-bloco--parcelas { margin-top: -0.4rem; }
+
+.product__title h1 {
+  font-size: clamp(4.4rem, 5.6vw, 8.8rem);
+  line-height: 0.9;
+}
+
+.ct-produto-topo {
+  margin: 0;
+  font-family: var(--ct-mono);
+  font-size: 1.2rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ct-verde);
+}
+
+.product .price--large .price-item { font-weight: 700; letter-spacing: -0.02em; }
+
+.ct-parcelas {
+  margin: 0;
+  font-size: 1.4rem;
+  color: rgba(var(--color-foreground), 0.75);
+}
+
+/* Tabela de medidas e aviso de tamanho */
+.ct-tamanho { display: flex; flex-direction: column; gap: 1.2rem; }
+
+.ct-tabela__botao {
+  display: inline-flex;
+  align-items: center;
+  min-height: 4.4rem;
+  cursor: pointer;
+  list-style: none;
+  font-family: var(--ct-mono);
+  font-size: 1.1rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: underline;
+  text-underline-offset: 0.4rem;
+}
+
+.ct-tabela__botao::-webkit-details-marker { display: none; }
+
+.ct-tabela__conteudo {
+  border: 0.1rem solid var(--ct-linha);
+  padding: 1.6rem;
+  font-family: var(--ct-mono);
+  font-size: 1.2rem;
+  letter-spacing: 0.04em;
+}
+
+.ct-tabela__conteudo table { width: 100%; border-collapse: collapse; }
+.ct-tabela__conteudo th,
+.ct-tabela__conteudo td { text-align: left; padding: 0.8rem 0; border-bottom: 0.1rem solid var(--ct-linha); }
+
+.ct-tabela__nota {
+  margin: 1rem 0 0;
+  font-family: var(--font-body-family);
+  font-size: 1.3rem;
+  letter-spacing: 0;
+  color: rgba(var(--color-foreground), 0.72);
+}
+
+/* Produção, envio e devolução */
+.ct-entrega {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 0.1rem solid var(--ct-linha);
+}
+
+.ct-entrega li {
+  display: flex;
+  gap: 1.4rem;
+  align-items: flex-start;
+  padding: 1.4rem 0;
+  border-bottom: 0.1rem solid var(--ct-linha);
+  font-size: 1.4rem;
+  line-height: 1.5;
+}
+
+.ct-entrega svg { flex-shrink: 0; margin-top: 0.1rem; color: var(--ct-verde); }
+.ct-entrega strong { font-weight: 600; }
+
+/* Sanfonas */
+.ct-detalhes { border-top: 0.1rem solid var(--ct-linha); }
+.ct-sanfona { border-bottom: 0.1rem solid var(--ct-linha); }
+
+.ct-sanfona summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 5.6rem;
+  cursor: pointer;
+  list-style: none;
+  font-family: var(--ct-mono);
+  font-size: 1.2rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.ct-sanfona summary::-webkit-details-marker { display: none; }
+.ct-sanfona__mais { font-size: 2rem; transition: transform 0.2s ease; }
+.ct-sanfona[open] .ct-sanfona__mais { transform: rotate(45deg); }
+
+.ct-sanfona__conteudo {
+  padding-bottom: 1.8rem;
+  font-size: 1.4rem;
+  line-height: 1.65;
+  color: rgba(var(--color-foreground), 0.85);
+}
+
+.ct-sanfona__conteudo p { margin: 0; }
+.ct-sanfona__conteudo ul { margin: 0; padding-left: 1.8rem; line-height: 1.8; }
+
+/* De longe e de perto */
+.ct-de-perto {
+  padding-top: 8.8rem;
+  padding-bottom: 8.8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+.ct-de-perto__topo {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.ct-de-perto__titulo { margin: 0; font-size: clamp(3.6rem, 4.4vw, 6.4rem); line-height: 0.95; max-width: 76rem; }
+.ct-de-perto__texto { margin: 0; max-width: 38rem; font-size: 1.5rem; line-height: 1.6; }
+
+.ct-de-perto__grade {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2rem;
+}
+
+.ct-de-perto__figura { margin: 0; display: flex; flex-direction: column; gap: 1.2rem; min-width: 0; }
+.ct-de-perto__figura figcaption { font-size: 1.4rem; display: flex; gap: 1.4rem; align-items: baseline; }
+.ct-de-perto__midia { aspect-ratio: 4 / 5; overflow: hidden; background: var(--ct-preto); }
+.ct-de-perto__midia img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.ct-de-perto__zoom { transform: scale(2.3); transform-origin: 52% 38%; }
+
+@media screen and (max-width: 559px) {
+  .ct-de-perto__grade { grid-template-columns: 1fr; }
+}

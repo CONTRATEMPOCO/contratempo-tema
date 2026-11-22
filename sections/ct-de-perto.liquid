@@ -1,0 +1,57 @@
+{{ 'ct-produto.css' | asset_url | stylesheet_tag }}
+
+{%- liquid
+  assign longe = product.featured_media
+  assign perto = product.metafields.custom.de_perto.value
+-%}
+
+{%- if longe != blank -%}
+  <div class="color-{{ section.settings.color_scheme }} gradient">
+    <div class="ct-de-perto page-width">
+      <div class="ct-de-perto__topo">
+        <h2 class="ct-de-perto__titulo">{{ section.settings.titulo }}</h2>
+        {%- if section.settings.texto != blank -%}
+          <p class="ct-de-perto__texto">{{ section.settings.texto }}</p>
+        {%- endif -%}
+      </div>
+      <div class="ct-de-perto__grade">
+        <figure class="ct-de-perto__figura">
+          <div class="ct-de-perto__midia">
+            {{ longe | image_url: width: 1400 | image_tag: loading: 'lazy', widths: '375, 550, 750, 1100, 1400', sizes: '(min-width: 750px) 50vw, 100vw', alt: longe.alt | default: product.title }}
+          </div>
+          <figcaption><span class="ct-mono">{{ section.settings.rotulo_longe }}</span> {{ section.settings.legenda_longe }}</figcaption>
+        </figure>
+        <figure class="ct-de-perto__figura">
+          <div class="ct-de-perto__midia">
+            {%- if perto != blank -%}
+              {{ perto | image_url: width: 1400 | image_tag: loading: 'lazy', widths: '375, 550, 750, 1100, 1400', sizes: '(min-width: 750px) 50vw, 100vw', alt: perto.alt | default: product.title }}
+            {%- else -%}
+              {{ longe | image_url: width: 2000 | image_tag: loading: 'lazy', class: 'ct-de-perto__zoom', widths: '750, 1100, 1500, 2000', sizes: '(min-width: 750px) 50vw, 100vw', alt: product.title }}
+            {%- endif -%}
+          </div>
+          <figcaption><span class="ct-mono">{{ section.settings.rotulo_perto }}</span> {{ section.settings.legenda_perto }}</figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "De longe e de perto",
+  "tag": "section",
+  "class": "section-ct-de-perto",
+  "enabled_on": { "templates": ["product"] },
+  "settings": [
+    { "type": "color_scheme", "id": "color_scheme", "label": "Esquema de cores", "default": "scheme-2" },
+    { "type": "text", "id": "titulo", "label": "Título", "default": "Bonita de longe. Interessante de perto." },
+    { "type": "textarea", "id": "texto", "label": "Texto", "default": "Toda estampa tem duas leituras. A primeira chama atenção na rua. A segunda é para quem repara." },
+    { "type": "text", "id": "rotulo_longe", "label": "Rótulo da primeira imagem", "default": "De longe" },
+    { "type": "text", "id": "legenda_longe", "label": "Legenda da primeira imagem", "default": "Presença, composição, cor." },
+    { "type": "text", "id": "rotulo_perto", "label": "Rótulo da segunda imagem", "default": "De perto" },
+    { "type": "text", "id": "legenda_perto", "label": "Legenda da segunda imagem", "default": "O que só quem repara encontra." },
+    { "type": "paragraph", "content": "A primeira imagem é a principal do produto. A segunda vem do metacampo custom.de_perto; se ele estiver vazio, mostra a principal ampliada." }
+  ],
+  "presets": [{ "name": "De longe e de perto" }]
+}
+{% endschema %}

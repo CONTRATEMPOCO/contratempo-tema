@@ -1,3 +1,33 @@
+# Tema CONTRATEMPO©
+
+Tema da loja CONTRATEMPO, feito sobre o Dawn. Regras de desenvolvimento em `CLAUDE.md`.
+
+## Como configurar no painel da Shopify
+
+### Regras da loja
+*Loja virtual → Temas → Personalizar → Configurações do tema → Regras da loja*: parcelas sem juros, desconto no Pix, prazos, horário de atendimento, WhatsApp e dados legais do rodapé.
+
+### Metacampos de produto
+Crie em *Configurações → Metacampos e metaobjetos → Produtos → Adicionar definição*. Use exatamente estes nomes de namespace e chave:
+
+| Nome no painel | Namespace e chave | Tipo | Onde aparece |
+|---|---|---|---|
+| Código da peça | `custom.codigo` | Texto de linha única | Acima do nome (ex.: CT-009) |
+| Número da coleção | `custom.colecao_numero` | Texto de linha única | "Coleção 001", ao lado do código |
+| Tabela de medidas | `custom.tabela_medidas` | Texto rico (com tabela) ou texto de várias linhas | Botão "Tabela de medidas" |
+| Modelagem | `custom.modelagem` | Texto de linha única | Detalhes da peça (vazio = "Modelagem ampla") |
+| Técnica de impressão | `custom.tecnica_impressao` | Texto de linha única (DTG ou DTF) | Uso interno, por enquanto |
+| Quem veste | `custom.modelo_veste` | Texto de linha única | Detalhes da peça (ex.: "A modelo veste M e tem 1,70 m") |
+| Imagem de perto | `custom.de_perto` | Arquivo (imagem) | Faixa "Bonita de longe. Interessante de perto." |
+| Texto da frente | `custom.frente_texto` | Texto de linha única | Reservado para a descrição da frente |
+
+Campos vazios simplesmente não aparecem na loja.
+
+### Páginas
+Crie as páginas Manifesto e Sobre e escolha, em cada uma, o modelo de tema `manifesto` ou `sobre`.
+
+---
+
 # Dawn
 
 [![Build status](https://github.com/shopify/dawn/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/Shopify/dawn/actions/workflows/ci.yml?query=branch%3Amain)

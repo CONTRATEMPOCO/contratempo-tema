@@ -1,0 +1,35 @@
+{%- comment -%} Sanfonas de informação do produto. Parâmetro: product. {%- endcomment -%}
+{%- liquid
+  assign modelagem = product.metafields.custom.modelagem.value | default: 'Modelagem ampla'
+  assign modelo_veste = product.metafields.custom.modelo_veste.value
+-%}
+<div class="ct-detalhes">
+  {%- if product.description != blank -%}
+    <details class="ct-sanfona">
+      <summary>A estampa<span class="ct-sanfona__mais" aria-hidden="true">+</span></summary>
+      <div class="ct-sanfona__conteudo rte">{{ product.description }}</div>
+    </details>
+  {%- endif -%}
+  <details class="ct-sanfona">
+    <summary>Malha e modelagem<span class="ct-sanfona__mais" aria-hidden="true">+</span></summary>
+    <div class="ct-sanfona__conteudo">
+      <ul>
+        <li>Malha penteada fio 30.1, 100% algodão: macia, respirável e resistente</li>
+        <li>{{ modelagem }}</li>
+        {%- if modelo_veste != blank -%}<li>{{ modelo_veste }}</li>{%- endif -%}
+      </ul>
+    </div>
+  </details>
+  <details class="ct-sanfona">
+    <summary>Impressão e cuidados<span class="ct-sanfona__mais" aria-hidden="true">+</span></summary>
+    <div class="ct-sanfona__conteudo">
+      <p>Impressão digital feita peça por peça. Para durar: lave do avesso em água fria, não use alvejante, seque à sombra e não passe sobre a estampa.</p>
+    </div>
+  </details>
+  <details class="ct-sanfona">
+    <summary>Devoluções e reembolso<span class="ct-sanfona__mais" aria-hidden="true">+</span></summary>
+    <div class="ct-sanfona__conteudo">
+      <p>Você pode pedir a devolução em até {{ settings.ct_prazo_devolucao | default: '7 dias após a entrega' }}, pelo nosso atendimento. A gente envia a etiqueta de postagem reversa, sem custo. Quando a peça chega, passa por uma conferência e precisa estar sem marcas de uso. Aprovada, o reembolso é feito em até {{ settings.ct_prazo_reembolso | default: '30 dias' }} depois que a peça chega até nós. Não fazemos troca de tamanho: como cada peça é feita sob pedido, também não dá para cancelar nem alterar estampa, tamanho ou modelo depois que a produção começou. Por isso, confira a tabela de medidas antes de comprar. Confira também o endereço: pedidos que voltam por endereço incorreto têm novo envio cobrado.</p>
+    </div>
+  </details>
+</div>

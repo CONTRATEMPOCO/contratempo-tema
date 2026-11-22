@@ -1,0 +1,19 @@
+{%- comment -%} Produção, envio e devolução, a partir de Regras da loja. {%- endcomment -%}
+<ul class="ct-entrega" role="list">
+  {%- if settings.ct_prazo_producao != blank -%}
+    <li>
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg>
+      <span><strong>Feita sob pedido.</strong> Impressa depois da sua compra e pronta em {{ settings.ct_prazo_producao }}. Depois, segue para entrega.</span>
+    </li>
+  {%- endif -%}
+  <li>
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true" focusable="false"><path d="M3 7h11v10H3z"></path><path d="M14 10h4l3 3v4h-7"></path><circle cx="7" cy="18" r="1.6"></circle><circle cx="17" cy="18" r="1.6"></circle></svg>
+    <span><strong>Envio para todo o Brasil.</strong> {{ settings.ct_texto_frete | default: 'Frete calculado na finalização' }}.</span>
+  </li>
+  {%- if settings.ct_prazo_devolucao != blank -%}
+    <li>
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true" focusable="false"><path d="M4 12a8 8 0 0 1 14-5l2 2"></path><path d="M20 4v5h-5"></path><path d="M20 12a8 8 0 0 1-14 5l-2-2"></path><path d="M4 20v-5h5"></path></svg>
+      <span><strong>Devolução em até {{ settings.ct_prazo_devolucao }}</strong>, com postagem de volta por nossa conta.</span>
+    </li>
+  {%- endif -%}
+</ul>
