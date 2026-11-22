@@ -168,3 +168,30 @@
   .ct-header__icone { width: 3.4rem; }
   .ct-header__logo .ct-logo__nome { font-size: 1.5rem; }
 }
+
+/* Ícones alinhados às margens da página, dos dois lados */
+.ct-header__menu-botao { margin-left: 0; justify-content: flex-start; }
+.ct-header__icones { margin-right: 0; }
+.ct-header__sacola { justify-content: flex-end; width: 3.2rem; }
+@media screen and (max-width: 559px) {
+  .ct-header__barra { padding: 0.6rem 2rem; gap: 0.4rem; }
+  .ct-header__menu-botao { width: 4rem; }
+  .ct-header__icone { width: 3.6rem; }
+  .ct-header__sacola { width: 3rem; }
+}
+@media screen and (max-width: 379px) {
+  .ct-header__barra { padding: 0.6rem 1.6rem; }
+  .ct-header__icone { width: 3.2rem; }
+  .ct-header__logo .ct-logo__nome { font-size: 1.4rem; }
+}
+
+/* Painel do menu rola por dentro e trava o fundo */
+.ct-header__painel { max-height: calc(100vh - 6rem); max-height: calc(100dvh - 6rem); overflow-y: auto; overscroll-behavior: contain; -webkit-overflow-scrolling: touch; }
+html.ct-menu-aberto, html.ct-menu-aberto body { overflow: hidden; }
+@media screen and (max-height: 500px) {
+  .ct-header__painel-grade { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 2.4rem; padding: 2.4rem 2rem 3.2rem; }
+  .ct-header__grande a { font-size: 2.8rem; }
+}
+
+/* Logo do cabeçalho: o pulo do terceiro ponto mais espaçado */
+.ct-header__logo .pulo { animation-duration: 10s; }

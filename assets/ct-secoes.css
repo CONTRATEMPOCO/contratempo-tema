@@ -581,3 +581,6 @@
 
 /* O Dawn esconde div vazia; os véus das imagens precisam aparecer */
 .ct-slide__veu:empty, .ct-lanc__veu:empty { display: block; }
+
+/* Mais respiro entre os blocos do destaque principal */
+.ct-hero2 { gap: 2rem 1.6rem; padding-top: 2rem; padding-bottom: 2rem; }
