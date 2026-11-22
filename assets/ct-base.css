@@ -309,3 +309,20 @@ a:not(.button):hover {
   font-size: clamp(4.4rem, 7vw, 10.4rem);
   line-height: 0.95;
 }
+
+/* Texto com cor cheia (o Dawn esmaece o texto a 75%) */
+body,
+.gradient,
+.color-scheme-1, .color-scheme-2, .color-scheme-3, .color-scheme-4, .color-scheme-5 {
+  color: rgb(var(--color-foreground));
+}
+
+/* Nome das peças nos cartões em Poppins, não em mono */
+.card .card__heading,
+.card .card__heading.h5 {
+  font-family: var(--font-body-family);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0;
+  font-size: 1.5rem;
+}
