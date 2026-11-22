@@ -174,3 +174,8 @@
   .ct-footer__grid { grid-template-columns: 1fr; }
   .ct-footer__marca { flex-direction: column; }
 }
+
+@media screen and (max-width: 559px) {
+  .ct-footer__campo input { flex-basis: 100%; border-right: 0.1rem solid rgb(var(--color-foreground)); }
+  .ct-footer__campo .button { width: 100%; }
+}
