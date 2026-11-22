@@ -114,40 +114,27 @@
       "settings": {
         "imagem": "shopify://shop_images/ct-lancamento-rio.jpg",
         "produto": "peca-de-teste",
-        "texto": "Estampa grande nas costas. Na frente, a assinatura na malha escura e o mascote na malha branca."
+        "texto": "Estampa grande nas costas. Na frente, a assinatura na malha escura e o mascote na malha branca.",
+        "colecao": "rio"
       }
     },
     "featured_collection": {
-      "type": "featured-collection",
+      "type": "ct-destaques",
       "settings": {
-        "title": "Destaques da loja",
-        "heading_size": "h2",
-        "description": "",
-        "show_description": false,
-        "description_style": "body",
-        "collection": "all",
-        "products_to_show": 8,
-        "columns_desktop": 4,
-        "color_scheme": "scheme-1",
-        "full_width": false,
-        "show_view_all": true,
-        "view_all_style": "outline",
-        "enable_desktop_slider": false,
-        "swipe_on_mobile": false,
-        "image_ratio": "portrait",
-        "image_shape": "default",
-        "show_secondary_image": true,
-        "show_vendor": false,
-        "show_rating": false,
-        "quick_add": "none",
-        "columns_mobile": "2",
-        "padding_top": 44,
-        "padding_bottom": 36
+        "rotulo": "Destaques da loja",
+        "titulo": "Camisetas",
+        "quantidade": 8,
+        "botao_texto": "Ver todas as peças →"
       }
     },
     "conceito": {
       "type": "ct-conceito",
       "settings": {
+        "titulo": "Contratempo é o som",
+        "destaque": "fora do tempo forte.",
+        "texto": "É o que dá balanço ao samba, ao choro e ao baião. É também o nosso jeito de olhar o Brasil: sair do lugar esperado para enxergar o que sempre esteve ali.",
+        "frase": "A gente conhece bem os contratempos.",
+        "botao_texto": "Ler o manifesto →",
         "botao_link": "/pages/manifesto"
       }
     },
@@ -176,8 +163,9 @@
         "i2"
       ],
       "settings": {
-        "titulo": "Parece simples. Olha de novo.",
-        "espaco_abaixo": 88
+        "titulo": "Parece simples.",
+        "espaco_abaixo": 88,
+        "destaque": "Olha de novo."
       }
     },
     "cores": {

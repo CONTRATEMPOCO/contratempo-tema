@@ -12,7 +12,7 @@
 {%- if tem_imagem or request.design_mode -%}
   <div class="color-{{ section.settings.color_scheme }} gradient">
     {%- if section.settings.titulo != blank -%}
-      <div class="ct-wrap ct-imagens__topo"><h2 class="ct-titulo-l">{{ section.settings.titulo }}</h2></div>
+      <div class="ct-wrap ct-imagens__topo"><h2 class="ct-titulo-l">{{ section.settings.titulo }}{% if section.settings.destaque != blank %} <span class="ct-imagens__destaque">{{ section.settings.destaque }}</span>{% endif %}</h2></div>
     {%- endif -%}
     <div class="ct-wrap ct-grade-2 ct-imagens" style="padding-bottom: {{ section.settings.espaco_abaixo }}px">
       {%- for block in section.blocks -%}
@@ -25,7 +25,7 @@
           {%- endif -%}
         </div>
         {%- if block.settings.rotulo != blank or block.settings.legenda != blank -%}
-          <figcaption class="ct-imagens__legenda"><span class="ct-mono">{{ block.settings.rotulo }}</span> {{ block.settings.legenda }}</figcaption>
+          <figcaption class="ct-imagens__legenda">{{ block.settings.rotulo | upcase }}{% if block.settings.rotulo != blank and block.settings.legenda != blank %} — {% endif %}{{ block.settings.legenda }}</figcaption>
         {%- endif -%}
         </figure>
       {%- endfor -%}
@@ -42,6 +42,7 @@
   "settings": [
     { "type": "color_scheme", "id": "color_scheme", "label": "Esquema de cores", "default": "scheme-1" },
     { "type": "text", "id": "titulo", "label": "Título" },
+    { "type": "text", "id": "destaque", "label": "Título: parte em terracota" },
     { "type": "range", "id": "espaco_abaixo", "label": "Espaço abaixo", "min": 0, "max": 100, "step": 4, "unit": "px", "default": 0 }
   ],
   "blocks": [

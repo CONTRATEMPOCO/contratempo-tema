@@ -1,0 +1,40 @@
+{{ 'ct-secoes.css' | asset_url | stylesheet_tag }}
+
+{%- assign colecao = section.settings.colecao | default: collections.all -%}
+<div class="color-{{ section.settings.color_scheme }} gradient">
+  <div class="ct-wrap ct-destaques">
+    <div class="ct-destaques__topo">
+      <div class="ct-destaques__titulos">
+        {%- if section.settings.rotulo != blank -%}<span class="ct-destaques__rotulo">{{ section.settings.rotulo }}</span>{%- endif -%}
+        <h2 class="ct-destaques__titulo">{{ section.settings.titulo }}</h2>
+      </div>
+      {%- if section.settings.botao_texto != blank -%}
+        <a href="{{ colecao.url }}" class="ct-botao ct-botao--contorno ct-botao--baixo">{{ section.settings.botao_texto }}</a>
+      {%- endif -%}
+    </div>
+    <ul class="ct-destaques__grade" role="list">
+      {%- for produto in colecao.products limit: section.settings.quantidade -%}
+        <li>{%- render 'ct-card', card_product: produto, lazy_load: true, grupo: '-d' -%}</li>
+      {%- else -%}
+        <li class="ct-destaques__vazio">As peças aparecem aqui assim que forem cadastradas.</li>
+      {%- endfor -%}
+    </ul>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Destaques da loja",
+  "tag": "section",
+  "class": "section-ct-destaques",
+  "settings": [
+    { "type": "color_scheme", "id": "color_scheme", "label": "Esquema de cores", "default": "scheme-1" },
+    { "type": "text", "id": "rotulo", "label": "Rótulo", "default": "Destaques da loja" },
+    { "type": "text", "id": "titulo", "label": "Título", "default": "Camisetas" },
+    { "type": "collection", "id": "colecao", "label": "Coleção", "info": "Vazio mostra todas as peças." },
+    { "type": "range", "id": "quantidade", "label": "Quantidade de peças", "min": 2, "max": 12, "step": 1, "default": 8 },
+    { "type": "text", "id": "botao_texto", "label": "Botão: texto", "default": "Ver todas as peças →" }
+  ],
+  "presets": [{ "name": "Destaques da loja" }]
+}
+{% endschema %}

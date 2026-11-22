@@ -1,0 +1,125 @@
+{%- comment -%}
+  Cartão de produto da CONTRATEMPO: foto, selo, nome, código, preço com parcelas,
+  tamanhos e botão de adicionar à sacola.
+  Parâmetros: card_product, lazy_load (opcional), grupo (opcional, para o mesmo produto aparecer duas vezes na página).
+{%- endcomment -%}
+{%- liquid
+  assign p = card_product
+  assign codigo = p.metafields.custom.codigo.value
+  assign parcelas = settings.ct_parcelas | default: 3 | at_least: 1
+  assign valor_parcela = p.price | divided_by: parcelas
+
+  assign pos_tamanho = 0
+  assign pos_cor = 0
+  assign n_cores = 0
+  for opcao in p.options_with_values
+    assign nome = opcao.name | downcase
+    if nome contains 'tamanho'
+      assign pos_tamanho = forloop.index
+    elsif nome contains 'cor'
+      assign pos_cor = forloop.index
+      assign n_cores = opcao.values.size
+    endif
+  endfor
+
+  assign padrao = p.selected_or_first_available_variant
+  assign cor_padrao = ''
+  if pos_cor > 0
+    assign idx = pos_cor | minus: 1
+    assign cor_padrao = padrao.options[idx]
+  endif
+
+  assign selo = ''
+  if p.available == false
+    assign selo = 'Esgotado'
+  else
+    for tag in p.tags
+      assign t = tag | downcase
+      if t == 'lançamento' or t == 'lancamento'
+        assign selo = 'Lançamento'
+        break
+      elsif t == 'novo'
+        assign selo = 'Novo'
+      endif
+    endfor
+  endif
+
+  assign alt_foto = p.featured_media.alt | escape
+  assign carregar = 'lazy'
+  if lazy_load == false
+    assign carregar = 'eager'
+  endif
+-%}
+<ct-card class="ct-card">
+  <a href="{{ p.url }}" class="ct-card__midia" aria-label="{{ p.title | escape }}">
+    {%- if p.featured_media -%}
+      {{ p.featured_media | image_url: width: 900 | image_tag: loading: carregar, widths: '360, 533, 720, 900', sizes: '(min-width: 1000px) 25vw, (min-width: 560px) 50vw, 100vw', alt: alt_foto, class: 'ct-card__img' }}
+      {%- if p.media[1] != null -%}
+        {{ p.media[1] | image_url: width: 900 | image_tag: loading: 'lazy', widths: '360, 533, 720, 900', sizes: '(min-width: 1000px) 25vw, (min-width: 560px) 50vw, 100vw', alt: '', class: 'ct-card__img ct-card__img--2' }}
+      {%- endif -%}
+    {%- else -%}
+      <span class="ct-card__vazio">{{ 'product-1' | placeholder_svg_tag }}</span>
+    {%- endif -%}
+    {%- if selo != '' -%}<span class="ct-card__selo{% if selo == 'Esgotado' %} ct-card__selo--esgotado{% endif %}">{{ selo }}</span>{%- endif -%}
+  </a>
+
+  <div class="ct-card__nome">
+    <a href="{{ p.url }}" class="ct-card__titulo">{{ p.title | escape }}</a>
+    {%- if codigo != blank or n_cores > 1 -%}
+      <span class="ct-card__meta">
+        {{- codigo -}}
+        {%- if codigo != blank and n_cores > 1 %} · {% endif -%}
+        {%- if n_cores > 1 -%}{{ n_cores }} cores de malha{%- endif -%}
+      </span>
+    {%- endif -%}
+  </div>
+
+  <div class="ct-card__preco">
+    <span class="ct-card__valor">{{ p.price | money_without_trailing_zeros }}</span>
+    {%- if parcelas > 1 -%}<span class="ct-card__parcelas">ou {{ parcelas }}x de {{ valor_parcela | money }}</span>{%- endif -%}
+  </div>
+
+  {%- if p.available -%}
+    <product-form class="ct-card__form" data-hide-errors="false">
+      {%- form 'product', p, novalidate: 'novalidate' -%}
+        <input type="hidden" name="id" value="{{ padrao.id }}" disabled>
+        {%- if pos_tamanho > 0 -%}
+          {%- assign idx_t = pos_tamanho | minus: 1 -%}
+          {%- assign idx_c = pos_cor | minus: 1 -%}
+          <fieldset class="ct-card__tamanhos">
+            <legend class="visually-hidden">Tamanho</legend>
+            {%- for valor in p.options_with_values[idx_t].values -%}
+              {%- liquid
+                assign alvo = nil
+                for v in p.variants
+                  if v.options[idx_t] == valor
+                    if pos_cor == 0 or v.options[idx_c] == cor_padrao
+                      assign alvo = v
+                      break
+                    endif
+                  endif
+                endfor
+              -%}
+              {%- if alvo -%}
+                <label class="ct-card__tamanho">
+                  <input type="radio" name="ct-tam-{{ p.id }}{{ grupo }}" value="{{ alvo.id }}" data-variante{% unless alvo.available %} disabled{% endunless %}>
+                  <span>{{ valor }}</span>
+                </label>
+              {%- endif -%}
+            {%- endfor -%}
+          </fieldset>
+        {%- endif -%}
+        <p class="ct-card__aviso" role="status" hidden>Escolha um tamanho para continuar.</p>
+        <div class="product-form__error-message-wrapper" role="alert" hidden><span class="product-form__error-message"></span></div>
+        <button type="submit" class="ct-card__botao"{% if pos_tamanho > 0 %} data-precisa-tamanho{% endif %}>
+          <span>Adicionar à sacola</span>
+          <div class="loading__spinner hidden"><span class="ct-card__carregando" aria-hidden="true">…</span></div>
+        </button>
+      {%- endform -%}
+    </product-form>
+  {%- else -%}
+    <a href="{{ p.url }}" class="ct-card__botao ct-card__botao--contorno">Ver a peça</a>
+  {%- endif -%}
+</ct-card>
+<script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
+<script src="{{ 'ct-card.js' | asset_url }}" defer="defer"></script>

@@ -1,0 +1,98 @@
+{{ 'ct-secoes.css' | asset_url | stylesheet_tag }}
+
+<div class="color-{{ section.settings.color_scheme }} gradient">
+  <div class="ct-wrap ct-colecoes">
+    <div class="ct-colecoes__intro">
+      <nav class="ct-colecoes__trilha" aria-label="Trilha"><a href="{{ routes.root_url }}">Início</a> / <span aria-current="page">{{ section.settings.titulo }}</span></nav>
+      <h1 class="ct-colecoes__titulo">{{ section.settings.titulo }}</h1>
+      {%- if section.settings.texto != blank -%}<p class="ct-colecoes__texto">{{ section.settings.texto }}</p>{%- endif -%}
+    </div>
+
+    <div class="ct-colecoes__lista">
+      {%- for block in section.blocks -%}
+        {%- liquid
+          assign c = block.settings.colecao
+          assign imagem = block.settings.imagem | default: c.image
+          assign texto = block.settings.texto | default: c.description | strip_html
+          assign link = c.url | default: block.settings.link
+          assign titulo = block.settings.titulo | default: c.title
+          assign classe = ''
+          if block.settings.largura == 'larga'
+            assign classe = ' ct-colecao--larga'
+          endif
+          if block.type == 'em_breve'
+            assign classe = classe | append: ' ct-colecao--breve'
+          endif
+        -%}
+        <article class="ct-colecao{{ classe }}" style="background: {{ block.settings.cor }}" {{ block.shopify_attributes }}>
+          {%- if imagem != blank -%}
+            {{ imagem | image_url: width: 1800 | image_tag: loading: 'lazy', widths: '600, 900, 1200, 1800', sizes: '(min-width: 1000px) 50vw, 100vw', alt: '', class: 'ct-colecao__img' }}
+            <div class="ct-colecao__veu" style="background: {{ block.settings.cor }}; opacity: {{ block.settings.escurecer | divided_by: 100.0 }}" aria-hidden="true"></div>
+          {%- endif -%}
+          <div class="ct-colecao__topo">
+            {%- if block.settings.rotulo != blank -%}<span class="ct-colecao__rotulo">{{ block.settings.rotulo }}</span>{%- endif -%}
+            {%- if block.settings.selo != blank -%}<span class="ct-colecao__selo">{{ block.settings.selo }}</span>{%- endif -%}
+          </div>
+          <div class="ct-colecao__corpo">
+            <h2 class="ct-colecao__nome">{{ titulo }}</h2>
+            {%- if texto != blank -%}<p class="ct-colecao__texto">{{ texto | truncate: 220 }}</p>{%- endif -%}
+            {%- if block.settings.detalhe != blank -%}<p class="ct-colecao__detalhe">{{ block.settings.detalhe }}</p>{%- endif -%}
+            {%- if block.settings.botao_texto != blank and link != blank -%}
+              <a href="{{ link }}" class="ct-botao ct-botao--contorno ct-colecao__botao">{{ block.settings.botao_texto }}</a>
+            {%- endif -%}
+          </div>
+        </article>
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Coleções em cartões",
+  "tag": "section",
+  "class": "section-ct-colecoes",
+  "settings": [
+    { "type": "color_scheme", "id": "color_scheme", "label": "Esquema de cores", "default": "scheme-1" },
+    { "type": "text", "id": "titulo", "label": "Título", "default": "Coleções" },
+    { "type": "textarea", "id": "texto", "label": "Texto", "default": "Cada coleção é um jeito de olhar para o Brasil. As peças têm código e número, e as coleções também: da 001 em diante." }
+  ],
+  "blocks": [
+    {
+      "type": "colecao",
+      "name": "Coleção",
+      "settings": [
+        { "type": "collection", "id": "colecao", "label": "Coleção" },
+        { "type": "text", "id": "titulo", "label": "Nome", "info": "Vazio usa o nome da coleção." },
+        { "type": "text", "id": "rotulo", "label": "Rótulo", "default": "Coleção 001" },
+        { "type": "text", "id": "selo", "label": "Selo", "info": "Ex.: Lançamento. Vazio esconde." },
+        { "type": "textarea", "id": "texto", "label": "Texto", "info": "Vazio usa a descrição da coleção." },
+        { "type": "text", "id": "detalhe", "label": "Detalhe", "info": "Ex.: 8 estampas · 5 cores de malha" },
+        { "type": "text", "id": "botao_texto", "label": "Botão: texto", "default": "Ver a coleção →" },
+        { "type": "color", "id": "cor", "label": "Cor de fundo", "default": "#0E2A1E" },
+        { "type": "image_picker", "id": "imagem", "label": "Imagem de fundo", "info": "Vazio usa a imagem da coleção." },
+        { "type": "range", "id": "escurecer", "label": "Intensidade da cor sobre a imagem", "min": 0, "max": 90, "step": 5, "unit": "%", "default": 55 },
+        { "type": "select", "id": "largura", "label": "Largura", "options": [{ "value": "meia", "label": "Metade" }, { "value": "larga", "label": "Inteira" }], "default": "meia" }
+      ]
+    },
+    {
+      "type": "em_breve",
+      "name": "Próxima coleção",
+      "settings": [
+        { "type": "text", "id": "titulo", "label": "Nome", "default": "Em breve" },
+        { "type": "text", "id": "rotulo", "label": "Rótulo", "default": "Coleção 003" },
+        { "type": "text", "id": "selo", "label": "Selo", "default": "Em breve" },
+        { "type": "textarea", "id": "texto", "label": "Texto", "default": "A próxima coleção está em produção. Cadastre seu e-mail no rodapé para saber primeiro." },
+        { "type": "text", "id": "detalhe", "label": "Detalhe" },
+        { "type": "text", "id": "botao_texto", "label": "Botão: texto", "default": "Quero saber primeiro →" },
+        { "type": "url", "id": "link", "label": "Botão: link" },
+        { "type": "color", "id": "cor", "label": "Cor de fundo", "default": "#02070A" },
+        { "type": "image_picker", "id": "imagem", "label": "Imagem de fundo" },
+        { "type": "range", "id": "escurecer", "label": "Intensidade da cor sobre a imagem", "min": 0, "max": 90, "step": 5, "unit": "%", "default": 55 },
+        { "type": "select", "id": "largura", "label": "Largura", "options": [{ "value": "meia", "label": "Metade" }, { "value": "larga", "label": "Inteira" }], "default": "larga" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "Coleções em cartões" }]
+}
+{% endschema %}

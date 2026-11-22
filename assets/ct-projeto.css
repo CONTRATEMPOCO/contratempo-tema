@@ -1,0 +1,149 @@
+/* CONTRATEMPO© · ajustes para ficar fiel ao projeto visual */
+
+/* Botões auxiliares */
+.ct-botao--baixo { min-height: 4.4rem; padding: 0 1.8rem; font-size: 1.2rem; }
+
+/* ---------- Cartão de produto ---------- */
+.ct-card { display: flex; flex-direction: column; gap: 1rem; min-width: 0; height: 100%; }
+.ct-card__midia { position: relative; display: block; aspect-ratio: 4 / 5; overflow: hidden; background: #1F002E; }
+.ct-card__img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: opacity 0.4s ease; }
+.ct-card__img--2 { opacity: 0; }
+@media (hover: hover) { .ct-card__midia:hover .ct-card__img--2 { opacity: 1; } }
+.ct-card__vazio svg { width: 100%; height: 100%; fill: rgba(238, 232, 218, 0.2); }
+.ct-card__selo {
+  position: absolute; top: 0; left: 0; z-index: 1;
+  padding: 0.6rem 1rem; background: var(--ct-verde); color: var(--ct-preto);
+  font-family: var(--ct-mono); font-size: 1.1rem; letter-spacing: 0.08em; text-transform: uppercase;
+}
+.ct-card__selo--esgotado { background: var(--ct-creme); }
+.ct-card__nome { display: flex; flex-direction: column; gap: 0.3rem; }
+.ct-card__titulo {
+  font-family: var(--font-heading-family); font-weight: 600; font-size: 1.5rem;
+  text-transform: uppercase; letter-spacing: 0.01em; text-decoration: none; color: rgb(var(--color-foreground));
+}
+.ct-card__meta { font-family: var(--ct-mono); font-size: 1.1rem; letter-spacing: 0.02em; color: rgba(var(--color-foreground), 0.72); }
+.ct-card__preco {
+  display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; flex-wrap: wrap;
+  border-top: 0.1rem solid var(--ct-linha); padding-top: 1rem;
+}
+.ct-card__valor { font-family: var(--font-heading-family); font-weight: 700; font-size: 2.4rem; letter-spacing: -0.02em; line-height: 1; }
+.ct-card__parcelas { font-size: 1.2rem; color: rgba(var(--color-foreground), 0.72); }
+.ct-card__form { display: block; margin-top: auto; }
+.ct-card__form form { display: flex; flex-direction: column; gap: 1rem; }
+.ct-card__tamanhos { display: flex; flex-wrap: wrap; gap: 0.6rem; border: 0; margin: 0; padding: 0; }
+.ct-card__tamanho { position: relative; cursor: pointer; }
+.ct-card__tamanho input { position: absolute; opacity: 0; width: 100%; height: 100%; margin: 0; cursor: pointer; }
+.ct-card__tamanho span {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-width: 3.6rem; height: 3.2rem; padding: 0 0.8rem;
+  border: 0.1rem solid rgba(238, 232, 218, 0.35);
+  font-family: var(--ct-mono); font-size: 1.2rem; line-height: 1;
+}
+.ct-card__tamanho input:checked + span { background: var(--ct-creme); color: var(--ct-preto); border-color: var(--ct-creme); }
+.ct-card__tamanho input:focus-visible + span { outline: 0.2rem solid var(--ct-verde); outline-offset: 0.2rem; }
+.ct-card__tamanho input:disabled + span { opacity: 0.35; text-decoration: line-through; }
+.ct-card__aviso { margin: 0; font-family: var(--ct-mono); font-size: 1.1rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ct-amarelo); }
+.ct-card__botao {
+  position: relative; display: inline-flex; align-items: center; justify-content: center; width: 100%;
+  min-height: 4.6rem; border: 0; background: var(--ct-creme); color: var(--ct-preto); cursor: pointer;
+  font-family: var(--ct-mono); font-size: 1.2rem; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none;
+}
+.ct-card__botao:hover { background: var(--ct-verde); color: var(--ct-preto); }
+.ct-card__botao--contorno { background: transparent; color: rgb(var(--color-foreground)); border: 0.1rem solid rgba(238, 232, 218, 0.5); }
+.ct-card__botao.loading > span { opacity: 0.4; }
+.ct-card__botao .loading__spinner { position: absolute; right: 1.4rem; }
+.ct-card .product-form__error-message-wrapper { font-size: 1.2rem; color: var(--ct-amarelo); }
+
+/* Grades de produtos do Dawn usando o cartão */
+.product-grid .grid__item .ct-card, .grid .grid__item .ct-card { height: 100%; }
+
+/* ---------- Destaques da loja ---------- */
+.ct-destaques { padding-top: 7.2rem; padding-bottom: 7.2rem; display: flex; flex-direction: column; gap: 2.8rem; }
+.ct-destaques__topo { display: flex; justify-content: space-between; align-items: flex-end; gap: 1.6rem; flex-wrap: wrap; }
+.ct-destaques__titulos { display: flex; flex-direction: column; gap: 0.6rem; }
+.ct-destaques__rotulo { font-family: var(--ct-mono); font-size: 1.2rem; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(var(--color-foreground), 0.72); }
+.ct-destaques__titulo { margin: 0; font-size: clamp(3.2rem, 4vw, 5.6rem); line-height: 1; text-transform: uppercase; letter-spacing: -0.02em; }
+.ct-destaques__grade { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 4rem 1.6rem; }
+.ct-destaques__vazio { grid-column: 1 / -1; font-family: var(--ct-mono); font-size: 1.2rem; color: rgba(var(--color-foreground), 0.72); }
+@media screen and (max-width: 999px) { .ct-destaques__grade { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media screen and (max-width: 559px) { .ct-destaques__grade { grid-template-columns: 1fr; } .ct-destaques { padding-top: 5.6rem; padding-bottom: 5.6rem; } }
+
+/* ---------- Conceito: os quatro tempos ---------- */
+.ct-conceito-faixa { border-top: 0.1rem solid var(--ct-linha); border-bottom: 0.1rem solid var(--ct-linha); }
+.ct-conceito { padding-top: 8.8rem; padding-bottom: 8.8rem; display: flex; flex-direction: column; gap: 5.2rem; }
+.ct-conceito__topo { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 4rem; align-items: end; }
+.ct-conceito__titulo { margin: 0; font-size: clamp(3rem, 4.2vw, 6rem); line-height: 1; text-transform: uppercase; letter-spacing: -0.02em; }
+.ct-conceito__destaque { color: var(--ct-amarelo); }
+.ct-conceito__texto { margin: 0; font-size: 1.7rem; line-height: 1.65; }
+.ct-tempos { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.ct-tempos__coluna { display: flex; flex-direction: column; align-items: center; border-left: 0.1rem solid rgba(238, 232, 218, 0.3); padding-bottom: 1.6rem; min-width: 0; }
+.ct-tempos__rotulo { align-self: flex-start; padding-left: 1rem; font-family: var(--ct-mono); font-size: 1.2rem; letter-spacing: 0.04em; text-transform: uppercase; color: rgba(238, 232, 218, 0.75); }
+.ct-tempos__alto { height: 9.6rem; display: flex; align-items: flex-start; justify-content: center; padding-top: 1.4rem; }
+.ct-tempos__base { height: 7.2rem; display: flex; align-items: center; justify-content: center; }
+.ct-tempos__ponto, .ct-tempos__vazio { display: block; width: 5.6rem; height: 5.6rem; border-radius: 50%; }
+.ct-tempos__ponto { background: var(--ct-creme); }
+.ct-tempos__vazio { border: 0.2rem dashed var(--ct-verde); box-sizing: border-box; }
+.ct-conceito__fim { display: flex; justify-content: space-between; align-items: center; gap: 1.6rem; flex-wrap: wrap; }
+.ct-conceito__frase { margin: 0; font-family: var(--ct-mono); font-size: 1.2rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ct-verde); }
+@media screen and (max-width: 999px) { .ct-conceito__topo { grid-template-columns: 1fr; } }
+@media screen and (max-width: 559px) {
+  .ct-conceito { padding-top: 5.6rem; padding-bottom: 5.6rem; gap: 4rem; }
+  .ct-tempos__ponto, .ct-tempos__vazio { width: 4.4rem; height: 4.4rem; }
+}
+
+/* ---------- Duas imagens ---------- */
+.ct-imagens__destaque { color: var(--ct-terracota); }
+.ct-imagens .ct-imagens__legenda { display: block; font-family: var(--ct-mono); font-size: 1.2rem; letter-spacing: 0.04em; }
+
+/* ---------- Rodapé ---------- */
+.ct-footer__titulo-menu, .ct-footer__coluna h2, .ct-footer__coluna h3 { color: var(--ct-verde) !important; }
+.ct-footer .ct-footer__grid { grid-template-columns: minmax(0, 1.9fr) repeat(4, minmax(0, 1fr)); gap: 4rem 2.4rem; }
+.ct-footer .ct-footer__coluna-titulo { font-family: var(--ct-mono); font-size: 1.2rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ct-verde); }
+@media screen and (max-width: 999px) {
+  .ct-footer .ct-footer__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .ct-footer .ct-footer__marca { grid-column: 1 / -1; }
+}
+@media screen and (max-width: 559px) {
+  .ct-footer .ct-footer__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 4rem 2rem; }
+  .ct-footer .ct-footer__marca { flex-direction: row; align-items: flex-start; }
+  .ct-footer .ct-footer__marca .ct-selo, .ct-footer__marca svg:first-child { flex-shrink: 0; width: 9.6rem; height: auto; }
+}
+
+/* ---------- Página de coleções ---------- */
+.ct-colecoes { padding-top: 4rem; padding-bottom: 8rem; display: flex; flex-direction: column; gap: 4rem; }
+.ct-colecoes__intro { display: flex; flex-direction: column; gap: 1.6rem; max-width: 76rem; }
+.ct-colecoes__trilha { font-family: var(--ct-mono); font-size: 1.2rem; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(var(--color-foreground), 0.72); }
+.ct-colecoes__trilha a { color: inherit; text-decoration: none; }
+.ct-colecoes__titulo { margin: 0; font-size: clamp(4rem, 7vw, 9.6rem); line-height: 0.95; text-transform: uppercase; letter-spacing: -0.02em; }
+.ct-colecoes__texto { margin: 0; font-size: 1.7rem; line-height: 1.6; color: rgba(var(--color-foreground), 0.85); }
+.ct-colecoes__lista { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.6rem; }
+.ct-colecao {
+  position: relative; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between; gap: 3.2rem;
+  min-height: 52rem; padding: clamp(2.4rem, 3.5vw, 4.8rem); color: var(--ct-creme);
+}
+.ct-colecao--larga { grid-column: 1 / -1; }
+.ct-colecao__img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.ct-colecao__veu { position: absolute; inset: 0; }
+.ct-colecao__veu:empty { display: block; }
+.ct-colecao > *:not(.ct-colecao__img):not(.ct-colecao__veu) { position: relative; z-index: 1; }
+.ct-colecao__topo { display: flex; justify-content: space-between; align-items: flex-start; gap: 1.6rem; flex-wrap: wrap; }
+.ct-colecao__rotulo { font-family: var(--ct-mono); font-size: 1.2rem; letter-spacing: 0.08em; text-transform: uppercase; }
+.ct-colecao__selo { padding: 0.6rem 1rem; background: var(--ct-amarelo); color: var(--ct-preto); font-family: var(--ct-mono); font-size: 1.1rem; letter-spacing: 0.08em; text-transform: uppercase; }
+.ct-colecao__corpo { display: flex; flex-direction: column; gap: 1.6rem; max-width: 56rem; }
+.ct-colecao__nome { margin: 0; font-size: clamp(4.4rem, 7vw, 9.6rem); line-height: 0.95; text-transform: uppercase; letter-spacing: -0.02em; color: var(--ct-creme); }
+.ct-colecao__texto { margin: 0; font-size: 1.7rem; line-height: 1.55; color: rgba(238, 232, 218, 0.85); }
+.ct-colecao__detalhe { margin: 0; font-family: var(--ct-mono); font-size: 1.2rem; letter-spacing: 0.08em; text-transform: uppercase; }
+.ct-colecao__botao { align-self: flex-start; }
+.ct-colecao--breve { border: 0.1rem dashed rgba(238, 232, 218, 0.4); background: transparent; }
+@media screen and (max-width: 999px) { .ct-colecoes__lista { grid-template-columns: 1fr; } .ct-colecao { min-height: 44rem; } }
+
+/* Correções de prioridade sobre ct-secoes.css e sobre o Dawn */
+.ct-conceito .ct-conceito__texto { font-family: var(--font-body-family); font-weight: 400; font-size: 1.7rem; line-height: 1.65; letter-spacing: 0; text-transform: none; max-width: none; }
+.ct-tempos__alto:empty { display: flex; }
+.ct-wrap.ct-destaques { padding-top: 7.2rem; padding-bottom: 7.2rem; }
+.ct-wrap.ct-conceito { padding-top: 8.8rem; padding-bottom: 8.8rem; }
+.ct-wrap.ct-colecoes { padding-top: 4rem; padding-bottom: 8rem; }
+@media screen and (max-width: 559px) {
+  .ct-wrap.ct-destaques { padding-top: 5.6rem; padding-bottom: 5.6rem; }
+  .ct-wrap.ct-conceito { padding-top: 5.6rem; padding-bottom: 5.6rem; }
+}

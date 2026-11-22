@@ -1,15 +1,33 @@
 {{ 'ct-secoes.css' | asset_url | stylesheet_tag }}
 
-<div class="color-{{ section.settings.color_scheme }} gradient">
+<div class="color-{{ section.settings.color_scheme }} gradient ct-conceito-faixa">
   <div class="ct-wrap ct-conceito">
-    <p class="ct-conceito__texto">{{ section.settings.texto }}</p>
-    <div class="ct-conceito__pontos" aria-hidden="true">
-      <span></span><span></span><span class="pulo-g"></span><span></span>
+    <div class="ct-conceito__topo">
+      <h2 class="ct-conceito__titulo">
+        {{- section.settings.titulo -}}
+        {%- if section.settings.destaque != blank %} <span class="ct-conceito__destaque">{{ section.settings.destaque }}</span>{% endif -%}
+      </h2>
+      {%- if section.settings.texto != blank -%}
+        <p class="ct-conceito__texto">{{ section.settings.texto }}</p>
+      {%- endif -%}
     </div>
+
+    <div class="ct-tempos" role="img" aria-label="Quatro tempos de um compasso; o terceiro ponto sobe e deixa seu lugar vazio">
+      {%- for i in (1..4) -%}
+        <div class="ct-tempos__coluna">
+          <span class="ct-tempos__rotulo">Tempo {{ i }}</span>
+          <div class="ct-tempos__alto">{%- if i == 3 -%}<span class="ct-tempos__ponto"></span>{%- endif -%}</div>
+          <div class="ct-tempos__base">
+            {%- if i == 3 -%}<span class="ct-tempos__vazio"></span>{%- else -%}<span class="ct-tempos__ponto"></span>{%- endif -%}
+          </div>
+        </div>
+      {%- endfor -%}
+    </div>
+
     <div class="ct-conceito__fim">
-      {%- if section.settings.frase != blank -%}<p class="ct-rotulo">{{ section.settings.frase }}</p>{%- endif -%}
+      {%- if section.settings.frase != blank -%}<p class="ct-conceito__frase">{{ section.settings.frase }}</p>{%- endif -%}
       {%- if section.settings.botao_texto != blank and section.settings.botao_link != blank -%}
-        <a href="{{ section.settings.botao_link }}" class="ct-botao ct-botao--verde">{{ section.settings.botao_texto }}</a>
+        <a href="{{ section.settings.botao_link }}" class="ct-botao ct-botao--contorno">{{ section.settings.botao_texto }}</a>
       {%- endif -%}
     </div>
   </div>
@@ -22,7 +40,9 @@
   "class": "section-ct-conceito",
   "settings": [
     { "type": "color_scheme", "id": "color_scheme", "label": "Esquema de cores", "default": "scheme-1" },
-    { "type": "textarea", "id": "texto", "label": "Texto", "default": "Contratempo é o som fora do tempo forte. É o que dá balanço ao samba, ao choro e ao baião. É também o nosso jeito de olhar o Brasil: sair do lugar esperado para enxergar o que sempre esteve ali." },
+    { "type": "text", "id": "titulo", "label": "Título", "default": "Contratempo é o som" },
+    { "type": "text", "id": "destaque", "label": "Título: parte em amarelo", "default": "fora do tempo forte." },
+    { "type": "textarea", "id": "texto", "label": "Texto", "default": "É o que dá balanço ao samba, ao choro e ao baião. É também o nosso jeito de olhar o Brasil: sair do lugar esperado para enxergar o que sempre esteve ali." },
     { "type": "text", "id": "frase", "label": "Frase", "default": "A gente conhece bem os contratempos." },
     { "type": "text", "id": "botao_texto", "label": "Botão: texto", "default": "Ler o manifesto →" },
     { "type": "url", "id": "botao_link", "label": "Botão: link" }
