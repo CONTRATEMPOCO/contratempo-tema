@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>CONTRATEMPO© — Conta</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{color:#EEE8DA}a:hover{color:#CD6547}
+h1,h2,h3,p,a,span{overflow-wrap:break-word}
+#email::placeholder{color:#02070A;opacity:1}
+.hdr{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);align-items:center;gap:16px}
+.g4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:40px 16px}
+.g3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.g2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.menu-grid{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1fr);gap:40px}
+.foot-grid{display:grid;grid-template-columns:minmax(0,1.9fr) repeat(4,minmax(0,1fr));gap:40px 24px}
+@keyframes contratempo{0%,55%{transform:translateY(0)}65%,85%{transform:translateY(7.5px)}100%{transform:translateY(0)}}
+.pulo{animation:contratempo 4s cubic-bezier(.6,0,.3,1) infinite}
+@keyframes contratempo-g{0%,55%{transform:translateY(0)}65%,85%{transform:translateY(18px)}100%{transform:translateY(0)}}
+.pulo-g{animation:contratempo-g 4s cubic-bezier(.6,0,.3,1) infinite}
+@keyframes gira{to{transform:rotate(360deg)}}
+.selo-gira{transform-origin:60px 60px;animation:gira 24s linear infinite}
+@media (prefers-reduced-motion: reduce){.pulo,.pulo-g,.selo-gira{animation:none}}
+
+@media (max-width: 1000px){.foot-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.foot-grid>:first-child{grid-column:1/-1}.nav-desk{display:none !important}.g4{grid-template-columns:repeat(2,minmax(0,1fr))}.g3,.g2,.menu-grid{grid-template-columns:1fr}}
+@media (max-width: 560px){.hdr-icons .opt{display:none !important}}
+@media (max-width: 420px){.g4{grid-template-columns:1fr}}
+.pdp{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:48px;align-items:start}
+.pdp-info{position:sticky;top:20px}
+.cart{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1fr);gap:48px;align-items:start}
+.acc summary{list-style:none;cursor:pointer}.acc summary::-webkit-details-marker{display:none}
+.acc[open] .mais{transform:rotate(45deg)}
+input::placeholder{color:rgba(238,232,218,0.55);opacity:1}
+@media (max-width: 1000px){.pdp,.cart{grid-template-columns:1fr}.pdp-info{position:static}}
+</style>
+</helmet>
+<div style="background: #02070A; color: #EEE8DA; font-family: 'Poppins', sans-serif; min-height: 100vh; overflow-x: hidden">
+<div style="background: #02070A; color: #EEE8DA; text-align: center; padding: 7px 16px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.06em">COLEÇÃO 001 DISPONÍVEL · ATÉ 3X SEM JUROS · 5% DE DESCONTO NO PIX</div>
+<header style="background: #02070A; border-bottom: 1px solid rgba(238,232,218,0.15)">
+<div class="hdr" style="max-width: 1400px; margin: 0 auto; padding: 10px 20px">
+<div style="display: flex; align-items: center; gap: 18px; min-width: 0">
+<button type="button" onClick="{{toggleMenu}}" aria-label="{{menuAria}}" aria-expanded="{{menuExpanded}}" aria-controls="menu-geral" style="display: inline-flex; align-items: center; gap: 10px; min-height: 44px; padding: 0 12px 0 6px; border: 0; background: transparent; color: #EEE8DA; cursor: pointer; font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.08em"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 6h18"></path><path d="M3 12h18"></path><path d="M3 18h18"></path></svg>{{menuLabel}}</button>
+<nav aria-label="Principal" class="nav-desk" style="display: flex; gap: 22px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.08em"><a href="Loja.dc.html" style="text-decoration: none;  padding: 4px 0">LOJA</a><a href="Colecoes.dc.html" style="text-decoration: none;  padding: 4px 0">COLEÇÕES</a><a href="Manifesto.dc.html" style="text-decoration: none;  padding: 4px 0">MANIFESTO</a></nav>
+</div>
+<a href="Main.dc.html" aria-label="CONTRATEMPO©, página inicial" style="display: flex; flex-direction: column; align-items: center; gap: 6px; text-decoration: none; color: #EEE8DA"><div aria-hidden="true" style="position: relative; width: 35px; height: 12.5px; flex-shrink: 0"><span style="position: absolute; left: 0px; top: 7.5px; width: 5px; height: 5px; border-radius: 50%; background: #EEE8DA"></span><span style="position: absolute; left: 10px; top: 7.5px; width: 5px; height: 5px; border-radius: 50%; background: #EEE8DA"></span><span class="pulo" style="position: absolute; left: 20px; top: 0px; width: 5px; height: 5px; border-radius: 50%; background: #EEE8DA"></span><span style="position: absolute; left: 30px; top: 7.5px; width: 5px; height: 5px; border-radius: 50%; background: #EEE8DA"></span></div><span style="font-family: 'Poppins', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: -0.02em; font-size: 18px; letter-spacing: 0.1em; white-space: nowrap">CONTRATEMPO<span style="font-size: 0.55em; vertical-align: super; letter-spacing: 0">©</span></span></a>
+<div class="hdr-icons" style="display: flex; align-items: center; justify-content: flex-end">
+<span class="opt"><a href="Busca.dc.html" aria-label="Buscar" style="display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border: 0; background: transparent; color: #EEE8DA; cursor: pointer"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="square" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.5-3.5"></path></svg></a></span><span class="opt"><a href="Conta.dc.html" aria-current="page" aria-label="Minha conta" style="display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border: 0; background: transparent; color: #EEE8DA; cursor: pointer"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="square" aria-hidden="true"><circle cx="12" cy="8" r="4"></circle><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"></path></svg></a></span>
+<a href="Sacola.dc.html" aria-label="Sacola, {{cartCount}} itens" style="position: relative; display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; color: #EEE8DA"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 8h14l-1 13H6L5 8z"></path><path d="M9 8V6a3 3 0 0 1 6 0v2"></path></svg><span style="position: absolute; top: 4px; right: 2px; min-width: 17px; height: 17px; border-radius: 999px; background: #EEE8DA; color: #02070A; font-size: 10px; font-weight: 600; display: flex; align-items: center; justify-content: center">{{cartCount}}</span></a>
+</div>
+</div>
+<sc-if value="{{menuOpen}}" hint-placeholder-val="{{false}}">
+<nav id="menu-geral" aria-label="Menu" style="background: #02070A; color: #EEE8DA">
+<div class="menu-grid" style="max-width: 1400px; margin: 0 auto; padding: 40px 20px 48px">
+<div style="display: flex; flex-direction: column; gap: 6px"><a href="Main.dc.html" style="color: #EEE8DA; text-decoration: none; font-family: 'Poppins', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: -0.02em; font-size: clamp(34px, 5vw, 64px); line-height: 1.05">INÍCIO</a><a href="Loja.dc.html" style="color: #EEE8DA; text-decoration: none; font-family: 'Poppins', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: -0.02em; font-size: clamp(34px, 5vw, 64px); line-height: 1.05">LOJA</a><a href="Colecoes.dc.html" style="color: #EEE8DA; text-decoration: none; font-family: 'Poppins', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: -0.02em; font-size: clamp(34px, 5vw, 64px); line-height: 1.05">COLEÇÕES</a><a href="Sobre.dc.html" style="color: #EEE8DA; text-decoration: none; font-family: 'Poppins', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: -0.02em; font-size: clamp(34px, 5vw, 64px); line-height: 1.05">SOBRE</a><a href="Manifesto.dc.html" style="color: #EEE8DA; text-decoration: none; font-family: 'Poppins', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: -0.02em; font-size: clamp(34px, 5vw, 64px); line-height: 1.05">MANIFESTO</a></div>
+<div style="display: flex; flex-direction: column; gap: 14px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.08em">
+<span style="color: rgba(238,232,218,0.75)">AJUDA</span>
+<a href="#" style="color: #EEE8DA">TABELA DE MEDIDAS</a><a href="#" style="color: #EEE8DA">DEVOLUÇÕES</a><a href="#" style="color: #EEE8DA">CONTATO</a>
+<span style="color: rgba(238,232,218,0.75); margin-top: 18px">SIGA</span>
+<a href="#" style="color: #EEE8DA">INSTAGRAM</a><a href="#" style="color: #EEE8DA">TIKTOK</a>
+</div>
+</div>
+</nav>
+</sc-if>
+</header>
+<main>
+<sc-if value="{{isAuth}}" hint-placeholder-val="{{true}}">
+<section style="max-width: 1400px; margin: 0 auto; padding: 56px 20px 104px">
+<div class="g2" style="gap: 64px; align-items: start">
+<div style="display: flex; flex-direction: column; gap: 18px; min-width: 0">
+<span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.08em; color: #90E04B">CONTA</span>
+<h1 style="margin: 0; font-family: 'Poppins', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: -0.02em; font-size: clamp(44px, 6vw, 88px); line-height: 0.92">{{authTitle}}</h1>
+<p style="margin: 0; max-width: 440px; font-size: 16px; line-height: 1.6; color: rgba(238,232,218,0.82)">{{authText}}</p>
+<ul style="list-style: none; margin: 16px 0 0; padding: 0; display: flex; flex-direction: column; border-top: 1px solid rgba(238,232,218,0.2); max-width: 440px">
+<li style="padding: 14px 0; border-bottom: 1px solid rgba(238,232,218,0.2); font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.08em">ACOMPANHE A PRODUÇÃO DE CADA PEÇA</li>
+<li style="padding: 14px 0; border-bottom: 1px solid rgba(238,232,218,0.2); font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.08em">PEÇA DEVOLUÇÕES EM POUCOS PASSOS</li>
+<li style="padding: 14px 0; border-bottom: 1px solid rgba(238,232,218,0.2); font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.08em">RECEBA OS LANÇAMENTOS ANTES</li>
+</ul>
+</div>
+<div style="border: 1px solid rgba(238,232,218,0.3); padding: 32px 28px; display: flex; flex-direction: column; gap: 22px; min-width: 0">
+<div role="tablist" aria-label="Entrar ou criar conta" style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border: 1px solid #EEE8DA">
+<button type="button" role="tab" aria-selected="{{tabEntrarSel}}" onClick="{{goEntrar}}" style="min-height: 48px; border: 0; background: {{tabEntrarBg}}; color: {{tabEntrarFg}}; font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.08em; cursor: pointer">ENTRAR</button>
+<button type="button" role="tab" aria-selected="{{tabCriarSel}}" onClick="{{goCriar}}" style="min-height: 48px; border: 0; background: {{tabCriarBg}}; color: {{tabCriarFg}}; font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.08em; cursor: pointer">CRIAR CONTA</button>
+</div>
+<form onSubmit="{{login}}" style="display: flex; flex-direction: column; gap: 16px">
+<sc-if value="{{isCriar}}" hint-placeholder-val="{{false}}">
+<div style="display: flex; flex-direction: column; gap: 6px"><label for="nome" style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.08em">NOME</label><input id="nome" autocomplete="name" style="min-height: 52px; padding: 0 16px; border: 1px solid rgba(238,232,218,0.5); background: transparent; color: #EEE8DA; font-size: 16px; font-family: inherit; border-radius: 0; box-sizing: border-box; min-width: 0; width: 100%"></div>
+</sc-if>
+<div style="display: flex; flex-direction: column; gap: 6px"><label for="email-conta" style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.08em">E-MAIL</label><input id="email-conta" type="email" autocomplete="email" placeholder="nome@email.com" style="min-height: 52px; padding: 0 16px; border: 1px solid rgba(238,232,218,0.5); background: transparent; color: #EEE8DA; font-size: 16px; font-family: inherit; border-radius: 0; box-sizing: border-box; min-width: 0; width: 100%"></div>
+<div style="display: flex; flex-direction: column; gap: 6px"><label for="senha" style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.08em">SENHA</label><input id="senha" type="password" autocomplete="current-password" style="min-height: 52px; padding: 0 16px; border: 1px solid rgba(238,232,218,0.5); background: transparent; color: #EEE8DA; font-size: 16px; font-family: inherit; border-radius: 0; box-sizing: border-box; min-width: 0; width: 100%"></div>
+<sc-if value="{{isCriar}}" hint-placeholder-val="{{false}}">
+<label style="display: flex; gap: 12px; align-items: flex-start; font-size: 14px; line-height: 1.5; cursor: pointer"><input type="checkbox" style="width: 20px; height: 20px; margin: 2px 0 0; accent-color: #90E04B; flex-shrink: 0">Quero receber os lançamentos por e-mail. Um por lançamento, sem enxurrada.</label>
+</sc-if>
+<button type="submit" style="display: inline-flex; align-items: center; justify-content: center; min-height: 52px; padding: 0 24px; border: 0; background: #EEE8DA; color: #02070A; text-decoration: none; font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.08em; font-weight: 500; cursor: pointer; width: 100%; min-height: 56px">{{submitLabel}}</button>
+<sc-if value="{{isEntrar}}" hint-placeholder-val="{{true}}"><a href="#" style="align-self: center; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-underline-offset: 4px; padding: 10px 0">ESQUECI A SENHA</a></sc-if>
+</form>
+</div>
+</div>
+</section>
+</sc-if>
+<sc-if value="{{isLogado}}" hint-placeholder-val="{{false}}">
+<section style="max-width: 1400px; margin: 0 auto; padding: 48px 20px 24px; display: flex; flex-direction: column; gap: 14px">
+<span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.08em; color: #90E04B">MINHA CONTA</span>
+<div style="display: flex; justify-content: space-between; align-items: flex-end; gap: 20px; flex-wrap: wrap">
+<h1 style="margin: 0; font-family: 'Poppins', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: -0.02em; font-size: clamp(44px, 6vw, 88px); line-height: 0.92">Olá, [NOME].</h1>
+<button type="button" onClick="{{logout}}" style="display: inline-flex; align-items: center; justify-content: center; min-height: 52px; padding: 0 24px; border: 1px solid #EEE8DA; background: transparent; color: #EEE8DA; text-decoration: none; font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.08em; font-weight: 500; cursor: pointer; min-height: 44px">SAIR</button>
+</div>
+</section>
+<section style="max-width: 1400px; margin: 0 auto; padding: 24px 20px 104px; display: flex; flex-wrap: wrap; gap: 48px; align-items: flex-start">
+<nav aria-label="Seções da conta" style="flex: 1 1 220px; max-width: 280px; display: flex; flex-direction: column; border-top: 1px solid rgba(238,232,218,0.2)">
+<sc-for list="{{abas}}" as="a" hint-placeholder-count="3"><button type="button" onClick="{{a.pick}}" aria-current="{{a.current}}" style="display: flex; justify-content: space-between; align-items: center; min-height: 56px; padding: 0; border: 0; border-bottom: 1px solid rgba(238,232,218,0.2); background: transparent; color: {{a.color}}; font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.08em; text-align: left; cursor: pointer">{{a.label}}<span aria-hidden="true">→</span></button></sc-for>
+</nav>
+<div style="flex: 999 1 560px; min-width: 0; display: flex; flex-direction: column; gap: 24px">
+<sc-if value="{{abaPedidos}}" hint-placeholder-val="{{true}}">
+<h2 style="margin: 0; font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.08em; font-weight: 500">PEDIDOS</h2>
+<article style="border: 1px solid rgba(238,232,218,0.3); padding: 28px 24px; display: flex; flex-direction: column; gap: 24px">
+<div style="display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; align-items: baseline">
+<div style="display: flex; flex-direction: column; gap: 4px"><span style="font-weight: 700; font-size: 22px">Pedido #[0002]</span><span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: rgba(238,232,218,0.72)">[DATA] · 1 PEÇA · R$ 169</span></div>
+<span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.08em; background: #F8D65B; color: #02070A; padding: 6px 10px">EM PRODUÇÃO</span>
+</div>
+<ol aria-label="Andamento do pedido" style="list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px">
+<li style="display: flex; flex-direction: column; gap: 10px"><span style="display: block; height: 4px; background: #90E04B"></span><span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.08em">PEDIDO RECEBIDO</span></li>
+<li aria-current="step" style="display: flex; flex-direction: column; gap: 10px"><span style="display: block; height: 4px; background: #90E04B"></span><span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.08em; color: #90E04B">EM PRODUÇÃO</span></li>
+<li style="display: flex; flex-direction: column; gap: 10px"><span style="display: block; height: 4px; background: rgba(238,232,218,0.2)"></span><span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.08em; color: rgba(238,232,218,0.72)">ENVIADO</span></li>
+<li style="display: flex; flex-direction: column; gap: 10px"><span style="display: block; height: 4px; background: rgba(238,232,218,0.2)"></span><span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.08em; color: rgba(238,232,218,0.72)">ENTREGUE</span></li>
+</ol>
+<div style="display: flex; gap: 16px; align-items: center; border-top: 1px solid rgba(238,232,218,0.2); padding-top: 20px; flex-wrap: wrap">
+<img src="/_blob/82698ce76c3e89d6cc7f6a5ac35e611a" alt="" style="display: block; width: 72px; height: 90px; object-fit: cover; background: #1F002E">
+<div style="display: flex; flex-direction: column; gap: 4px; flex: 1 1 200px"><span style="font-weight: 600; text-transform: uppercase">Rio</span><span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: rgba(238,232,218,0.72)">CT-009 · MALHA ESCURA · M</span></div>
+<span style="font-size: 14px; line-height: 1.5; max-width: 300px; color: rgba(238,232,218,0.82)">Sua peça está sendo impressa. Previsão de envio: [DATA].</span>
+</div>
+</article>
+<article style="border: 1px solid rgba(238,232,218,0.2); padding: 24px; display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; align-items: center">
+<div style="display: flex; flex-direction: column; gap: 4px"><span style="font-weight: 700; font-size: 18px">Pedido #[0001]</span><span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: rgba(238,232,218,0.72)">[DATA] · 2 PEÇAS · R$ 338</span></div>
+<div style="display: flex; gap: 12px; align-items: center; flex-wrap: wrap"><span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.08em; border: 1px solid #EEE8DA; padding: 6px 10px">ENTREGUE</span><a href="#" style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-underline-offset: 4px; padding: 10px 0">PEDIR DEVOLUÇÃO</a></div>
+</article>
+</sc-if>
+<sc-if value="{{abaEnderecos}}" hint-placeholder-val="{{false}}">
+<h2 style="margin: 0; font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.08em; font-weight: 500">ENDEREÇOS</h2>
+<div class="g2">
+<article style="border: 1px solid rgba(238,232,218,0.3); padding: 24px; display: flex; flex-direction: column; gap: 8px; font-size: 15px; line-height: 1.6"><span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.08em; color: #90E04B">PRINCIPAL</span><span>[NOME]<br>[RUA, NÚMERO, COMPLEMENTO]<br>[BAIRRO] · [CIDADE] – [UF]<br>[CEP]</span><div style="display: flex; gap: 18px; margin-top: 8px"><a href="#" style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.08em">EDITAR</a><a href="#" style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.08em">REMOVER</a></div></article>
+<button type="button" style="min-height: 180px; border: 1px dashed rgba(238,232,218,0.45); background: transparent; color: #EEE8DA; font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.08em; cursor: pointer">+ NOVO ENDEREÇO</button>
+</div>
+</sc-if>
+<sc-if value="{{abaDados}}" hint-placeholder-val="{{false}}">
+<h2 style="margin: 0; font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.08em; font-weight: 500">DADOS PESSOAIS</h2>
+<form style="display: flex; flex-direction: column; gap: 16px; max-width: 520px">
+<div style="display: flex; flex-direction: column; gap: 6px"><label for="d-nome" style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.08em">NOME</label><input id="d-nome" value="[NOME]" style="min-height: 52px; padding: 0 16px; border: 1px solid rgba(238,232,218,0.5); background: transparent; color: #EEE8DA; font-size: 16px; font-family: inherit; border-radius: 0; box-sizing: border-box; min-width: 0; width: 100%"></div>
+<div style="display: flex; flex-direction: column; gap: 6px"><label for="d-email" style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.08em">E-MAIL</label><input id="d-email" type="email" value="nome@email.com" style="min-height: 52px; padding: 0 16px; border: 1px solid rgba(238,232,218,0.5); background: transparent; color: #EEE8DA; font-size: 16px; font-family: inherit; border-radius: 0; box-sizing: border-box; min-width: 0; width: 100%"></div>
+<div style="display: flex; flex-direction: column; gap: 6px"><label for="d-tel" style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.08em">CELULAR</label><input id="d-tel" type="tel" placeholder="(00) 00000-0000" style="min-height: 52px; padding: 0 16px; border: 1px solid rgba(238,232,218,0.5); background: transparent; color: #EEE8DA; font-size: 16px; font-family: inherit; border-radius: 0; box-sizing: border-box; min-width: 0; width: 100%"></div>
+<button type="button" style="display: inline-flex; align-items: center; justify-content: center; min-height: 52px; padding: 0 24px; border: 0; background: #EEE8DA; color: #02070A; text-decoration: none; font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.08em; font-weight: 500; cursor: pointer; align-self: flex-start">SALVAR ALTERAÇÕES</button>
+</form>
+</sc-if>
+</div>
+</section>
+</sc-if>
+
+</main>
+<footer style="background: #02070A; color: #EEE8DA; overflow: hidden; container-type: inline-size">
+<div style="background: #90E04B; color: #02070A">
+<div style="max-width: 1400px; margin: 0 auto; padding: 32px 20px; display: flex; justify-content: space-between; align-items: center; gap: 24px; flex-wrap: wrap">
+<h2 style="margin: 0; font-family: 'Poppins', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: -0.02em; font-size: clamp(24px, 2.8vw, 40px); line-height: 1.02; max-width: 640px">Os lançamentos chegam primeiro por aqui.</h2>
+<form style="display: flex; flex-direction: column; gap: 6px; flex: 1 1 360px; max-width: 520px; min-width: 0">
+<label for="email" style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.1em">SEU E-MAIL · UM POR LANÇAMENTO, SEM ENXURRADA</label>
+<div style="display: flex; flex-wrap: wrap">
+<input id="email" type="email" placeholder="nome@email.com" style="flex: 1 1 200px; min-width: 0; min-height: 52px; padding: 0 16px; border: 2px solid #02070A; background: transparent; color: #02070A; font-size: 16px; font-family: inherit; border-radius: 0">
+<button type="button" style="min-height: 52px; padding: 0 22px; border: 2px solid #02070A; background: #02070A; color: #90E04B; font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: 0.08em; font-weight: 500; cursor: pointer">QUERO RECEBER</button>
+</div>
+</form>
+</div>
+</div>
+<div style="max-width: 1400px; margin: 0 auto; padding: 72px 20px 0; display: flex; flex-direction: column; gap: 56px">
+<div class="foot-grid">
+<div style="display: flex; gap: 24px; align-items: flex-start; flex-wrap: wrap; min-width: 0">
+<svg width="112" height="112" viewBox="0 0 120 120" role="img" aria-label="Selo Feita no Brasil" style="flex-shrink: 0">
+<circle cx="60" cy="60" r="58" fill="none" stroke="#EEE8DA" stroke-width="1"></circle>
+<g class="selo-gira" fill="#EEE8DA" font-family="IBM Plex Mono, monospace" font-size="10" font-weight="500"><text x="60.00" y="16.00" transform="rotate(0.0 60.00 16.00)" text-anchor="middle" dominant-baseline="central">F</text><text x="67.64" y="16.67" transform="rotate(10.0 67.64 16.67)" text-anchor="middle" dominant-baseline="central">E</text><text x="75.05" y="18.65" transform="rotate(20.0 75.05 18.65)" text-anchor="middle" dominant-baseline="central">I</text><text x="82.00" y="21.89" transform="rotate(30.0 82.00 21.89)" text-anchor="middle" dominant-baseline="central">T</text><text x="88.28" y="26.29" transform="rotate(40.0 88.28 26.29)" text-anchor="middle" dominant-baseline="central">A</text><text x="98.11" y="38.00" transform="rotate(60.0 98.11 38.00)" text-anchor="middle" dominant-baseline="central">N</text><text x="101.35" y="44.95" transform="rotate(70.0 101.35 44.95)" text-anchor="middle" dominant-baseline="central">O</text><text x="104.00" y="60.00" transform="rotate(90.0 104.00 60.00)" text-anchor="middle" dominant-baseline="central">B</text><text x="103.33" y="67.64" transform="rotate(100.0 103.33 67.64)" text-anchor="middle" dominant-baseline="central">R</text><text x="101.35" y="75.05" transform="rotate(110.0 101.35 75.05)" text-anchor="middle" dominant-baseline="central">A</text><text x="98.11" y="82.00" transform="rotate(120.0 98.11 82.00)" text-anchor="middle" dominant-baseline="central">S</text><text x="93.71" y="88.28" transform="rotate(130.0 93.71 88.28)" text-anchor="middle" dominant-baseline="central">I</text><text x="88.28" y="93.71" transform="rotate(140.0 88.28 93.71)" text-anchor="middle" dominant-baseline="central">L</text><text x="75.05" y="101.35" transform="rotate(160.0 75.05 101.35)" text-anchor="middle" dominant-baseline="central">•</text><text x="60.00" y="104.00" transform="rotate(180.0 60.00 104.00)" text-anchor="middle" dominant-baseline="central">F</text><text x="52.36" y="103.33" transform="rotate(190.0 52.36 103.33)" text-anchor="middle" dominant-baseline="central">E</text><text x="44.95" y="101.35" transform="rotate(200.0 44.95 101.35)" text-anchor="middle" dominant-baseline="central">I</text><text x="38.00" y="98.11" transform="rotate(210.0 38.00 98.11)" text-anchor="middle" dominant-baseline="central">T</text><text x="31.72" y="93.71" transform="rotate(220.0 31.72 93.71)" text-anchor="middle" dominant-baseline="central">A</text><text x="21.89" y="82.00" transform="rotate(240.0 21.89 82.00)" text-anchor="middle" dominant-baseline="central">N</text><text x="18.65" y="75.05" transform="rotate(250.0 18.65 75.05)" text-anchor="middle" dominant-baseline="central">O</text><text x="16.00" y="60.00" transform="rotate(270.0 16.00 60.00)" text-anchor="middle" dominant-baseline="central">B</text><text x="16.67" y="52.36" transform="rotate(280.0 16.67 52.36)" text-anchor="middle" dominant-baseline="central">R</text><text x="18.65" y="44.95" transform="rotate(290.0 18.65 44.95)" text-anchor="middle" dominant-baseline="central">A</text><text x="21.89" y="38.00" transform="rotate(300.0 21.89 38.00)" text-anchor="middle" dominant-baseline="central">S</text><text x="26.29" y="31.72" transform="rotate(310.0 26.29 31.72)" text-anchor="middle" dominant-baseline="central">I</text><text x="31.72" y="26.29" transform="rotate(320.0 31.72 26.29)" text-anchor="middle" dominant-baseline="central">L</text><text x="44.95" y="18.65" transform="rotate(340.0 44.95 18.65)" text-anchor="middle" dominant-baseline="central">•</text></g>
+<polygon points="60,40 81,60 60,80 39,60" fill="none" stroke="#F8D65B" stroke-width="2"></polygon>
+<circle cx="60" cy="60" r="7.5" fill="#90E04B"></circle>
+</svg>
+<div style="display: flex; flex-direction: column; gap: 18px; min-width: 0; flex: 1 1 220px">
+<p style="margin: 0; font-family: 'Poppins', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: -0.02em; font-size: 22px; line-height: 1.1">O Brasil no nosso<br>próprio ritmo.</p>
+<p style="margin: 0; font-size: 14px; line-height: 1.6; color: rgba(238,232,218,0.75); max-width: 300px">Atendimento de segunda a sexta, das 9h às 18h. A gente responde em até 1 dia útil.</p>
+<a href="https://wa.me/55XXXXXXXXXXX" style="align-self: flex-start; display: inline-flex; align-items: center; gap: 10px; min-height: 48px; padding: 0 20px; background: #EEE8DA; color: #02070A; text-decoration: none; font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.08em; font-weight: 500"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 20l1.3-3.9A8 8 0 1 1 8 19z"></path></svg>FALAR NO WHATSAPP</a>
+</div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 14px; min-width: 0"><h3 style="margin: 0; font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 500; letter-spacing: 0.1em; color: #90E04B">LOJA</h3><ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; font-size: 15px"><li><a href="Loja.dc.html" style="color: #EEE8DA; text-decoration: none">Todas as peças</a></li><li><a href="Loja.dc.html" style="color: #EEE8DA; text-decoration: none">Novidades</a></li><li><a href="Colecoes.dc.html" style="color: #EEE8DA; text-decoration: none">Coleções</a></li><li><a href="Main.dc.html#lancamento" style="color: #EEE8DA; text-decoration: none">Lançamento Rio</a></li></ul></div><div style="display: flex; flex-direction: column; gap: 14px; min-width: 0"><h3 style="margin: 0; font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 500; letter-spacing: 0.1em; color: #90E04B">MARCA</h3><ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; font-size: 15px"><li><a href="Sobre.dc.html" style="color: #EEE8DA; text-decoration: none">Sobre</a></li><li><a href="Manifesto.dc.html" style="color: #EEE8DA; text-decoration: none">Manifesto</a></li><li><a href="#" style="color: #EEE8DA; text-decoration: none">Instagram</a></li><li><a href="#" style="color: #EEE8DA; text-decoration: none">TikTok</a></li></ul></div><div style="display: flex; flex-direction: column; gap: 14px; min-width: 0"><h3 style="margin: 0; font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 500; letter-spacing: 0.1em; color: #90E04B">ATENDIMENTO</h3><ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; font-size: 15px"><li><a href="https://wa.me/55XXXXXXXXXXX" style="color: #EEE8DA; text-decoration: none">WhatsApp · [NÚMERO]</a></li><li><a href="mailto:contato@[DOMINIO]" style="color: #EEE8DA; text-decoration: none">contato@[DOMÍNIO]</a></li><li><a href="#" style="color: #EEE8DA; text-decoration: none">Devoluções</a></li><li><a href="#" style="color: #EEE8DA; text-decoration: none">Rastrear pedido</a></li></ul></div><div style="display: flex; flex-direction: column; gap: 14px; min-width: 0"><h3 style="margin: 0; font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 500; letter-spacing: 0.1em; color: #90E04B">LINKS ÚTEIS</h3><ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; font-size: 15px"><li><a href="#" style="color: #EEE8DA; text-decoration: none">Dúvidas frequentes</a></li><li><a href="#" style="color: #EEE8DA; text-decoration: none">Tabela de medidas</a></li><li><a href="#" style="color: #EEE8DA; text-decoration: none">Política de privacidade</a></li><li><a href="#" style="color: #EEE8DA; text-decoration: none">Termos de uso</a></li></ul></div>
+</div>
+<div style="display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; border-top: 1px solid rgba(238,232,218,0.2); padding-top: 20px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.06em; color: rgba(238,232,218,0.75)">
+<span>© 2026 CONTRATEMPO© · [NOME E CPF DO RESPONSÁVEL] · [ENDEREÇO]</span>
+<span>PIX, CARTÃO E BOLETO</span>
+</div>
+</div>
+<p aria-hidden="true" style="margin: 24px 0 0; font-family: 'Poppins', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: -0.02em; font-size: 12.6vw; font-size: 12.6cqw; line-height: 0.76; letter-spacing: -0.045em; white-space: nowrap; color: #EEE8DA; text-align: center; margin-bottom: -0.12em; max-width: 100%">CONTRATEMPO<span style="font-size: 0.55em; vertical-align: super; letter-spacing: 0">©</span></p>
+</footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview": {"width": 1440, "height": 2000}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const menuOpen = !!(this.state && this.state.menu);
+    const menu = {
+      menuOpen,
+      menuExpanded: menuOpen ? 'true' : 'false',
+      menuLabel: menuOpen ? 'FECHAR' : 'MENU',
+      menuAria: menuOpen ? 'Fechar menu' : 'Abrir menu',
+      toggleMenu: () => this.setState({ menu: !menuOpen })
+    };
+
+    const s = this.state || {};
+    const modo = s.modo || 'entrar';
+    const aba = s.aba || 'pedidos';
+    const tab = (on) => ({ bg: on ? '#EEE8DA' : 'transparent', fg: on ? '#02070A' : '#EEE8DA', sel: on ? 'true' : 'false' });
+    const te = tab(modo === 'entrar'), tc = tab(modo === 'criar');
+    return {
+      ...menu,
+      cartCount: 0,
+      isAuth: modo !== 'logado',
+      isLogado: modo === 'logado',
+      isEntrar: modo === 'entrar',
+      isCriar: modo === 'criar',
+      authTitle: modo === 'criar' ? 'Criar conta' : 'Entrar',
+      authText: modo === 'criar' ? 'Leva um minuto. Depois disso, seus pedidos, endereços e devoluções ficam num lugar só.' : 'Que bom te ver de novo. Entre para acompanhar seus pedidos e devoluções.',
+      submitLabel: modo === 'criar' ? 'CRIAR CONTA' : 'ENTRAR',
+      tabEntrarBg: te.bg, tabEntrarFg: te.fg, tabEntrarSel: te.sel,
+      tabCriarBg: tc.bg, tabCriarFg: tc.fg, tabCriarSel: tc.sel,
+      goEntrar: () => this.setState({ modo: 'entrar' }),
+      goCriar: () => this.setState({ modo: 'criar' }),
+      login: (e) => { if (e) e.preventDefault(); this.setState({ modo: 'logado', aba: 'pedidos' }); },
+      logout: () => this.setState({ modo: 'entrar' }),
+      abas: [['pedidos', 'PEDIDOS'], ['enderecos', 'ENDEREÇOS'], ['dados', 'DADOS PESSOAIS']].map(([v, label]) => ({
+        label,
+        current: v === aba ? 'page' : 'false',
+        color: v === aba ? '#90E04B' : '#EEE8DA',
+        pick: () => this.setState({ aba: v })
+      })),
+      abaPedidos: aba === 'pedidos',
+      abaEnderecos: aba === 'enderecos',
+      abaDados: aba === 'dados'
+    };
+  }
+
+}
+</script>
+</body>
+</html>

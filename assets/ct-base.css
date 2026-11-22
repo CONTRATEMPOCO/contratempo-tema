@@ -1,0 +1,153 @@
+/* CONTRATEMPO© — base visual da marca sobre o Dawn */
+
+:root {
+  --ct-preto: #02070A;
+  --ct-creme: #EEE8DA;
+  --ct-verde: #90E04B;
+  --ct-amarelo: #F8D65B;
+  --ct-terracota: #CD6547;
+  --ct-garrafa: #0E2A1E;
+  --ct-garrafa-claro: #163A2B;
+  --ct-miniatura: #1F002E;
+  --ct-linha: rgba(238, 232, 218, 0.2);
+  --ct-mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --ct-curva: cubic-bezier(.6, 0, .3, 1);
+}
+
+::selection {
+  background: var(--ct-verde);
+  color: var(--ct-preto);
+}
+
+/* Títulos: caixa alta, peso forte, espaçamento justo */
+h1, h2, h3,
+.h0, .h1, .h2, .h3 {
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  line-height: 0.95;
+}
+
+/* Rótulos em mono */
+h4, h5, .h4, .h5,
+.caption-with-letter-spacing,
+.product__text.caption-with-letter-spacing,
+.badge,
+.announcement-bar__message,
+.ct-mono {
+  font-family: var(--ct-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 500;
+}
+
+.announcement-bar__message {
+  font-size: 1.2rem;
+}
+
+.badge {
+  border-radius: 0;
+  font-size: 1.1rem;
+}
+
+/* Botões retangulares, texto em mono */
+.button,
+.shopify-challenge__button,
+.customer button,
+.cart__checkout-button,
+button.shopify-payment-button__button--unbranded {
+  font-family: var(--ct-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 500;
+  font-size: 1.3rem;
+  min-height: 5.2rem;
+  border-radius: 0;
+}
+
+.button--primary.cart__checkout-button,
+#checkout {
+  background-color: var(--ct-verde);
+  color: var(--ct-preto);
+}
+
+/* Campos */
+.field__input,
+.select__select,
+.customer .field input,
+.quantity {
+  border-radius: 0;
+}
+
+/* Seletor de variantes (tamanho, cor) */
+.product-form__input input[type='radio'] + label {
+  border-radius: 0;
+  font-family: var(--ct-mono);
+  letter-spacing: 0.06em;
+  min-width: 5.2rem;
+  min-height: 5.2rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Links */
+a:not(.button):hover {
+  color: var(--ct-terracota);
+}
+
+/* Utilitários */
+.ct-mono-sm {
+  font-family: var(--ct-mono);
+  font-size: 1.1rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.ct-linha-topo {
+  border-top: 0.1rem solid var(--ct-linha);
+}
+
+.ct-aviso {
+  display: flex;
+  gap: 1.4rem;
+  align-items: flex-start;
+  border: 0.1rem solid var(--ct-amarelo);
+  padding: 1.4rem 1.6rem;
+  font-size: 1.4rem;
+  line-height: 1.55;
+}
+
+.ct-aviso svg {
+  flex-shrink: 0;
+  margin-top: 0.1rem;
+  color: var(--ct-amarelo);
+}
+
+.ct-aviso strong {
+  font-weight: 600;
+}
+
+/* Assinatura de movimento: o ponto fora do tempo */
+@keyframes contratempo {
+  0%, 55% { transform: translateY(0); }
+  65%, 85% { transform: translateY(7.5px); }
+  100% { transform: translateY(0); }
+}
+
+@keyframes contratempo-g {
+  0%, 55% { transform: translateY(0); }
+  65%, 85% { transform: translateY(18px); }
+  100% { transform: translateY(0); }
+}
+
+@keyframes gira {
+  to { transform: rotate(360deg); }
+}
+
+.pulo { animation: contratempo 4s var(--ct-curva) infinite; }
+.pulo-g { animation: contratempo-g 4s var(--ct-curva) infinite; }
+.selo-gira { transform-origin: 50% 50%; animation: gira 24s linear infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  .pulo, .pulo-g, .selo-gira { animation: none; }
+}

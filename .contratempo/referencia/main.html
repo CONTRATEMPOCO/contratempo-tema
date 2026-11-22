@@ -1,0 +1,370 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>CONTRATEMPO© — Página inicial</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{color:#EEE8DA}a:hover{color:#CD6547}
+h1,h2,h3,p,a,span{overflow-wrap:break-word}
+#email::placeholder{color:#02070A;opacity:1}
+.hdr{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);align-items:center;gap:16px}
+.g4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:40px 16px}
+.g3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.g2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.menu-grid{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1fr);gap:40px}
+.foot-grid{display:grid;grid-template-columns:minmax(0,1.9fr) repeat(4,minmax(0,1fr));gap:40px 24px}
+@keyframes contratempo{0%,55%{transform:translateY(0)}65%,85%{transform:translateY(7.5px)}100%{transform:translateY(0)}}
+.pulo{animation:contratempo 4s cubic-bezier(.6,0,.3,1) infinite}
+@keyframes contratempo-g{0%,55%{transform:translateY(0)}65%,85%{transform:translateY(18px)}100%{transform:translateY(0)}}
+.pulo-g{animation:contratempo-g 4s cubic-bezier(.6,0,.3,1) infinite}
+@keyframes gira{to{transform:rotate(360deg)}}
+.selo-gira{transform-origin:60px 60px;animation:gira 24s linear infinite}
+@media (prefers-reduced-motion: reduce){.pulo,.pulo-g,.selo-gira{animation:none}}
+.hero{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:10px}
+.h-a{grid-column:1/8;grid-row:1}.h-c{grid-column:1/8;grid-row:2}.h-b{grid-column:8/13;grid-row:1/3}
+.beats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr))}
+@media (max-width: 1000px){.hero>*{grid-column:1/-1 !important;grid-row:auto !important}}
+@media (max-width: 1000px){.foot-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.foot-grid>:first-child{grid-column:1/-1}.nav-desk{display:none !important}.g4{grid-template-columns:repeat(2,minmax(0,1fr))}.g3,.g2,.menu-grid{grid-template-columns:1fr}}
+@media (max-width: 560px){.hdr-icons .opt{display:none !important}}
+@media (max-width: 420px){.g4{grid-template-columns:1fr}}
+.deco{display:block}
+@media (max-width: 1000px){.deco{display:none !important}}
+</style>
+</helmet>
+<div style="background: #02070A; color: #EEE8DA; font-family: 'Poppins', sans-serif; min-height: 100vh; overflow-x: hidden">
+<div style="background: #02070A; color: #EEE8DA; text-align: center; padding: 7px 16px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.06em">COLEÇÃO 001 DISPONÍVEL · ATÉ 3X SEM JUROS · 5% DE DESCONTO NO PIX</div>
+<header style="background: #02070A; border-bottom: 1px solid rgba(238,232,218,0.15)">
+<div class="hdr" style="max-width: 1400px; margin: 0 auto; padding: 10px 20px">
+<div style="display: flex; align-items: center; gap: 18px; min-width: 0">
+<button type="button" onClick="{{toggleMenu}}" aria-label="{{menuAria}}" aria-expanded="{{menuExpanded}}" aria-controls="menu-geral" style="display: inline-flex; align-items: center; gap: 10px; min-height: 44px; padding: 0 12px 0 6px; border: 0; background: transparent; color: #EEE8DA; cursor: pointer; font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.08em"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 6h18"></path><path d="M3 12h18"></path><path d="M3 18h18"></path></svg>{{menuLabel}}</button>
+<nav aria-label="Principal" class="nav-desk" style="display: flex; gap: 22px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.08em"><a href="Loja.dc.html" style="text-decoration: none;  padding: 4px 0">LOJA</a><a href="Colecoes.dc.html" style="text-decoration: none;  padding: 4px 0">COLEÇÕES</a><a href="Manifesto.dc.html" style="text-decoration: none;  padding: 4px 0">MANIFESTO</a></nav>
+</div>
+<a href="Main.dc.html" aria-label="CONTRATEMPO©, página inicial" style="display: flex; flex-direction: column; align-items: center; gap: 6px; text-decoration: none; color: #EEE8DA"><div aria-hidden="true" style="position: relative; width: 35px; height: 12.5px; flex-shrink: 0"><span style="position: absolute; left: 0px; top: 7.5px; width: 5px; height: 5px; border-radius: 50%; background: #EEE8DA"></span><span style="position: absolute; left: 10px; top: 7.5px; width: 5px; height: 5px; border-radius: 50%; background: #EEE8DA"></span><span class="pulo" style="position: absolute; left: 20px; top: 0px; width: 5px; height: 5px; border-radius: 50%; background: #EEE8DA"></span><span style="position: absolute; left: 30px; top: 7.5px; width: 5px; height: 5px; border-radius: 50%; background: #EEE8DA"></span></div><span style="font-family: 'Poppins', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: -0.02em; font-size: 18px; letter-spacing: 0.1em; white-space: nowrap">CONTRATEMPO<span style="font-size: 0.55em; vertical-align: super; letter-spacing: 0">©</span></span></a>
+<div class="hdr-icons" style="display: flex; align-items: center; justify-content: flex-end">
+<span class="opt"><button type="button" aria-label="Buscar" style="display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border: 0; background: transparent; color: #EEE8DA; cursor: pointer"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="square" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.5-3.5"></path></svg></button></span><span class="opt"><button type="button" aria-label="Minha conta" style="display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border: 0; background: transparent; color: #EEE8DA; cursor: pointer"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="square" aria-hidden="true"><circle cx="12" cy="8" r="4"></circle><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"></path></svg></button></span>
+<a href="#" aria-label="Sacola, 0 itens" style="position: relative; display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; color: #EEE8DA"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 8h14l-1 13H6L5 8z"></path><path d="M9 8V6a3 3 0 0 1 6 0v2"></path></svg><span style="position: absolute; top: 4px; right: 2px; min-width: 17px; height: 17px; border-radius: 999px; background: #EEE8DA; color: #02070A; font-size: 10px; font-weight: 600; display: flex; align-items: center; justify-content: center">0</span></a>
+</div>
+</div>
+<sc-if value="{{menuOpen}}" hint-placeholder-val="{{false}}">
+<nav id="menu-geral" aria-label="Menu" style="background: #02070A; color: #EEE8DA">
+<div class="menu-grid" style="max-width: 1400px; margin: 0 auto; padding: 40px 20px 48px">
+<div style="display: flex; flex-direction: column; gap: 6px"><a href="Main.dc.html" aria-current="page" style="color: #90E04B; text-decoration: none; font-family: 'Poppins', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: -0.02em; font-size: clamp(34px, 5vw, 64px); line-height: 1.05">INÍCIO</a><a href="Loja.dc.html" style="color: #EEE8DA; text-decoration: none; font-family: 'Poppins', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: -0.02em; font-size: clamp(34px, 5vw, 64px); line-height: 1.05">LOJA</a><a href="Colecoes.dc.html" style="color: #EEE8DA; text-decoration: none; font-family: 'Poppins', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: -0.02em; font-size: clamp(34px, 5vw, 64px); line-height: 1.05">COLEÇÕES</a><a href="Sobre.dc.html" style="color: #EEE8DA; text-decoration: none; font-family: 'Poppins', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: -0.02em; font-size: clamp(34px, 5vw, 64px); line-height: 1.05">SOBRE</a><a href="Manifesto.dc.html" style="color: #EEE8DA; text-decoration: none; font-family: 'Poppins', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: -0.02em; font-size: clamp(34px, 5vw, 64px); line-height: 1.05">MANIFESTO</a></div>
+<div style="display: flex; flex-direction: column; gap: 14px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.08em">
+<span style="color: rgba(238,232,218,0.75)">AJUDA</span>
+<a href="#" style="color: #EEE8DA">TABELA DE MEDIDAS</a><a href="#" style="color: #EEE8DA">DEVOLUÇÕES</a><a href="#" style="color: #EEE8DA">CONTATO</a>
+<span style="color: rgba(238,232,218,0.75); margin-top: 18px">SIGA</span>
+<a href="#" style="color: #EEE8DA">INSTAGRAM</a><a href="#" style="color: #EEE8DA">TIKTOK</a>
+</div>
+</div>
+</nav>
+</sc-if>
+</header>
+<main>
+<section aria-label="Destaques" style="max-width: 1400px; margin: 0 auto; padding: 10px 20px">
+<div class="hero">
+<div class="h-a" role="region" aria-roledescription="carrossel" aria-label="Destaques" style="position: relative; overflow: hidden; background: #02070A; color: #EEE8DA; min-height: 520px; min-width: 0">
+<sc-if value="{{show1}}" hint-placeholder-val="{{true}}">
+<div role="group" aria-roledescription="slide" aria-label="1 de 3" style="position: absolute; inset: 0">
+<img src="/_blob/d3bb55f435478c60961248776d13dd1d" alt="" aria-hidden="true" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 60% center">
+<div aria-hidden="true" style="position: absolute; inset: 0; background: rgba(2,7,10,0.58)"></div>
+<div style="position: relative; height: 100%; box-sizing: border-box; padding: clamp(24px, 3.5vw, 48px) clamp(24px, 3.5vw, 48px) 96px; display: flex; flex-direction: column; justify-content: space-between; gap: 28px"><span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.12em; color: rgba(238,232,218,0.75)">COLEÇÃO 001 · CT-001 — CT-008</span>
+<div style="display: flex; flex-direction: column; gap: 18px">
+<h1 style="margin: 0; font-family: 'Poppins', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: -0.02em; font-size: clamp(34px, 5.2vw, 74px); line-height: 0.98; color: #EEE8DA">O Brasil no nosso <span style="color: #90E04B">próprio ritmo.</span></h1>
+<p style="margin: 0; font-size: 16px; line-height: 1.6; max-width: 440px; color: #EEE8DA">Camisetas de criação autoral com o repertório daqui. Moda atemporal, identidade brasileira.</p>
+<div style="display: flex; gap: 10px; flex-wrap: wrap"><a href="Loja.dc.html" style="display: inline-flex; align-items: center; min-height: 50px; padding: 0 24px; background: #90E04B; color: #02070A; border: 0; text-decoration: none; font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: 0.08em; font-weight: 500">COMPRAR A COLEÇÃO 001</a><a href="Manifesto.dc.html" style="display: inline-flex; align-items: center; min-height: 50px; padding: 0 24px; background: transparent; color: #EEE8DA; border: 1px solid #EEE8DA; text-decoration: none; font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: 0.08em; font-weight: 500">O QUE É CONTRATEMPO</a></div>
+</div></div>
+</div>
+</sc-if><sc-if value="{{show2}}" hint-placeholder-val="{{false}}">
+<div role="group" aria-roledescription="slide" aria-label="2 de 3" style="position: absolute; inset: 0">
+<img src="/_blob/dda266f5e0150da550e1bfd0ff0abbaa" alt="" aria-hidden="true" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 30%">
+<div aria-hidden="true" style="position: absolute; inset: 0; background: rgba(2,7,10,0.35)"></div>
+<div style="position: relative; height: 100%; box-sizing: border-box; padding: clamp(24px, 3.5vw, 48px) clamp(24px, 3.5vw, 48px) 96px; display: flex; flex-direction: column; justify-content: space-between; gap: 28px"><span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.12em; color: rgba(238,232,218,0.75)">FIG. 02 · CALÇADA, 23H</span>
+<div style="display: flex; flex-direction: column; gap: 18px; max-width: 560px">
+<h2 style="margin: 0; font-family: 'Poppins', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: -0.02em; font-size: clamp(34px, 5vw, 70px); line-height: 0.96; color: #EEE8DA">A gente conhece bem <span style="color: #CD6547">os contratempos.</span></h2>
+<div style="display: flex; gap: 10px; flex-wrap: wrap"><a href="Manifesto.dc.html" style="display: inline-flex; align-items: center; min-height: 50px; padding: 0 24px; background: #EEE8DA; color: #02070A; border: 0; text-decoration: none; font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: 0.08em; font-weight: 500">LER O MANIFESTO</a><a href="Sobre.dc.html" style="display: inline-flex; align-items: center; min-height: 50px; padding: 0 24px; background: transparent; color: #EEE8DA; border: 1px solid #EEE8DA; text-decoration: none; font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: 0.08em; font-weight: 500">SOBRE A MARCA</a></div>
+</div></div>
+</div>
+</sc-if><sc-if value="{{show3}}" hint-placeholder-val="{{false}}">
+<div role="group" aria-roledescription="slide" aria-label="3 de 3" style="position: absolute; inset: 0">
+<img src="/_blob/7434487b30ca2bddbd9f5b0ab37f93f5" alt="" aria-hidden="true" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; object-position: right center">
+<div aria-hidden="true" style="position: absolute; inset: 0; background: rgba(2,7,10,0.25)"></div>
+<div style="position: relative; height: 100%; box-sizing: border-box; padding: clamp(24px, 3.5vw, 48px) clamp(24px, 3.5vw, 48px) 96px; display: flex; flex-direction: column; justify-content: space-between; gap: 28px"><span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.12em; color: #90E04B">LANÇAMENTO</span>
+<div style="display: flex; flex-direction: column; gap: 18px">
+<h2 style="margin: 0; font-family: 'Poppins', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: -0.02em; font-size: clamp(44px, 7vw, 110px); line-height: 0.9; color: #90E04B; text-shadow: 0 0 36px rgba(144,224,75,0.4)">Abriu.</h2>
+<p style="margin: 0; font-size: 18px; line-height: 1.5; max-width: 420px; color: #EEE8DA">A loja está no ar. Nove estampas, cinco cores de malha, todas feitas no Brasil.</p>
+<div style="display: flex; gap: 10px; flex-wrap: wrap"><a href="Loja.dc.html" style="display: inline-flex; align-items: center; min-height: 50px; padding: 0 24px; background: #90E04B; color: #02070A; border: 0; text-decoration: none; font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: 0.08em; font-weight: 500">ENTRAR NA LOJA</a><a href="Colecoes.dc.html" style="display: inline-flex; align-items: center; min-height: 50px; padding: 0 24px; background: transparent; color: #EEE8DA; border: 1px solid #EEE8DA; text-decoration: none; font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: 0.08em; font-weight: 500">VER COLEÇÕES</a></div>
+</div></div>
+</div>
+</sc-if><div style="position: absolute; left: clamp(24px, 3.5vw, 48px); right: clamp(24px, 3.5vw, 48px); bottom: 24px; display: flex; align-items: center; justify-content: space-between; gap: 12px; z-index: 2">
+<div style="display: flex; align-items: center; gap: 4px" role="group" aria-label="Escolher slide">
+<sc-for list="{{dots}}" as="d" hint-placeholder-count="3"><button type="button" onClick="{{d.pick}}" aria-label="{{d.label}}" aria-current="{{d.current}}" style="display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border: 0; background: transparent; cursor: pointer; padding: 0"><span style="display: block; width: {{d.w}}px; height: 6px; border-radius: 3px; background: #EEE8DA; opacity: {{d.op}}; transition: width 0.3s ease"></span></button></sc-for>
+</div>
+<div style="display: flex; gap: 6px">
+<button type="button" onClick="{{togglePlay}}" aria-label="{{playAria}}" style="min-height: 44px; padding: 0 14px; border: 1px solid rgba(238,232,218,0.5); background: transparent; color: #EEE8DA; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.08em; cursor: pointer">{{playLabel}}</button>
+<button type="button" onClick="{{prevSlide}}" aria-label="Slide anterior" style="display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border: 1px solid rgba(238,232,218,0.5); background: transparent; color: #EEE8DA; cursor: pointer"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M15 5l-7 7 7 7"></path></svg></button>
+<button type="button" onClick="{{nextSlide}}" aria-label="Próximo slide" style="display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border: 1px solid rgba(238,232,218,0.5); background: transparent; color: #EEE8DA; cursor: pointer"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 5l7 7-7 7"></path></svg></button>
+</div>
+</div>
+</div>
+<div class="h-c" style="position: relative; overflow: hidden; background: #02070A; color: #F8D65B; border: 1px solid #F8D65B; padding: 22px clamp(20px, 3vw, 40px); display: flex; align-items: center; justify-content: space-between; gap: 20px; min-height: 170px; box-sizing: border-box; min-width: 0">
+<div style="display: flex; flex-direction: column; gap: 8px; position: relative; z-index: 1"><span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.12em">FIG. 01 · ORELHÃO</span><p style="margin: 0; font-family: 'Poppins', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: -0.02em; font-size: clamp(30px, 3.6vw, 54px); line-height: 0.95">Contra o tempo.</p></div>
+<img class="deco" src="/_blob/0c768d5f8cddf77de3c7bc3ea471872b" alt="" aria-hidden="true" style="position: absolute; right: -10px; top: -40px; width: 260px; height: 260px; object-fit: cover; mix-blend-mode: lighten">
+</div>
+<div class="h-b" style="position: relative; min-height: 600px; min-width: 0">
+<img src="/_blob/f376a5627bc6e7932c381e2a1befeea0" alt="Pessoa de corpo inteiro com camiseta terracota numa calçada de concreto, com parede de cobogó ao fundo" style="display: block; width: 100%; height: 100%; min-height: 600px; object-fit: cover; object-position: center top">
+<a href="Loja.dc.html" style="position: absolute; left: 14px; right: 14px; bottom: 14px; display: flex; justify-content: space-between; align-items: center; gap: 12px; background: #02070A; padding: 12px 14px; text-decoration: none; color: #EEE8DA"><span style="display: flex; flex-direction: column; gap: 2px; min-width: 0"><span style="font-weight: 600; font-size: 14px; text-transform: uppercase">[NOME DA ESTAMPA 02]</span><span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: rgba(238,232,218,0.72)">CT-002 · MALHA TERRACOTA</span></span><span style="font-family: 'Poppins', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: -0.02em; font-size: 20px; white-space: nowrap">R$ 169</span></a>
+</div>
+</div>
+</section>
+
+<section aria-label="Condições de compra" style="max-width: 1400px; margin: 0 auto; padding: 0 20px">
+<div class="g4" style="gap: 0; border-bottom: 1px solid rgba(238,232,218,0.2)"><div style="display: flex; flex-direction: column; gap: 4px; padding: 18px 16px; border-left: 1px solid rgba(238,232,218,0.2)"><span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.08em; color: rgba(238,232,218,0.72)">ENVIO</span><span style="font-size: 14px">Para todo o Brasil. Frete calculado pelo CEP</span></div><div style="display: flex; flex-direction: column; gap: 4px; padding: 18px 16px; border-left: 1px solid rgba(238,232,218,0.2)"><span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.08em; color: rgba(238,232,218,0.72)">PARCELAMENTO</span><span style="font-size: 14px">Em até 3x sem juros</span></div><div style="display: flex; flex-direction: column; gap: 4px; padding: 18px 16px; border-left: 1px solid rgba(238,232,218,0.2)"><span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.08em; color: rgba(238,232,218,0.72)">PIX</span><span style="font-size: 14px">5% de desconto</span></div><div style="display: flex; flex-direction: column; gap: 4px; padding: 18px 16px; border-left: 1px solid rgba(238,232,218,0.2)"><span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.08em; color: rgba(238,232,218,0.72)">DEVOLUÇÃO</span><span style="font-size: 14px">7 dias após a entrega, com postagem grátis</span></div></div>
+</section>
+
+<section id="lancamento" aria-labelledby="lanc-titulo" style="max-width: 1400px; margin: 0 auto; padding: 56px 20px 0">
+<div style="position: relative; overflow: hidden; background: #1F002E; color: #EEE8DA; min-height: 520px">
+<img src="/_blob/6bdce4529ebdbc48d06ec70eec86593c" alt="" aria-hidden="true" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 70% center">
+<div aria-hidden="true" style="position: absolute; inset: 0; background: rgba(31,0,46,0.55)"></div>
+<div style="position: relative; max-width: 620px; box-sizing: border-box; padding: clamp(24px, 4vw, 56px); min-height: 520px; display: flex; flex-direction: column; justify-content: space-between; gap: 32px">
+<div style="display: flex; gap: 10px; flex-wrap: wrap; align-items: center"><span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.08em; background: #90E04B; color: #02070A; padding: 6px 10px">LANÇAMENTO</span><span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.08em; color: #EEE8DA">CT-009 · COLEÇÃO 002</span></div>
+<div style="display: flex; flex-direction: column; gap: 16px">
+<h2 id="lanc-titulo" style="margin: 0; font-family: 'Poppins', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: -0.02em; font-size: clamp(64px, 10vw, 152px); line-height: 0.88">Rio</h2>
+<p style="margin: 0; font-size: 17px; line-height: 1.6; max-width: 440px">Estampa grande nas costas. Na frente, a assinatura na malha escura e o mascote na malha branca.</p>
+</div>
+<div style="display: flex; gap: 10px; flex-wrap: wrap">
+<a href="Loja.dc.html" style="display: inline-flex; align-items: center; min-height: 50px; padding: 0 26px; background: #F8D65B; color: #02070A; text-decoration: none; font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: 0.08em; font-weight: 500">GARANTIR A MINHA</a>
+<a href="Colecoes.dc.html" style="display: inline-flex; align-items: center; min-height: 50px; padding: 0 22px; border: 1px solid #EEE8DA; color: #EEE8DA; text-decoration: none; font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: 0.08em">VER A COLEÇÃO</a>
+</div>
+</div>
+</div>
+</section>
+
+<section id="pecas" aria-labelledby="pecas-titulo" style="max-width: 1400px; margin: 0 auto; padding: 72px 20px; display: flex; flex-direction: column; gap: 28px">
+<div style="display: flex; justify-content: space-between; align-items: flex-end; gap: 16px; flex-wrap: wrap">
+<div style="display: flex; flex-direction: column; gap: 6px"><span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.08em; color: rgba(238,232,218,0.72)">DESTAQUES DA LOJA</span><h2 id="pecas-titulo" style="margin: 0; font-family: 'Poppins', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: -0.02em; font-size: clamp(32px, 4vw, 56px); line-height: 1">Camisetas</h2></div>
+<a href="Loja.dc.html" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 18px; border: 1px solid #EEE8DA; text-decoration: none; font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.08em">VER TODAS AS PEÇAS →</a>
+</div>
+<div class="g4"><article style="display: flex; flex-direction: column; gap: 10px; min-width: 0">
+<div style="position: relative; aspect-ratio: 4 / 5; background: #1F002E; overflow: hidden">
+<a href="Loja.dc.html" aria-label="Rio" style="display: block; width: 100%; height: 100%"><img src="{{rio.src}}" alt="{{rio.alt}}" style="display: block; width: 100%; height: 100%; object-fit: cover"></a>
+<span style="position: absolute; top: 0; left: 0; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.08em; background: #90E04B; color: #02070A; padding: 6px 10px">LANÇAMENTO</span>
+<button type="button" onClick="{{rio.prev}}" aria-label="Foto anterior" style="position: absolute; left: 8px; top: 50%; margin-top: -22px; display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border: 0; border-radius: 50%; background: rgba(2,7,10,0.6); color: #EEE8DA; cursor: pointer"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M15 5l-7 7 7 7"></path></svg></button>
+<button type="button" onClick="{{rio.next}}" aria-label="Próxima foto" style="position: absolute; right: 8px; top: 50%; margin-top: -22px; display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border: 0; border-radius: 50%; background: rgba(2,7,10,0.6); color: #EEE8DA; cursor: pointer"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 5l7 7-7 7"></path></svg></button>
+<span aria-live="polite" style="position: absolute; right: 10px; bottom: 10px; padding: 4px 8px; background: rgba(2,7,10,0.7); font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #EEE8DA">{{rio.count}}</span>
+</div>
+<div style="display: flex; gap: 6px" role="group" aria-label="Fotos da peça"><sc-for list="{{rio.thumbs}}" as="t" hint-placeholder-count="4"><button type="button" onClick="{{t.pick}}" aria-label="{{t.label}}" aria-pressed="{{t.pressed}}" style="width: 44px; height: 56px; padding: 0; border: 2px solid {{t.border}}; background: #1F002E; overflow: hidden; cursor: pointer"><img src="{{t.src}}" alt="" style="display: block; width: 100%; height: 100%; object-fit: cover"></button></sc-for></div>
+<div style="display: flex; flex-direction: column; gap: 3px"><a href="#" style="font-family: 'Poppins', sans-serif; font-weight: 600; font-size: 15px; text-transform: uppercase; letter-spacing: 0.01em; text-decoration: none">Rio</a><span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: rgba(238,232,218,0.72)">CT-009 · Frente e costas · 2 cores de malha</span></div>
+<div style="display: flex; align-items: baseline; justify-content: space-between; gap: 10px; flex-wrap: wrap; border-top: 1px solid rgba(238,232,218,0.2); padding-top: 10px">
+<span style="font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 24px; letter-spacing: -0.02em">R$ 169</span>
+<span style="font-size: 12px; color: rgba(238,232,218,0.72)">ou 3x de R$ 56,33</span>
+</div>
+<div style="display: flex; gap: 6px; flex-wrap: wrap"><span style="display: inline-flex; align-items: center; justify-content: center; min-width: 36px; height: 32px; border: 1px solid rgba(238,232,218,0.35); font-family: 'IBM Plex Mono', monospace; font-size: 12px">P</span><span style="display: inline-flex; align-items: center; justify-content: center; min-width: 36px; height: 32px; border: 1px solid rgba(238,232,218,0.35); font-family: 'IBM Plex Mono', monospace; font-size: 12px">M</span><span style="display: inline-flex; align-items: center; justify-content: center; min-width: 36px; height: 32px; border: 1px solid rgba(238,232,218,0.35); font-family: 'IBM Plex Mono', monospace; font-size: 12px">G</span><span style="display: inline-flex; align-items: center; justify-content: center; min-width: 36px; height: 32px; border: 1px solid rgba(238,232,218,0.35); font-family: 'IBM Plex Mono', monospace; font-size: 12px">GG</span></div>
+<button type="button" style="min-height: 46px; border: 0; background: #EEE8DA; color: #02070A; font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.08em; cursor: pointer">ADICIONAR À SACOLA</button>
+</article><article style="display: flex; flex-direction: column; gap: 10px; min-width: 0">
+<a href="Loja.dc.html" aria-label="[NOME DA ESTAMPA 01]" style="position: relative; display: block; aspect-ratio: 4 / 5; background: #02070A; overflow: hidden; text-decoration: none"><img src="/_blob/1c189b2483947446ff9f6dbca6a8d05d" alt="Camiseta verde-garrafa sobre piso de concreto" style="display: block; width: 100%; height: 100%; min-height: 0px; object-fit: cover; object-position: center"><span style="position: absolute; top: 0; left: 0; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.08em; background: #90E04B; color: #02070A; padding: 6px 10px">NOVO</span></a>
+
+<div style="display: flex; flex-direction: column; gap: 3px"><a href="#" style="font-family: 'Poppins', sans-serif; font-weight: 600; font-size: 15px; text-transform: uppercase; letter-spacing: 0.01em; text-decoration: none">[NOME DA ESTAMPA 01]</a><span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: rgba(238,232,218,0.72)">CT-001 · Malha verde-garrafa · tinta creme</span></div>
+<div style="display: flex; align-items: baseline; justify-content: space-between; gap: 10px; flex-wrap: wrap; border-top: 1px solid rgba(238,232,218,0.2); padding-top: 10px">
+<span style="font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 24px; letter-spacing: -0.02em">R$ 169</span>
+<span style="font-size: 12px; color: rgba(238,232,218,0.72)">ou 3x de R$ 56,33</span>
+</div>
+<div style="display: flex; gap: 6px; flex-wrap: wrap"><span style="display: inline-flex; align-items: center; justify-content: center; min-width: 36px; height: 32px; border: 1px solid rgba(238,232,218,0.35); font-family: 'IBM Plex Mono', monospace; font-size: 12px">P</span><span style="display: inline-flex; align-items: center; justify-content: center; min-width: 36px; height: 32px; border: 1px solid rgba(238,232,218,0.35); font-family: 'IBM Plex Mono', monospace; font-size: 12px">M</span><span style="display: inline-flex; align-items: center; justify-content: center; min-width: 36px; height: 32px; border: 1px solid rgba(238,232,218,0.35); font-family: 'IBM Plex Mono', monospace; font-size: 12px">G</span><span style="display: inline-flex; align-items: center; justify-content: center; min-width: 36px; height: 32px; border: 1px solid rgba(238,232,218,0.35); font-family: 'IBM Plex Mono', monospace; font-size: 12px">GG</span></div>
+<button type="button" style="min-height: 46px; border: 0; background: #EEE8DA; color: #02070A; font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.08em; cursor: pointer">ADICIONAR À SACOLA</button>
+</article><article style="display: flex; flex-direction: column; gap: 10px; min-width: 0">
+<a href="Loja.dc.html" aria-label="[NOME DA ESTAMPA 02]" style="position: relative; display: block; aspect-ratio: 4 / 5; background: #02070A; overflow: hidden; text-decoration: none"><img src="/_blob/d6528bd74322ff011250f50cc22e2f4a" alt="Camiseta terracota sobre piso de concreto" style="display: block; width: 100%; height: 100%; min-height: 0px; object-fit: cover; object-position: center"></a>
+
+<div style="display: flex; flex-direction: column; gap: 3px"><a href="#" style="font-family: 'Poppins', sans-serif; font-weight: 600; font-size: 15px; text-transform: uppercase; letter-spacing: 0.01em; text-decoration: none">[NOME DA ESTAMPA 02]</a><span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: rgba(238,232,218,0.72)">CT-002 · Malha terracota · tinta preto</span></div>
+<div style="display: flex; align-items: baseline; justify-content: space-between; gap: 10px; flex-wrap: wrap; border-top: 1px solid rgba(238,232,218,0.2); padding-top: 10px">
+<span style="font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 24px; letter-spacing: -0.02em">R$ 169</span>
+<span style="font-size: 12px; color: rgba(238,232,218,0.72)">ou 3x de R$ 56,33</span>
+</div>
+<div style="display: flex; gap: 6px; flex-wrap: wrap"><span style="display: inline-flex; align-items: center; justify-content: center; min-width: 36px; height: 32px; border: 1px solid rgba(238,232,218,0.35); font-family: 'IBM Plex Mono', monospace; font-size: 12px">P</span><span style="display: inline-flex; align-items: center; justify-content: center; min-width: 36px; height: 32px; border: 1px solid rgba(238,232,218,0.35); font-family: 'IBM Plex Mono', monospace; font-size: 12px">M</span><span style="display: inline-flex; align-items: center; justify-content: center; min-width: 36px; height: 32px; border: 1px solid rgba(238,232,218,0.35); font-family: 'IBM Plex Mono', monospace; font-size: 12px">G</span><span style="display: inline-flex; align-items: center; justify-content: center; min-width: 36px; height: 32px; border: 1px solid rgba(238,232,218,0.35); font-family: 'IBM Plex Mono', monospace; font-size: 12px">GG</span></div>
+<button type="button" style="min-height: 46px; border: 0; background: #EEE8DA; color: #02070A; font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.08em; cursor: pointer">ADICIONAR À SACOLA</button>
+</article><article style="display: flex; flex-direction: column; gap: 10px; min-width: 0">
+<a href="Loja.dc.html" aria-label="[NOME DA ESTAMPA 03]" style="position: relative; display: block; aspect-ratio: 4 / 5; background: #02070A; overflow: hidden; text-decoration: none"><img src="/_blob/cffc44ac40bd7e815bff7874babb4998" alt="Camiseta bordô sobre piso de concreto" style="display: block; width: 100%; height: 100%; min-height: 0px; object-fit: cover; object-position: center"></a>
+
+<div style="display: flex; flex-direction: column; gap: 3px"><a href="#" style="font-family: 'Poppins', sans-serif; font-weight: 600; font-size: 15px; text-transform: uppercase; letter-spacing: 0.01em; text-decoration: none">[NOME DA ESTAMPA 03]</a><span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: rgba(238,232,218,0.72)">CT-003 · Malha bordô · tinta creme</span></div>
+<div style="display: flex; align-items: baseline; justify-content: space-between; gap: 10px; flex-wrap: wrap; border-top: 1px solid rgba(238,232,218,0.2); padding-top: 10px">
+<span style="font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 24px; letter-spacing: -0.02em">R$ 169</span>
+<span style="font-size: 12px; color: rgba(238,232,218,0.72)">ou 3x de R$ 56,33</span>
+</div>
+<div style="display: flex; gap: 6px; flex-wrap: wrap"><span style="display: inline-flex; align-items: center; justify-content: center; min-width: 36px; height: 32px; border: 1px solid rgba(238,232,218,0.35); font-family: 'IBM Plex Mono', monospace; font-size: 12px">P</span><span style="display: inline-flex; align-items: center; justify-content: center; min-width: 36px; height: 32px; border: 1px solid rgba(238,232,218,0.35); font-family: 'IBM Plex Mono', monospace; font-size: 12px">M</span><span style="display: inline-flex; align-items: center; justify-content: center; min-width: 36px; height: 32px; border: 1px solid rgba(238,232,218,0.35); font-family: 'IBM Plex Mono', monospace; font-size: 12px">G</span><span style="display: inline-flex; align-items: center; justify-content: center; min-width: 36px; height: 32px; border: 1px solid rgba(238,232,218,0.35); font-family: 'IBM Plex Mono', monospace; font-size: 12px">GG</span></div>
+<button type="button" style="min-height: 46px; border: 0; background: #EEE8DA; color: #02070A; font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.08em; cursor: pointer">ADICIONAR À SACOLA</button>
+</article><article style="display: flex; flex-direction: column; gap: 10px; min-width: 0">
+<a href="Loja.dc.html" aria-label="[NOME DA ESTAMPA 04]" style="position: relative; display: block; aspect-ratio: 4 / 5; background: #02070A; overflow: hidden; text-decoration: none"><img src="/_blob/0467c81bddc0892ad8f88d666f74d0ee" alt="Camiseta preto sobre piso de concreto" style="display: block; width: 100%; height: 100%; min-height: 0px; object-fit: cover; object-position: center"></a>
+
+<div style="display: flex; flex-direction: column; gap: 3px"><a href="#" style="font-family: 'Poppins', sans-serif; font-weight: 600; font-size: 15px; text-transform: uppercase; letter-spacing: 0.01em; text-decoration: none">[NOME DA ESTAMPA 04]</a><span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: rgba(238,232,218,0.72)">CT-004 · Malha preto · tinta lima</span></div>
+<div style="display: flex; align-items: baseline; justify-content: space-between; gap: 10px; flex-wrap: wrap; border-top: 1px solid rgba(238,232,218,0.2); padding-top: 10px">
+<span style="font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 24px; letter-spacing: -0.02em">R$ 169</span>
+<span style="font-size: 12px; color: rgba(238,232,218,0.72)">ou 3x de R$ 56,33</span>
+</div>
+<div style="display: flex; gap: 6px; flex-wrap: wrap"><span style="display: inline-flex; align-items: center; justify-content: center; min-width: 36px; height: 32px; border: 1px solid rgba(238,232,218,0.35); font-family: 'IBM Plex Mono', monospace; font-size: 12px">P</span><span style="display: inline-flex; align-items: center; justify-content: center; min-width: 36px; height: 32px; border: 1px solid rgba(238,232,218,0.35); font-family: 'IBM Plex Mono', monospace; font-size: 12px">M</span><span style="display: inline-flex; align-items: center; justify-content: center; min-width: 36px; height: 32px; border: 1px solid rgba(238,232,218,0.35); font-family: 'IBM Plex Mono', monospace; font-size: 12px">G</span><span style="display: inline-flex; align-items: center; justify-content: center; min-width: 36px; height: 32px; border: 1px solid rgba(238,232,218,0.35); font-family: 'IBM Plex Mono', monospace; font-size: 12px">GG</span></div>
+<button type="button" style="min-height: 46px; border: 0; background: #EEE8DA; color: #02070A; font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.08em; cursor: pointer">ADICIONAR À SACOLA</button>
+</article><article style="display: flex; flex-direction: column; gap: 10px; min-width: 0">
+<a href="Loja.dc.html" aria-label="[NOME DA ESTAMPA 05]" style="position: relative; display: block; aspect-ratio: 4 / 5; background: #02070A; overflow: hidden; text-decoration: none"><img src="/_blob/e63f8d69421dde0ceeaf7d711f4d1940" alt="Camiseta creme sobre piso de concreto" style="display: block; width: 100%; height: 100%; min-height: 0px; object-fit: cover; object-position: center"></a>
+
+<div style="display: flex; flex-direction: column; gap: 3px"><a href="#" style="font-family: 'Poppins', sans-serif; font-weight: 600; font-size: 15px; text-transform: uppercase; letter-spacing: 0.01em; text-decoration: none">[NOME DA ESTAMPA 05]</a><span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: rgba(238,232,218,0.72)">CT-005 · Malha creme · tinta terracota</span></div>
+<div style="display: flex; align-items: baseline; justify-content: space-between; gap: 10px; flex-wrap: wrap; border-top: 1px solid rgba(238,232,218,0.2); padding-top: 10px">
+<span style="font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 24px; letter-spacing: -0.02em">R$ 169</span>
+<span style="font-size: 12px; color: rgba(238,232,218,0.72)">ou 3x de R$ 56,33</span>
+</div>
+<div style="display: flex; gap: 6px; flex-wrap: wrap"><span style="display: inline-flex; align-items: center; justify-content: center; min-width: 36px; height: 32px; border: 1px solid rgba(238,232,218,0.35); font-family: 'IBM Plex Mono', monospace; font-size: 12px">P</span><span style="display: inline-flex; align-items: center; justify-content: center; min-width: 36px; height: 32px; border: 1px solid rgba(238,232,218,0.35); font-family: 'IBM Plex Mono', monospace; font-size: 12px">M</span><span style="display: inline-flex; align-items: center; justify-content: center; min-width: 36px; height: 32px; border: 1px solid rgba(238,232,218,0.35); font-family: 'IBM Plex Mono', monospace; font-size: 12px">G</span><span style="display: inline-flex; align-items: center; justify-content: center; min-width: 36px; height: 32px; border: 1px solid rgba(238,232,218,0.35); font-family: 'IBM Plex Mono', monospace; font-size: 12px">GG</span></div>
+<button type="button" style="min-height: 46px; border: 0; background: #EEE8DA; color: #02070A; font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.08em; cursor: pointer">ADICIONAR À SACOLA</button>
+</article><article style="display: flex; flex-direction: column; gap: 10px; min-width: 0">
+<a href="Loja.dc.html" aria-label="[NOME DA ESTAMPA 06]" style="position: relative; display: block; aspect-ratio: 4 / 5; background: #02070A; overflow: hidden; text-decoration: none"><img src="/_blob/1c189b2483947446ff9f6dbca6a8d05d" alt="Camiseta verde-garrafa sobre piso de concreto" style="display: block; width: 100%; height: 100%; min-height: 0px; object-fit: cover; object-position: center"></a>
+
+<div style="display: flex; flex-direction: column; gap: 3px"><a href="#" style="font-family: 'Poppins', sans-serif; font-weight: 600; font-size: 15px; text-transform: uppercase; letter-spacing: 0.01em; text-decoration: none">[NOME DA ESTAMPA 06]</a><span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: rgba(238,232,218,0.72)">CT-006 · Malha verde-garrafa · tinta lima</span></div>
+<div style="display: flex; align-items: baseline; justify-content: space-between; gap: 10px; flex-wrap: wrap; border-top: 1px solid rgba(238,232,218,0.2); padding-top: 10px">
+<span style="font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 24px; letter-spacing: -0.02em">R$ 169</span>
+<span style="font-size: 12px; color: rgba(238,232,218,0.72)">ou 3x de R$ 56,33</span>
+</div>
+<div style="display: flex; gap: 6px; flex-wrap: wrap"><span style="display: inline-flex; align-items: center; justify-content: center; min-width: 36px; height: 32px; border: 1px solid rgba(238,232,218,0.35); font-family: 'IBM Plex Mono', monospace; font-size: 12px">P</span><span style="display: inline-flex; align-items: center; justify-content: center; min-width: 36px; height: 32px; border: 1px solid rgba(238,232,218,0.35); font-family: 'IBM Plex Mono', monospace; font-size: 12px">M</span><span style="display: inline-flex; align-items: center; justify-content: center; min-width: 36px; height: 32px; border: 1px solid rgba(238,232,218,0.35); font-family: 'IBM Plex Mono', monospace; font-size: 12px">G</span><span style="display: inline-flex; align-items: center; justify-content: center; min-width: 36px; height: 32px; border: 1px solid rgba(238,232,218,0.35); font-family: 'IBM Plex Mono', monospace; font-size: 12px">GG</span></div>
+<button type="button" style="min-height: 46px; border: 0; background: #EEE8DA; color: #02070A; font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.08em; cursor: pointer">ADICIONAR À SACOLA</button>
+</article><article style="display: flex; flex-direction: column; gap: 10px; min-width: 0">
+<a href="Loja.dc.html" aria-label="[NOME DA ESTAMPA 07]" style="position: relative; display: block; aspect-ratio: 4 / 5; background: #02070A; overflow: hidden; text-decoration: none"><img src="/_blob/0467c81bddc0892ad8f88d666f74d0ee" alt="Camiseta preto sobre piso de concreto" style="display: block; width: 100%; height: 100%; min-height: 0px; object-fit: cover; object-position: center"></a>
+
+<div style="display: flex; flex-direction: column; gap: 3px"><a href="#" style="font-family: 'Poppins', sans-serif; font-weight: 600; font-size: 15px; text-transform: uppercase; letter-spacing: 0.01em; text-decoration: none">[NOME DA ESTAMPA 07]</a><span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: rgba(238,232,218,0.72)">CT-007 · Malha preto · tinta amarelo</span></div>
+<div style="display: flex; align-items: baseline; justify-content: space-between; gap: 10px; flex-wrap: wrap; border-top: 1px solid rgba(238,232,218,0.2); padding-top: 10px">
+<span style="font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 24px; letter-spacing: -0.02em">R$ 169</span>
+<span style="font-size: 12px; color: rgba(238,232,218,0.72)">ou 3x de R$ 56,33</span>
+</div>
+<div style="display: flex; gap: 6px; flex-wrap: wrap"><span style="display: inline-flex; align-items: center; justify-content: center; min-width: 36px; height: 32px; border: 1px solid rgba(238,232,218,0.35); font-family: 'IBM Plex Mono', monospace; font-size: 12px">P</span><span style="display: inline-flex; align-items: center; justify-content: center; min-width: 36px; height: 32px; border: 1px solid rgba(238,232,218,0.35); font-family: 'IBM Plex Mono', monospace; font-size: 12px">M</span><span style="display: inline-flex; align-items: center; justify-content: center; min-width: 36px; height: 32px; border: 1px solid rgba(238,232,218,0.35); font-family: 'IBM Plex Mono', monospace; font-size: 12px">G</span><span style="display: inline-flex; align-items: center; justify-content: center; min-width: 36px; height: 32px; border: 1px solid rgba(238,232,218,0.35); font-family: 'IBM Plex Mono', monospace; font-size: 12px">GG</span></div>
+<button type="button" style="min-height: 46px; border: 0; background: #EEE8DA; color: #02070A; font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.08em; cursor: pointer">ADICIONAR À SACOLA</button>
+</article></div>
+</section>
+
+<section id="nome" aria-labelledby="nome-titulo" style="position: relative; overflow: hidden; background: #02070A; color: #EEE8DA; border-top: 1px solid rgba(238,232,218,0.2); border-bottom: 1px solid rgba(238,232,218,0.2)">
+<div style="max-width: 1400px; margin: 0 auto; padding: 88px 20px; display: flex; flex-direction: column; gap: 52px">
+<div class="g2" style="align-items: end; gap: 40px">
+<h2 id="nome-titulo" style="margin: 0; font-family: 'Poppins', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: -0.02em; font-size: clamp(30px, 4.2vw, 60px); line-height: 1">Contratempo é o som <span style="color: #F8D65B">fora do tempo forte.</span></h2>
+<p style="margin: 0; font-size: 17px; line-height: 1.65; color: #EEE8DA">É o que dá balanço ao samba, ao choro e ao baião. É também o nosso jeito de olhar o Brasil: sair do lugar esperado para enxergar o que sempre esteve ali.</p>
+</div>
+<div class="beats" role="img" aria-label="Quatro tempos de um compasso; o terceiro ponto sobe e deixa seu lugar vazio"><div style="display: flex; flex-direction: column; align-items: center; border-left: 1px solid rgba(238,232,218,0.3); padding-bottom: 16px; min-width: 0">
+<span style="align-self: flex-start; padding-left: 10px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: rgba(238,232,218,0.75)">TEMPO 1</span>
+<div style="height: 96px; display: flex; align-items: flex-start; justify-content: center; padding-top: 14px"></div>
+<div style="height: 72px; display: flex; align-items: center; justify-content: center"><span style="display: block; width: 56px; height: 56px; border-radius: 50%; background: #EEE8DA"></span></div>
+</div><div style="display: flex; flex-direction: column; align-items: center; border-left: 1px solid rgba(238,232,218,0.3); padding-bottom: 16px; min-width: 0">
+<span style="align-self: flex-start; padding-left: 10px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: rgba(238,232,218,0.75)">TEMPO 2</span>
+<div style="height: 96px; display: flex; align-items: flex-start; justify-content: center; padding-top: 14px"></div>
+<div style="height: 72px; display: flex; align-items: center; justify-content: center"><span style="display: block; width: 56px; height: 56px; border-radius: 50%; background: #EEE8DA"></span></div>
+</div><div style="display: flex; flex-direction: column; align-items: center; border-left: 1px solid rgba(238,232,218,0.3); padding-bottom: 16px; min-width: 0">
+<span style="align-self: flex-start; padding-left: 10px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: rgba(238,232,218,0.75)">TEMPO 3</span>
+<div style="height: 96px; display: flex; align-items: flex-start; justify-content: center; padding-top: 14px"><span style="display: block; width: 56px; height: 56px; border-radius: 50%; background: #EEE8DA"></span></div>
+<div style="height: 72px; display: flex; align-items: center; justify-content: center"><span style="display: block; width: 56px; height: 56px; border-radius: 50%; border: 2px dashed #90E04B; box-sizing: border-box"></span></div>
+</div><div style="display: flex; flex-direction: column; align-items: center; border-left: 1px solid rgba(238,232,218,0.3); padding-bottom: 16px; min-width: 0">
+<span style="align-self: flex-start; padding-left: 10px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: rgba(238,232,218,0.75)">TEMPO 4</span>
+<div style="height: 96px; display: flex; align-items: flex-start; justify-content: center; padding-top: 14px"></div>
+<div style="height: 72px; display: flex; align-items: center; justify-content: center"><span style="display: block; width: 56px; height: 56px; border-radius: 50%; background: #EEE8DA"></span></div>
+</div></div>
+<div style="display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap"><p style="margin: 0; font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.08em; color: #90E04B">A GENTE CONHECE BEM OS CONTRATEMPOS.</p><a href="Manifesto.dc.html" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 18px; border: 1px solid #EEE8DA; color: #EEE8DA; text-decoration: none; font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.08em">LER O MANIFESTO →</a></div>
+</div>
+</section>
+
+<section aria-labelledby="perto-titulo" style="max-width: 1400px; margin: 0 auto; padding: 80px 20px; display: flex; flex-direction: column; gap: 24px">
+<h2 id="perto-titulo" style="margin: 0; font-family: 'Poppins', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: -0.02em; font-size: clamp(30px, 4vw, 56px); line-height: 1">Parece simples. <span style="color: #CD6547">Olha de novo.</span></h2>
+<div class="g2">
+<figure style="margin: 0; display: flex; flex-direction: column; gap: 12px; min-width: 0"><div style="aspect-ratio: 4 / 3"><img src="/_blob/b97fed0d920bb01de403516643d155f1" alt="Pessoa encostada num muro descascado, com camiseta preta estampada, vista a dois metros" style="display: block; width: 100%; height: 100%; min-height: 0px; object-fit: cover; object-position: center"></div><figcaption style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.04em">DE LONGE — presença, composição, cor.</figcaption></figure>
+<figure style="margin: 0; display: flex; flex-direction: column; gap: 12px; min-width: 0"><div style="aspect-ratio: 4 / 3"><img src="/_blob/8f0ac4d101cf4e5332ab1fc3699760dd" alt="Estampa de perto: cruzamento no centro de São Paulo com ônibus amarelo, data e legenda impressas" style="display: block; width: 100%; height: 100%; min-height: 0px; object-fit: cover; object-position: center"></div><figcaption style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.04em">DE PERTO — o que só quem repara encontra.</figcaption></figure>
+</div>
+</section>
+
+<section id="cores" aria-labelledby="cores-titulo" style="background: #0E2A1E; color: #EEE8DA">
+<div style="max-width: 1400px; margin: 0 auto; padding: 72px 20px; display: flex; flex-direction: column; gap: 32px; align-items: center">
+<h2 id="cores-titulo" style="margin: 0; font-family: 'Poppins', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: -0.02em; font-size: clamp(26px, 3.4vw, 44px); line-height: 1; text-align: center">Escolha pela cor da malha</h2>
+<div style="display: flex; gap: 24px; flex-wrap: wrap; justify-content: center"><a href="#" style="display: flex; flex-direction: column; align-items: center; gap: 12px; text-decoration: none; color: #EEE8DA; font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.06em"><span style="display: block; width: 84px; height: 84px; background: #0E2A1E; "></span>VERDE-GARRAFA</a><a href="#" style="display: flex; flex-direction: column; align-items: center; gap: 12px; text-decoration: none; color: #EEE8DA; font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.06em"><span style="display: block; width: 84px; height: 84px; background: #CD6547; "></span>TERRACOTA</a><a href="#" style="display: flex; flex-direction: column; align-items: center; gap: 12px; text-decoration: none; color: #EEE8DA; font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.06em"><span style="display: block; width: 84px; height: 84px; background: #421210; "></span>BORDÔ</a><a href="#" style="display: flex; flex-direction: column; align-items: center; gap: 12px; text-decoration: none; color: #EEE8DA; font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.06em"><span style="display: block; width: 84px; height: 84px; background: #02070A; outline: 1px solid #EEE8DA; outline-offset: 3px;"></span>PRETO</a><a href="#" style="display: flex; flex-direction: column; align-items: center; gap: 12px; text-decoration: none; color: #EEE8DA; font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.06em"><span style="display: block; width: 84px; height: 84px; background: #EEE8DA; "></span>CREME</a></div>
+</div>
+</section>
+
+<section aria-labelledby="feita-titulo" style="max-width: 1400px; margin: 0 auto; padding: 80px 20px; display: flex; flex-direction: column; gap: 32px">
+<h2 id="feita-titulo" style="margin: 0; font-family: 'Poppins', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: -0.02em; font-size: clamp(30px, 4vw, 56px); line-height: 1">Vestir bem começa nos detalhes.</h2>
+<div class="g4"><div style="display: flex; flex-direction: column; gap: 10px; border-top: 3px solid #EEE8DA; padding-top: 16px; min-width: 0"><span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: rgba(238,232,218,0.72)">01</span><h3 style="margin: 0; font-family: 'Poppins', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: -0.02em; font-size: 22px">Malha</h3><p style="margin: 0; font-size: 15px; line-height: 1.6">Malha penteada fio 30.1, 100% algodão. Macia, respirável e resistente.</p></div><div style="display: flex; flex-direction: column; gap: 10px; border-top: 3px solid #EEE8DA; padding-top: 16px; min-width: 0"><span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: rgba(238,232,218,0.72)">02</span><h3 style="margin: 0; font-family: 'Poppins', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: -0.02em; font-size: 22px">Impressão</h3><p style="margin: 0; font-size: 15px; line-height: 1.6">Cada peça é impressa depois do seu pedido. Sem estoque parado, sem sobra.</p></div><div style="display: flex; flex-direction: column; gap: 10px; border-top: 3px solid #EEE8DA; padding-top: 16px; min-width: 0"><span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: rgba(238,232,218,0.72)">03</span><h3 style="margin: 0; font-family: 'Poppins', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: -0.02em; font-size: 22px">Prazo</h3><p style="margin: 0; font-size: 15px; line-height: 1.6">Pronta em 3 a 5 dias úteis depois do pagamento. Depois, segue para entrega.</p></div><div style="display: flex; flex-direction: column; gap: 10px; border-top: 3px solid #EEE8DA; padding-top: 16px; min-width: 0"><span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: rgba(238,232,218,0.72)">04</span><h3 style="margin: 0; font-family: 'Poppins', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: -0.02em; font-size: 22px">Medidas</h3><p style="margin: 0; font-size: 15px; line-height: 1.6">Modelagem ampla. Tabela de cada tamanho na página da peça. Não fazemos troca de tamanho, então vale conferir antes.</p></div></div>
+</section>
+</main>
+<footer style="background: #02070A; color: #EEE8DA; overflow: hidden; container-type: inline-size">
+<div style="background: #90E04B; color: #02070A">
+<div style="max-width: 1400px; margin: 0 auto; padding: 32px 20px; display: flex; justify-content: space-between; align-items: center; gap: 24px; flex-wrap: wrap">
+<h2 style="margin: 0; font-family: 'Poppins', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: -0.02em; font-size: clamp(24px, 2.8vw, 40px); line-height: 1.02; max-width: 640px">Os lançamentos chegam primeiro por aqui.</h2>
+<form style="display: flex; flex-direction: column; gap: 6px; flex: 1 1 360px; max-width: 520px; min-width: 0">
+<label for="email" style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.1em">SEU E-MAIL · UM POR LANÇAMENTO, SEM ENXURRADA</label>
+<div style="display: flex; flex-wrap: wrap">
+<input id="email" type="email" placeholder="nome@email.com" style="flex: 1 1 200px; min-width: 0; min-height: 52px; padding: 0 16px; border: 2px solid #02070A; background: transparent; color: #02070A; font-size: 16px; font-family: inherit; border-radius: 0">
+<button type="button" style="min-height: 52px; padding: 0 22px; border: 2px solid #02070A; background: #02070A; color: #90E04B; font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: 0.08em; font-weight: 500; cursor: pointer">QUERO RECEBER</button>
+</div>
+</form>
+</div>
+</div>
+<div style="max-width: 1400px; margin: 0 auto; padding: 72px 20px 0; display: flex; flex-direction: column; gap: 56px">
+<div class="foot-grid">
+<div style="display: flex; gap: 24px; align-items: flex-start; flex-wrap: wrap; min-width: 0">
+<svg width="112" height="112" viewBox="0 0 120 120" role="img" aria-label="Selo Feita no Brasil" style="flex-shrink: 0">
+<circle cx="60" cy="60" r="58" fill="none" stroke="#EEE8DA" stroke-width="1"></circle>
+<g class="selo-gira" fill="#EEE8DA" font-family="IBM Plex Mono, monospace" font-size="10" font-weight="500"><text x="60.00" y="16.00" transform="rotate(0.0 60.00 16.00)" text-anchor="middle" dominant-baseline="central">F</text><text x="67.64" y="16.67" transform="rotate(10.0 67.64 16.67)" text-anchor="middle" dominant-baseline="central">E</text><text x="75.05" y="18.65" transform="rotate(20.0 75.05 18.65)" text-anchor="middle" dominant-baseline="central">I</text><text x="82.00" y="21.89" transform="rotate(30.0 82.00 21.89)" text-anchor="middle" dominant-baseline="central">T</text><text x="88.28" y="26.29" transform="rotate(40.0 88.28 26.29)" text-anchor="middle" dominant-baseline="central">A</text><text x="98.11" y="38.00" transform="rotate(60.0 98.11 38.00)" text-anchor="middle" dominant-baseline="central">N</text><text x="101.35" y="44.95" transform="rotate(70.0 101.35 44.95)" text-anchor="middle" dominant-baseline="central">O</text><text x="104.00" y="60.00" transform="rotate(90.0 104.00 60.00)" text-anchor="middle" dominant-baseline="central">B</text><text x="103.33" y="67.64" transform="rotate(100.0 103.33 67.64)" text-anchor="middle" dominant-baseline="central">R</text><text x="101.35" y="75.05" transform="rotate(110.0 101.35 75.05)" text-anchor="middle" dominant-baseline="central">A</text><text x="98.11" y="82.00" transform="rotate(120.0 98.11 82.00)" text-anchor="middle" dominant-baseline="central">S</text><text x="93.71" y="88.28" transform="rotate(130.0 93.71 88.28)" text-anchor="middle" dominant-baseline="central">I</text><text x="88.28" y="93.71" transform="rotate(140.0 88.28 93.71)" text-anchor="middle" dominant-baseline="central">L</text><text x="75.05" y="101.35" transform="rotate(160.0 75.05 101.35)" text-anchor="middle" dominant-baseline="central">•</text><text x="60.00" y="104.00" transform="rotate(180.0 60.00 104.00)" text-anchor="middle" dominant-baseline="central">F</text><text x="52.36" y="103.33" transform="rotate(190.0 52.36 103.33)" text-anchor="middle" dominant-baseline="central">E</text><text x="44.95" y="101.35" transform="rotate(200.0 44.95 101.35)" text-anchor="middle" dominant-baseline="central">I</text><text x="38.00" y="98.11" transform="rotate(210.0 38.00 98.11)" text-anchor="middle" dominant-baseline="central">T</text><text x="31.72" y="93.71" transform="rotate(220.0 31.72 93.71)" text-anchor="middle" dominant-baseline="central">A</text><text x="21.89" y="82.00" transform="rotate(240.0 21.89 82.00)" text-anchor="middle" dominant-baseline="central">N</text><text x="18.65" y="75.05" transform="rotate(250.0 18.65 75.05)" text-anchor="middle" dominant-baseline="central">O</text><text x="16.00" y="60.00" transform="rotate(270.0 16.00 60.00)" text-anchor="middle" dominant-baseline="central">B</text><text x="16.67" y="52.36" transform="rotate(280.0 16.67 52.36)" text-anchor="middle" dominant-baseline="central">R</text><text x="18.65" y="44.95" transform="rotate(290.0 18.65 44.95)" text-anchor="middle" dominant-baseline="central">A</text><text x="21.89" y="38.00" transform="rotate(300.0 21.89 38.00)" text-anchor="middle" dominant-baseline="central">S</text><text x="26.29" y="31.72" transform="rotate(310.0 26.29 31.72)" text-anchor="middle" dominant-baseline="central">I</text><text x="31.72" y="26.29" transform="rotate(320.0 31.72 26.29)" text-anchor="middle" dominant-baseline="central">L</text><text x="44.95" y="18.65" transform="rotate(340.0 44.95 18.65)" text-anchor="middle" dominant-baseline="central">•</text></g>
+<polygon points="60,40 81,60 60,80 39,60" fill="none" stroke="#F8D65B" stroke-width="2"></polygon>
+<circle cx="60" cy="60" r="7.5" fill="#90E04B"></circle>
+</svg>
+<div style="display: flex; flex-direction: column; gap: 18px; min-width: 0; flex: 1 1 220px">
+<p style="margin: 0; font-family: 'Poppins', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: -0.02em; font-size: 22px; line-height: 1.1">O Brasil no nosso<br>próprio ritmo.</p>
+<p style="margin: 0; font-size: 14px; line-height: 1.6; color: rgba(238,232,218,0.75); max-width: 300px">Atendimento de segunda a sexta, das 9h às 18h. A gente responde em até 1 dia útil.</p>
+<a href="https://wa.me/55XXXXXXXXXXX" style="align-self: flex-start; display: inline-flex; align-items: center; gap: 10px; min-height: 48px; padding: 0 20px; background: #EEE8DA; color: #02070A; text-decoration: none; font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.08em; font-weight: 500"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 20l1.3-3.9A8 8 0 1 1 8 19z"></path></svg>FALAR NO WHATSAPP</a>
+</div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 14px; min-width: 0"><h3 style="margin: 0; font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 500; letter-spacing: 0.1em; color: #90E04B">LOJA</h3><ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; font-size: 15px"><li><a href="Loja.dc.html" style="color: #EEE8DA; text-decoration: none">Todas as peças</a></li><li><a href="Loja.dc.html" style="color: #EEE8DA; text-decoration: none">Novidades</a></li><li><a href="Colecoes.dc.html" style="color: #EEE8DA; text-decoration: none">Coleções</a></li><li><a href="Main.dc.html#lancamento" style="color: #EEE8DA; text-decoration: none">Lançamento Rio</a></li></ul></div><div style="display: flex; flex-direction: column; gap: 14px; min-width: 0"><h3 style="margin: 0; font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 500; letter-spacing: 0.1em; color: #90E04B">MARCA</h3><ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; font-size: 15px"><li><a href="Sobre.dc.html" style="color: #EEE8DA; text-decoration: none">Sobre</a></li><li><a href="Manifesto.dc.html" style="color: #EEE8DA; text-decoration: none">Manifesto</a></li><li><a href="#" style="color: #EEE8DA; text-decoration: none">Instagram</a></li><li><a href="#" style="color: #EEE8DA; text-decoration: none">TikTok</a></li></ul></div><div style="display: flex; flex-direction: column; gap: 14px; min-width: 0"><h3 style="margin: 0; font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 500; letter-spacing: 0.1em; color: #90E04B">ATENDIMENTO</h3><ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; font-size: 15px"><li><a href="https://wa.me/55XXXXXXXXXXX" style="color: #EEE8DA; text-decoration: none">WhatsApp · [NÚMERO]</a></li><li><a href="mailto:contato@[DOMINIO]" style="color: #EEE8DA; text-decoration: none">contato@[DOMÍNIO]</a></li><li><a href="#" style="color: #EEE8DA; text-decoration: none">Devoluções</a></li><li><a href="#" style="color: #EEE8DA; text-decoration: none">Rastrear pedido</a></li></ul></div><div style="display: flex; flex-direction: column; gap: 14px; min-width: 0"><h3 style="margin: 0; font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 500; letter-spacing: 0.1em; color: #90E04B">LINKS ÚTEIS</h3><ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; font-size: 15px"><li><a href="#" style="color: #EEE8DA; text-decoration: none">Dúvidas frequentes</a></li><li><a href="#" style="color: #EEE8DA; text-decoration: none">Tabela de medidas</a></li><li><a href="#" style="color: #EEE8DA; text-decoration: none">Política de privacidade</a></li><li><a href="#" style="color: #EEE8DA; text-decoration: none">Termos de uso</a></li></ul></div>
+</div>
+<div style="display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; border-top: 1px solid rgba(238,232,218,0.2); padding-top: 20px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.06em; color: rgba(238,232,218,0.75)">
+<span>© 2026 CONTRATEMPO© · [NOME E CPF DO RESPONSÁVEL] · [ENDEREÇO]</span>
+<span>PIX, CARTÃO E BOLETO</span>
+</div>
+</div>
+<p aria-hidden="true" style="margin: 24px 0 0; font-family: 'Poppins', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: -0.02em; font-size: 12.6vw; font-size: 12.6cqw; line-height: 0.76; letter-spacing: -0.045em; white-space: nowrap; color: #EEE8DA; text-align: center; margin-bottom: -0.12em; max-width: 100%">CONTRATEMPO<span style="font-size: 0.55em; vertical-align: super; letter-spacing: 0">©</span></p>
+</footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":6400}}'>
+class Component extends DCLogic {
+  componentDidMount() {
+    let reduce = false;
+    try { reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) {}
+    if (!reduce) this.startTimer(); else this.setState({ paused: true });
+  }
+  componentWillUnmount() { if (this.timer) clearInterval(this.timer); }
+  startTimer() {
+    if (this.timer) clearInterval(this.timer);
+    this.timer = setInterval(() => {
+      const s = (this.state && this.state.slide) || 0;
+      this.setState({ slide: (s + 1) % 3 });
+    }, 6500);
+  }
+  renderVals() {
+    const menuOpen = !!(this.state && this.state.menu);
+    const menu = { menuOpen, menuExpanded: menuOpen ? 'true' : 'false', menuLabel: menuOpen ? 'FECHAR' : 'MENU', menuAria: menuOpen ? 'Fechar menu' : 'Abrir menu', toggleMenu: () => this.setState({ menu: !menuOpen }) };
+    const slide = (this.state && this.state.slide) || 0;
+    const paused = !!(this.state && this.state.paused);
+    const go = (n) => { this.setState({ slide: (n + 3) % 3 }); if (!paused) this.startTimer(); };
+    const RIO = [["/_blob/94597f4b35218863863b114f6df7df07", "Rapaz de costas numa rua do Rio, com a camiseta Rio em malha escura", "Malha escura, costas"], ["/_blob/82698ce76c3e89d6cc7f6a5ac35e611a", "Rapaz encostado num táxi, com a frente da camiseta Rio em malha escura", "Malha escura, frente"], ["/_blob/9ff63605757c27b0f0416f3ceb1a9a9a", "Moça de costas numa ladeira, com a camiseta Rio em malha branca", "Malha branca, costas"], ["/_blob/a484f0037626a55eca6b1a1872234fb9", "Moça num bar de rua, com a frente da camiseta Rio em malha branca", "Malha branca, frente"]];
+    const ri = (this.state && this.state.rio) || 0;
+    const setRio = (n) => this.setState({ rio: (n + RIO.length) % RIO.length });
+    return {
+      ...menu,
+      show1: slide === 0, show2: slide === 1, show3: slide === 2,
+      dots: [0,1,2].map(i => ({ label: 'Ir para o slide ' + (i + 1), current: i === slide ? 'true' : 'false', w: i === slide ? 32 : 12, op: i === slide ? 1 : 0.45, pick: () => go(i) })),
+      prevSlide: () => go(slide - 1), nextSlide: () => go(slide + 1),
+      playLabel: paused ? 'TOCAR' : 'PAUSAR', playAria: paused ? 'Retomar a troca automática' : 'Pausar a troca automática',
+      togglePlay: () => { if (paused) { this.startTimer(); this.setState({ paused: false }); } else { if (this.timer) clearInterval(this.timer); this.timer = null; this.setState({ paused: true }); } },
+      rio: {
+        src: RIO[ri][0], alt: RIO[ri][1], count: (ri + 1) + ' / ' + RIO.length,
+        prev: () => setRio(ri - 1), next: () => setRio(ri + 1),
+        thumbs: RIO.map((r, i) => ({ src: r[0], label: r[2], pressed: i === ri ? 'true' : 'false', border: i === ri ? '#90E04B' : 'transparent', pick: () => setRio(i) }))
+      }
+    };
+  }
+}
+</script>
+</body>
+</html>

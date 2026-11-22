@@ -1466,5 +1466,103 @@
         "label": "t:settings_schema.customer_accounts.settings.customer_account_menu.label"
       }
     ]
+  },
+  {
+    "name": "Regras da loja",
+    "settings": [
+      {
+        "type": "paragraph",
+        "content": "Textos e valores usados em todo o tema: preço parcelado, Pix, prazos, atendimento e dados legais do rodapé."
+      },
+      {
+        "type": "header",
+        "content": "Pagamento"
+      },
+      {
+        "type": "range",
+        "id": "ct_parcelas",
+        "label": "Parcelas sem juros",
+        "min": 1,
+        "max": 12,
+        "step": 1,
+        "default": 3
+      },
+      {
+        "type": "range",
+        "id": "ct_desconto_pix",
+        "label": "Desconto no Pix",
+        "min": 0,
+        "max": 20,
+        "step": 1,
+        "unit": "%",
+        "default": 5
+      },
+      {
+        "type": "header",
+        "content": "Prazos"
+      },
+      {
+        "type": "text",
+        "id": "ct_texto_frete",
+        "label": "Texto de frete",
+        "default": "Frete calculado pelo CEP"
+      },
+      {
+        "type": "text",
+        "id": "ct_prazo_producao",
+        "label": "Prazo de produção",
+        "default": "3 a 5 dias úteis"
+      },
+      {
+        "type": "text",
+        "id": "ct_prazo_devolucao",
+        "label": "Prazo de devolução",
+        "default": "7 dias após a entrega"
+      },
+      {
+        "type": "text",
+        "id": "ct_prazo_reembolso",
+        "label": "Prazo de reembolso",
+        "default": "30 dias"
+      },
+      {
+        "type": "header",
+        "content": "Atendimento"
+      },
+      {
+        "type": "text",
+        "id": "ct_horario",
+        "label": "Horário de atendimento",
+        "default": "Segunda a sexta, das 9h às 18h"
+      },
+      {
+        "type": "text",
+        "id": "ct_prazo_resposta",
+        "label": "Prazo de resposta",
+        "default": "até 1 dia útil"
+      },
+      {
+        "type": "text",
+        "id": "ct_whatsapp",
+        "label": "Número do WhatsApp",
+        "info": "Só números, com DDI e DDD (ex.: 5511999999999). Vazio esconde o botão."
+      },
+      {
+        "type": "header",
+        "content": "Dados legais do rodapé"
+      },
+      {
+        "type": "text",
+        "id": "ct_responsavel",
+        "label": "Nome e CPF ou CNPJ do responsável",
+        "info": "Exigido pelo Decreto 7.962/2013. Vazio esconde o campo."
+      },
+      {
+        "type": "text",
+        "id": "ct_endereco",
+        "label": "Endereço do vendedor",
+        "info": "Vazio esconde o campo."
+      }
+    ]
   }
 ]

@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>CONTRATEMPO© — Busca</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{color:#EEE8DA}a:hover{color:#CD6547}
+h1,h2,h3,p,a,span{overflow-wrap:break-word}
+#email::placeholder{color:#02070A;opacity:1}
+.hdr{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);align-items:center;gap:16px}
+.g4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:40px 16px}
+.g3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.g2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.menu-grid{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1fr);gap:40px}
+.foot-grid{display:grid;grid-template-columns:minmax(0,1.9fr) repeat(4,minmax(0,1fr));gap:40px 24px}
+@keyframes contratempo{0%,55%{transform:translateY(0)}65%,85%{transform:translateY(7.5px)}100%{transform:translateY(0)}}
+.pulo{animation:contratempo 4s cubic-bezier(.6,0,.3,1) infinite}
+@keyframes contratempo-g{0%,55%{transform:translateY(0)}65%,85%{transform:translateY(18px)}100%{transform:translateY(0)}}
+.pulo-g{animation:contratempo-g 4s cubic-bezier(.6,0,.3,1) infinite}
+@keyframes gira{to{transform:rotate(360deg)}}
+.selo-gira{transform-origin:60px 60px;animation:gira 24s linear infinite}
+@media (prefers-reduced-motion: reduce){.pulo,.pulo-g,.selo-gira{animation:none}}
+
+@media (max-width: 1000px){.foot-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.foot-grid>:first-child{grid-column:1/-1}.nav-desk{display:none !important}.g4{grid-template-columns:repeat(2,minmax(0,1fr))}.g3,.g2,.menu-grid{grid-template-columns:1fr}}
+@media (max-width: 560px){.hdr-icons .opt{display:none !important}}
+@media (max-width: 420px){.g4{grid-template-columns:1fr}}
+.pdp{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:48px;align-items:start}
+.pdp-info{position:sticky;top:20px}
+.cart{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1fr);gap:48px;align-items:start}
+.acc summary{list-style:none;cursor:pointer}.acc summary::-webkit-details-marker{display:none}
+.acc[open] .mais{transform:rotate(45deg)}
+input::placeholder{color:rgba(238,232,218,0.55);opacity:1}
+@media (max-width: 1000px){.pdp,.cart{grid-template-columns:1fr}.pdp-info{position:static}}
+</style>
+</helmet>
+<div style="background: #02070A; color: #EEE8DA; font-family: 'Poppins', sans-serif; min-height: 100vh; overflow-x: hidden">
+<div style="background: #02070A; color: #EEE8DA; text-align: center; padding: 7px 16px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.06em">COLEÇÃO 001 DISPONÍVEL · ATÉ 3X SEM JUROS · 5% DE DESCONTO NO PIX</div>
+<header style="background: #02070A; border-bottom: 1px solid rgba(238,232,218,0.15)">
+<div class="hdr" style="max-width: 1400px; margin: 0 auto; padding: 10px 20px">
+<div style="display: flex; align-items: center; gap: 18px; min-width: 0">
+<button type="button" onClick="{{toggleMenu}}" aria-label="{{menuAria}}" aria-expanded="{{menuExpanded}}" aria-controls="menu-geral" style="display: inline-flex; align-items: center; gap: 10px; min-height: 44px; padding: 0 12px 0 6px; border: 0; background: transparent; color: #EEE8DA; cursor: pointer; font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.08em"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 6h18"></path><path d="M3 12h18"></path><path d="M3 18h18"></path></svg>{{menuLabel}}</button>
+<nav aria-label="Principal" class="nav-desk" style="display: flex; gap: 22px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.08em"><a href="Loja.dc.html" style="text-decoration: none;  padding: 4px 0">LOJA</a><a href="Colecoes.dc.html" style="text-decoration: none;  padding: 4px 0">COLEÇÕES</a><a href="Manifesto.dc.html" style="text-decoration: none;  padding: 4px 0">MANIFESTO</a></nav>
+</div>
+<a href="Main.dc.html" aria-label="CONTRATEMPO©, página inicial" style="display: flex; flex-direction: column; align-items: center; gap: 6px; text-decoration: none; color: #EEE8DA"><div aria-hidden="true" style="position: relative; width: 35px; height: 12.5px; flex-shrink: 0"><span style="position: absolute; left: 0px; top: 7.5px; width: 5px; height: 5px; border-radius: 50%; background: #EEE8DA"></span><span style="position: absolute; left: 10px; top: 7.5px; width: 5px; height: 5px; border-radius: 50%; background: #EEE8DA"></span><span class="pulo" style="position: absolute; left: 20px; top: 0px; width: 5px; height: 5px; border-radius: 50%; background: #EEE8DA"></span><span style="position: absolute; left: 30px; top: 7.5px; width: 5px; height: 5px; border-radius: 50%; background: #EEE8DA"></span></div><span style="font-family: 'Poppins', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: -0.02em; font-size: 18px; letter-spacing: 0.1em; white-space: nowrap">CONTRATEMPO<span style="font-size: 0.55em; vertical-align: super; letter-spacing: 0">©</span></span></a>
+<div class="hdr-icons" style="display: flex; align-items: center; justify-content: flex-end">
+<span class="opt"><a href="Busca.dc.html" aria-current="page" aria-label="Buscar" style="display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border: 0; background: transparent; color: #EEE8DA; cursor: pointer"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="square" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.5-3.5"></path></svg></a></span><span class="opt"><a href="Conta.dc.html" aria-label="Minha conta" style="display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border: 0; background: transparent; color: #EEE8DA; cursor: pointer"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="square" aria-hidden="true"><circle cx="12" cy="8" r="4"></circle><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"></path></svg></a></span>
+<a href="Sacola.dc.html" aria-label="Sacola, {{cartCount}} itens" style="position: relative; display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; color: #EEE8DA"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 8h14l-1 13H6L5 8z"></path><path d="M9 8V6a3 3 0 0 1 6 0v2"></path></svg><span style="position: absolute; top: 4px; right: 2px; min-width: 17px; height: 17px; border-radius: 999px; background: #EEE8DA; color: #02070A; font-size: 10px; font-weight: 600; display: flex; align-items: center; justify-content: center">{{cartCount}}</span></a>
+</div>
+</div>
+<sc-if value="{{menuOpen}}" hint-placeholder-val="{{false}}">
+<nav id="menu-geral" aria-label="Menu" style="background: #02070A; color: #EEE8DA">
+<div class="menu-grid" style="max-width: 1400px; margin: 0 auto; padding: 40px 20px 48px">
+<div style="display: flex; flex-direction: column; gap: 6px"><a href="Main.dc.html" style="color: #EEE8DA; text-decoration: none; font-family: 'Poppins', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: -0.02em; font-size: clamp(34px, 5vw, 64px); line-height: 1.05">INÍCIO</a><a href="Loja.dc.html" style="color: #EEE8DA; text-decoration: none; font-family: 'Poppins', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: -0.02em; font-size: clamp(34px, 5vw, 64px); line-height: 1.05">LOJA</a><a href="Colecoes.dc.html" style="color: #EEE8DA; text-decoration: none; font-family: 'Poppins', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: -0.02em; font-size: clamp(34px, 5vw, 64px); line-height: 1.05">COLEÇÕES</a><a href="Sobre.dc.html" style="color: #EEE8DA; text-decoration: none; font-family: 'Poppins', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: -0.02em; font-size: clamp(34px, 5vw, 64px); line-height: 1.05">SOBRE</a><a href="Manifesto.dc.html" style="color: #EEE8DA; text-decoration: none; font-family: 'Poppins', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: -0.02em; font-size: clamp(34px, 5vw, 64px); line-height: 1.05">MANIFESTO</a></div>
+<div style="display: flex; flex-direction: column; gap: 14px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.08em">
+<span style="color: rgba(238,232,218,0.75)">AJUDA</span>
+<a href="#" style="color: #EEE8DA">TABELA DE MEDIDAS</a><a href="#" style="color: #EEE8DA">DEVOLUÇÕES</a><a href="#" style="color: #EEE8DA">CONTATO</a>
+<span style="color: rgba(238,232,218,0.75); margin-top: 18px">SIGA</span>
+<a href="#" style="color: #EEE8DA">INSTAGRAM</a><a href="#" style="color: #EEE8DA">TIKTOK</a>
+</div>
+</div>
+</nav>
+</sc-if>
+</header>
+<main>
+<section style="max-width: 1400px; margin: 0 auto; padding: 56px 20px 40px; display: flex; flex-direction: column; gap: 24px">
+<form role="search" onSubmit="{{submit}}" style="display: flex; flex-direction: column; gap: 14px">
+<label for="busca" style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.08em; color: rgba(238,232,218,0.72)">BUSCAR NA CONTRATEMPO©</label>
+<div style="display: flex; align-items: center; gap: 16px; border-bottom: 2px solid #EEE8DA">
+<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="square" aria-hidden="true" style="flex-shrink: 0"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.5-3.5"></path></svg>
+<input id="busca" type="search" value="{{q}}" onChange="{{onQ}}" placeholder="Peça, coleção ou código" autocomplete="off" style="flex: 1; min-width: 0; min-height: 96px; border: 0; background: transparent; color: #EEE8DA; font-family: 'Poppins', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: -0.02em; font-size: clamp(32px, 5vw, 72px); outline-offset: 6px">
+<sc-if value="{{hasQ}}" hint-placeholder-val="{{false}}"><button type="button" onClick="{{clear}}" aria-label="Limpar busca" style="display: inline-flex; align-items: center; justify-content: center; width: 48px; height: 48px; border: 0; background: transparent; color: #EEE8DA; cursor: pointer; flex-shrink: 0"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 5l14 14"></path><path d="M19 5L5 19"></path></svg></button></sc-if>
+</div>
+</form>
+<div style="display: flex; gap: 8px; flex-wrap: wrap; align-items: center">
+<span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.08em; color: rgba(238,232,218,0.72); margin-right: 6px">PROCURADOS</span>
+<sc-for list="{{chips}}" as="c" hint-placeholder-count="5"><button type="button" onClick="{{c.pick}}" style="min-height: 42px; padding: 0 16px; border: 1px solid rgba(238,232,218,0.5); background: transparent; color: #EEE8DA; font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.08em; cursor: pointer">{{c.label}}</button></sc-for>
+</div>
+</section>
+<section aria-labelledby="resultado-titulo" style="max-width: 1400px; margin: 0 auto; padding: 0 20px 104px; display: flex; flex-direction: column; gap: 28px">
+<div style="display: flex; justify-content: space-between; align-items: baseline; gap: 16px; flex-wrap: wrap; border-top: 1px solid rgba(238,232,218,0.2); padding-top: 16px">
+<h2 id="resultado-titulo" aria-live="polite" style="margin: 0; font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.08em; font-weight: 500">{{resultTitle}}</h2>
+<a href="Loja.dc.html" style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-decoration: none">VER A LOJA INTEIRA →</a>
+</div>
+<sc-if value="{{hasResults}}" hint-placeholder-val="{{true}}">
+<div class="g4">
+<sc-for list="{{results}}" as="p" hint-placeholder-count="4">
+<article style="display: flex; flex-direction: column; gap: 10px; min-width: 0">
+<a href="{{p.href}}" aria-label="{{p.name}}" style="position: relative; display: block; aspect-ratio: 4 / 5; background: #1F002E; overflow: hidden"><img src="{{p.src}}" alt="{{p.alt}}" style="display: block; width: 100%; height: 100%; object-fit: cover"><sc-if value="{{p.hasBadge}}" hint-placeholder-val="{{false}}"><span style="position: absolute; top: 0; left: 0; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.08em; background: #90E04B; color: #02070A; padding: 6px 10px">{{p.badge}}</span></sc-if></a>
+<div style="display: flex; flex-direction: column; gap: 3px"><a href="{{p.href}}" style="font-weight: 600; font-size: 15px; text-transform: uppercase; text-decoration: none">{{p.name}}</a><span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: rgba(238,232,218,0.72)">{{p.code}} · {{p.meta}}</span></div>
+<div style="display: flex; align-items: baseline; justify-content: space-between; gap: 10px; border-top: 1px solid rgba(238,232,218,0.2); padding-top: 10px"><span style="font-weight: 700; font-size: 22px; letter-spacing: -0.02em">R$ 169</span><span style="font-size: 12px; color: rgba(238,232,218,0.72)">ou 3x de R$ 56,33</span></div>
+</article>
+</sc-for>
+</div>
+</sc-if>
+<sc-if value="{{noResults}}" hint-placeholder-val="{{false}}">
+<div style="display: flex; flex-direction: column; gap: 18px; max-width: 640px; padding: 24px 0 40px">
+<p style="margin: 0; font-family: 'Poppins', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: -0.02em; font-size: clamp(28px, 3.4vw, 48px); line-height: 1">Nada com esse nome por aqui. Ainda.</p>
+<p style="margin: 0; font-size: 16px; line-height: 1.6; color: rgba(238,232,218,0.82)">Tente o código da peça, como CT-009, o nome de uma coleção ou a cor da malha.</p>
+<div style="display: flex; gap: 10px; flex-wrap: wrap"><button type="button" onClick="{{clear}}" style="display: inline-flex; align-items: center; justify-content: center; min-height: 52px; padding: 0 24px; border: 0; background: #EEE8DA; color: #02070A; text-decoration: none; font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.08em; font-weight: 500; cursor: pointer">LIMPAR BUSCA</button><a href="Loja.dc.html" style="display: inline-flex; align-items: center; justify-content: center; min-height: 52px; padding: 0 24px; border: 1px solid #EEE8DA; background: transparent; color: #EEE8DA; text-decoration: none; font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.08em; font-weight: 500; cursor: pointer">VER TODAS AS PEÇAS</a></div>
+</div>
+</sc-if>
+</section>
+
+</main>
+<footer style="background: #02070A; color: #EEE8DA; overflow: hidden; container-type: inline-size">
+<div style="background: #90E04B; color: #02070A">
+<div style="max-width: 1400px; margin: 0 auto; padding: 32px 20px; display: flex; justify-content: space-between; align-items: center; gap: 24px; flex-wrap: wrap">
+<h2 style="margin: 0; font-family: 'Poppins', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: -0.02em; font-size: clamp(24px, 2.8vw, 40px); line-height: 1.02; max-width: 640px">Os lançamentos chegam primeiro por aqui.</h2>
+<form style="display: flex; flex-direction: column; gap: 6px; flex: 1 1 360px; max-width: 520px; min-width: 0">
+<label for="email" style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.1em">SEU E-MAIL · UM POR LANÇAMENTO, SEM ENXURRADA</label>
+<div style="display: flex; flex-wrap: wrap">
+<input id="email" type="email" placeholder="nome@email.com" style="flex: 1 1 200px; min-width: 0; min-height: 52px; padding: 0 16px; border: 2px solid #02070A; background: transparent; color: #02070A; font-size: 16px; font-family: inherit; border-radius: 0">
+<button type="button" style="min-height: 52px; padding: 0 22px; border: 2px solid #02070A; background: #02070A; color: #90E04B; font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: 0.08em; font-weight: 500; cursor: pointer">QUERO RECEBER</button>
+</div>
+</form>
+</div>
+</div>
+<div style="max-width: 1400px; margin: 0 auto; padding: 72px 20px 0; display: flex; flex-direction: column; gap: 56px">
+<div class="foot-grid">
+<div style="display: flex; gap: 24px; align-items: flex-start; flex-wrap: wrap; min-width: 0">
+<svg width="112" height="112" viewBox="0 0 120 120" role="img" aria-label="Selo Feita no Brasil" style="flex-shrink: 0">
+<circle cx="60" cy="60" r="58" fill="none" stroke="#EEE8DA" stroke-width="1"></circle>
+<g class="selo-gira" fill="#EEE8DA" font-family="IBM Plex Mono, monospace" font-size="10" font-weight="500"><text x="60.00" y="16.00" transform="rotate(0.0 60.00 16.00)" text-anchor="middle" dominant-baseline="central">F</text><text x="67.64" y="16.67" transform="rotate(10.0 67.64 16.67)" text-anchor="middle" dominant-baseline="central">E</text><text x="75.05" y="18.65" transform="rotate(20.0 75.05 18.65)" text-anchor="middle" dominant-baseline="central">I</text><text x="82.00" y="21.89" transform="rotate(30.0 82.00 21.89)" text-anchor="middle" dominant-baseline="central">T</text><text x="88.28" y="26.29" transform="rotate(40.0 88.28 26.29)" text-anchor="middle" dominant-baseline="central">A</text><text x="98.11" y="38.00" transform="rotate(60.0 98.11 38.00)" text-anchor="middle" dominant-baseline="central">N</text><text x="101.35" y="44.95" transform="rotate(70.0 101.35 44.95)" text-anchor="middle" dominant-baseline="central">O</text><text x="104.00" y="60.00" transform="rotate(90.0 104.00 60.00)" text-anchor="middle" dominant-baseline="central">B</text><text x="103.33" y="67.64" transform="rotate(100.0 103.33 67.64)" text-anchor="middle" dominant-baseline="central">R</text><text x="101.35" y="75.05" transform="rotate(110.0 101.35 75.05)" text-anchor="middle" dominant-baseline="central">A</text><text x="98.11" y="82.00" transform="rotate(120.0 98.11 82.00)" text-anchor="middle" dominant-baseline="central">S</text><text x="93.71" y="88.28" transform="rotate(130.0 93.71 88.28)" text-anchor="middle" dominant-baseline="central">I</text><text x="88.28" y="93.71" transform="rotate(140.0 88.28 93.71)" text-anchor="middle" dominant-baseline="central">L</text><text x="75.05" y="101.35" transform="rotate(160.0 75.05 101.35)" text-anchor="middle" dominant-baseline="central">•</text><text x="60.00" y="104.00" transform="rotate(180.0 60.00 104.00)" text-anchor="middle" dominant-baseline="central">F</text><text x="52.36" y="103.33" transform="rotate(190.0 52.36 103.33)" text-anchor="middle" dominant-baseline="central">E</text><text x="44.95" y="101.35" transform="rotate(200.0 44.95 101.35)" text-anchor="middle" dominant-baseline="central">I</text><text x="38.00" y="98.11" transform="rotate(210.0 38.00 98.11)" text-anchor="middle" dominant-baseline="central">T</text><text x="31.72" y="93.71" transform="rotate(220.0 31.72 93.71)" text-anchor="middle" dominant-baseline="central">A</text><text x="21.89" y="82.00" transform="rotate(240.0 21.89 82.00)" text-anchor="middle" dominant-baseline="central">N</text><text x="18.65" y="75.05" transform="rotate(250.0 18.65 75.05)" text-anchor="middle" dominant-baseline="central">O</text><text x="16.00" y="60.00" transform="rotate(270.0 16.00 60.00)" text-anchor="middle" dominant-baseline="central">B</text><text x="16.67" y="52.36" transform="rotate(280.0 16.67 52.36)" text-anchor="middle" dominant-baseline="central">R</text><text x="18.65" y="44.95" transform="rotate(290.0 18.65 44.95)" text-anchor="middle" dominant-baseline="central">A</text><text x="21.89" y="38.00" transform="rotate(300.0 21.89 38.00)" text-anchor="middle" dominant-baseline="central">S</text><text x="26.29" y="31.72" transform="rotate(310.0 26.29 31.72)" text-anchor="middle" dominant-baseline="central">I</text><text x="31.72" y="26.29" transform="rotate(320.0 31.72 26.29)" text-anchor="middle" dominant-baseline="central">L</text><text x="44.95" y="18.65" transform="rotate(340.0 44.95 18.65)" text-anchor="middle" dominant-baseline="central">•</text></g>
+<polygon points="60,40 81,60 60,80 39,60" fill="none" stroke="#F8D65B" stroke-width="2"></polygon>
+<circle cx="60" cy="60" r="7.5" fill="#90E04B"></circle>
+</svg>
+<div style="display: flex; flex-direction: column; gap: 18px; min-width: 0; flex: 1 1 220px">
+<p style="margin: 0; font-family: 'Poppins', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: -0.02em; font-size: 22px; line-height: 1.1">O Brasil no nosso<br>próprio ritmo.</p>
+<p style="margin: 0; font-size: 14px; line-height: 1.6; color: rgba(238,232,218,0.75); max-width: 300px">Atendimento de segunda a sexta, das 9h às 18h. A gente responde em até 1 dia útil.</p>
+<a href="https://wa.me/55XXXXXXXXXXX" style="align-self: flex-start; display: inline-flex; align-items: center; gap: 10px; min-height: 48px; padding: 0 20px; background: #EEE8DA; color: #02070A; text-decoration: none; font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.08em; font-weight: 500"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 20l1.3-3.9A8 8 0 1 1 8 19z"></path></svg>FALAR NO WHATSAPP</a>
+</div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 14px; min-width: 0"><h3 style="margin: 0; font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 500; letter-spacing: 0.1em; color: #90E04B">LOJA</h3><ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; font-size: 15px"><li><a href="Loja.dc.html" style="color: #EEE8DA; text-decoration: none">Todas as peças</a></li><li><a href="Loja.dc.html" style="color: #EEE8DA; text-decoration: none">Novidades</a></li><li><a href="Colecoes.dc.html" style="color: #EEE8DA; text-decoration: none">Coleções</a></li><li><a href="Main.dc.html#lancamento" style="color: #EEE8DA; text-decoration: none">Lançamento Rio</a></li></ul></div><div style="display: flex; flex-direction: column; gap: 14px; min-width: 0"><h3 style="margin: 0; font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 500; letter-spacing: 0.1em; color: #90E04B">MARCA</h3><ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; font-size: 15px"><li><a href="Sobre.dc.html" style="color: #EEE8DA; text-decoration: none">Sobre</a></li><li><a href="Manifesto.dc.html" style="color: #EEE8DA; text-decoration: none">Manifesto</a></li><li><a href="#" style="color: #EEE8DA; text-decoration: none">Instagram</a></li><li><a href="#" style="color: #EEE8DA; text-decoration: none">TikTok</a></li></ul></div><div style="display: flex; flex-direction: column; gap: 14px; min-width: 0"><h3 style="margin: 0; font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 500; letter-spacing: 0.1em; color: #90E04B">ATENDIMENTO</h3><ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; font-size: 15px"><li><a href="https://wa.me/55XXXXXXXXXXX" style="color: #EEE8DA; text-decoration: none">WhatsApp · [NÚMERO]</a></li><li><a href="mailto:contato@[DOMINIO]" style="color: #EEE8DA; text-decoration: none">contato@[DOMÍNIO]</a></li><li><a href="#" style="color: #EEE8DA; text-decoration: none">Devoluções</a></li><li><a href="#" style="color: #EEE8DA; text-decoration: none">Rastrear pedido</a></li></ul></div><div style="display: flex; flex-direction: column; gap: 14px; min-width: 0"><h3 style="margin: 0; font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 500; letter-spacing: 0.1em; color: #90E04B">LINKS ÚTEIS</h3><ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; font-size: 15px"><li><a href="#" style="color: #EEE8DA; text-decoration: none">Dúvidas frequentes</a></li><li><a href="#" style="color: #EEE8DA; text-decoration: none">Tabela de medidas</a></li><li><a href="#" style="color: #EEE8DA; text-decoration: none">Política de privacidade</a></li><li><a href="#" style="color: #EEE8DA; text-decoration: none">Termos de uso</a></li></ul></div>
+</div>
+<div style="display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; border-top: 1px solid rgba(238,232,218,0.2); padding-top: 20px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.06em; color: rgba(238,232,218,0.75)">
+<span>© 2026 CONTRATEMPO© · [NOME E CPF DO RESPONSÁVEL] · [ENDEREÇO]</span>
+<span>PIX, CARTÃO E BOLETO</span>
+</div>
+</div>
+<p aria-hidden="true" style="margin: 24px 0 0; font-family: 'Poppins', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: -0.02em; font-size: 12.6vw; font-size: 12.6cqw; line-height: 0.76; letter-spacing: -0.045em; white-space: nowrap; color: #EEE8DA; text-align: center; margin-bottom: -0.12em; max-width: 100%">CONTRATEMPO<span style="font-size: 0.55em; vertical-align: super; letter-spacing: 0">©</span></p>
+</footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview": {"width": 1440, "height": 2300}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const menuOpen = !!(this.state && this.state.menu);
+    const menu = {
+      menuOpen,
+      menuExpanded: menuOpen ? 'true' : 'false',
+      menuLabel: menuOpen ? 'FECHAR' : 'MENU',
+      menuAria: menuOpen ? 'Fechar menu' : 'Abrir menu',
+      toggleMenu: () => this.setState({ menu: !menuOpen })
+    };
+
+    const PRODUTOS = [
+      { code: 'CT-009', name: 'Rio', colecao: 'Coleção 002 Rio', meta: 'Coleção 002 · Rio · frente e costas · 2 cores de malha', src: '/_blob/94597f4b35218863863b114f6df7df07', alt: 'Rapaz de costas numa rua do Rio, com a camiseta Rio em malha escura', badge: 'LANÇAMENTO', href: 'Produto.dc.html' },
+      { code: 'CT-001', name: '[NOME DA ESTAMPA 01]', colecao: 'Coleção 001', meta: 'Coleção 001 · malha verde-garrafa · tinta creme', src: '/_blob/1c189b2483947446ff9f6dbca6a8d05d', alt: 'Camiseta verde-garrafa sobre piso de concreto', badge: 'NOVO', href: '#' },
+      { code: 'CT-002', name: '[NOME DA ESTAMPA 02]', colecao: 'Coleção 001', meta: 'Coleção 001 · malha terracota · tinta preto', src: '/_blob/d6528bd74322ff011250f50cc22e2f4a', alt: 'Camiseta terracota sobre piso de concreto', badge: '', href: '#' },
+      { code: 'CT-003', name: '[NOME DA ESTAMPA 03]', colecao: 'Coleção 001', meta: 'Coleção 001 · malha bordô · tinta creme', src: '/_blob/cffc44ac40bd7e815bff7874babb4998', alt: 'Camiseta bordô sobre piso de concreto', badge: '', href: '#' },
+      { code: 'CT-004', name: '[NOME DA ESTAMPA 04]', colecao: 'Coleção 001', meta: 'Coleção 001 · malha preto · tinta lima', src: '/_blob/0467c81bddc0892ad8f88d666f74d0ee', alt: 'Camiseta preta sobre piso de concreto', badge: '', href: '#' },
+      { code: 'CT-005', name: '[NOME DA ESTAMPA 05]', colecao: 'Coleção 001', meta: 'Coleção 001 · malha creme · tinta terracota', src: '/_blob/e63f8d69421dde0ceeaf7d711f4d1940', alt: 'Camiseta creme sobre piso de concreto', badge: '', href: '#' },
+      { code: 'CT-006', name: '[NOME DA ESTAMPA 06]', colecao: 'Coleção 001', meta: 'Coleção 001 · malha verde-garrafa · tinta lima', src: '/_blob/1c189b2483947446ff9f6dbca6a8d05d', alt: 'Camiseta verde-garrafa sobre piso de concreto', badge: '', href: '#' },
+      { code: 'CT-007', name: '[NOME DA ESTAMPA 07]', colecao: 'Coleção 001', meta: 'Coleção 001 · malha preto · tinta amarelo', src: '/_blob/0467c81bddc0892ad8f88d666f74d0ee', alt: 'Camiseta preta sobre piso de concreto', badge: '', href: '#' },
+      { code: 'CT-008', name: '[NOME DA ESTAMPA 08]', colecao: 'Coleção 001', meta: 'Coleção 001 · malha bordô · tinta terracota', src: '/_blob/cffc44ac40bd7e815bff7874babb4998', alt: 'Camiseta bordô sobre piso de concreto', badge: '', href: '#' }
+    ];
+
+    const s = this.state || {};
+    const q = typeof s.q === 'string' ? s.q : 'rio';
+    const norm = (t) => t.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
+    const termo = norm(q.trim());
+    const base = PRODUTOS.map(p => ({ ...p, hasBadge: !!p.badge }));
+    const results = termo ? base.filter(p => norm([p.name, p.code, p.meta, p.colecao].join(' ')).indexOf(termo) !== -1) : base.slice(0, 4);
+    const n = results.length;
+    return {
+      ...menu,
+      cartCount: 0,
+      q,
+      hasQ: q.length > 0,
+      onQ: (e) => this.setState({ q: e.target.value }),
+      submit: (e) => { if (e) e.preventDefault(); },
+      clear: () => this.setState({ q: '' }),
+      chips: ['RIO', 'COLEÇÃO 001', 'VERDE-GARRAFA', 'TERRACOTA', 'CT-009'].map(label => ({ label, pick: () => this.setState({ q: label.toLowerCase() }) })),
+      resultTitle: termo ? (n + (n === 1 ? ' RESULTADO' : ' RESULTADOS') + ' PARA “' + q.trim().toUpperCase() + '”') : 'MAIS PROCURADAS',
+      results,
+      hasResults: n > 0,
+      noResults: n === 0
+    };
+  }
+
+}
+</script>
+</body>
+</html>
