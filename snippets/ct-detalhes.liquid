@@ -2,12 +2,15 @@
 {%- liquid
   assign modelagem = product.metafields.custom.modelagem.value | default: 'Modelagem ampla'
   assign modelo_veste = product.metafields.custom.modelo_veste.value
+  assign frente = product.metafields.custom.frente_texto.value
 -%}
 <div class="ct-detalhes">
-  {%- if product.description != blank -%}
+  {%- if frente != blank -%}
     <details class="ct-sanfona">
       <summary>A estampa<span class="ct-sanfona__mais" aria-hidden="true">+</span></summary>
-      <div class="ct-sanfona__conteudo rte">{{ product.description }}</div>
+      <div class="ct-sanfona__conteudo">
+        <p>Na frente, {{ frente }}. Impressão digital feita peça por peça, com cor viva e toque macio.</p>
+      </div>
     </details>
   {%- endif -%}
   <details class="ct-sanfona">

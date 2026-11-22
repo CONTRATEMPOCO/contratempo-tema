@@ -5,7 +5,7 @@
 {%- assign tabela = product.metafields.custom.tabela_medidas -%}
 <div class="ct-tamanho">
   {%- if tabela != blank -%}
-    <details class="ct-tabela" id="TabelaMedidas-{{ block_id }}">
+    <details class="ct-tabela" open id="TabelaMedidas-{{ block_id }}">
       <summary class="ct-tabela__botao">Tabela de medidas</summary>
       <div class="ct-tabela__conteudo rte">
         {%- if tabela.type == 'multi_line_text_field' -%}

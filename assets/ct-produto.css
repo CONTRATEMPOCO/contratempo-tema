@@ -151,3 +151,40 @@
 @media screen and (max-width: 559px) {
   .ct-de-perto__grade { grid-template-columns: 1fr; }
 }
+
+/* Opções de cor e tamanho: texto no centro do quadro */
+.product-form__input.product-form__input--pill input[type='radio'] + label {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 5.2rem;
+  padding: 0 1.6rem;
+  line-height: 1;
+  margin: 0.4rem 0.6rem 0.4rem 0;
+}
+.product-form__input .form__label {
+  font-family: var(--ct-mono);
+  font-size: 1.2rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 0.4rem;
+}
+.ct-aviso { align-items: center; }
+.ct-aviso svg { flex-shrink: 0; }
+.product__description { margin-top: 0.4rem; }
+.product__description p { font-size: 1.6rem; line-height: 1.6; }
+
+/* Tabela de medidas: linhas simples, sem a grade da área de texto do Dawn */
+.ct-tabela__conteudo.rte table { table-layout: fixed; width: 100%; border: 0; margin: 0; }
+.ct-tabela__conteudo.rte th,
+.ct-tabela__conteudo.rte td {
+  border: 0;
+  border-bottom: 0.1rem solid var(--ct-linha);
+  padding: 1rem 0.8rem 1rem 0;
+  text-align: left;
+  vertical-align: middle;
+  font-size: 1.2rem;
+  overflow-wrap: anywhere;
+}
+.ct-tabela__conteudo.rte th[scope='col'] { color: rgba(var(--color-foreground), 0.7); font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; font-size: 1.1rem; }
+.ct-tabela__conteudo.rte tr > *:first-child { width: 18%; }

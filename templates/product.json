@@ -37,11 +37,15 @@
         },
         "ct_detalhes": {
           "type": "ct_detalhes"
+        },
+        "description": {
+          "type": "description"
         }
       },
       "block_order": [
         "ct_topo",
         "title",
+        "description",
         "price",
         "ct_parcelas",
         "variant_picker",

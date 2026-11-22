@@ -195,3 +195,17 @@ html.ct-menu-aberto, html.ct-menu-aberto body { overflow: hidden; }
 
 /* Logo do cabeçalho: o pulo do terceiro ponto mais espaçado */
 .ct-header__logo .pulo { animation-duration: 10s; }
+
+/* Depois que a pessoa rola a página, o ponto só pula uma vez por minuto */
+@keyframes contratempo-lento {
+  0%, 97.5% { transform: translateY(0); }
+  98.4%, 99.4% { transform: translateY(7.5px); }
+  100% { transform: translateY(0); }
+}
+.ct-header--rolou .ct-header__logo .pulo { animation: contratempo-lento 60s var(--ct-curva) infinite; }
+@media (prefers-reduced-motion: reduce) {
+  .ct-header--rolou .ct-header__logo .pulo { animation: none; }
+}
+
+/* A sacola tem respiro interno no desenho; compensa para alinhar à margem */
+.ct-header__sacola .svg-wrapper { margin-right: -0.45rem; }

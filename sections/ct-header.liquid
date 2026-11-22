@@ -81,6 +81,7 @@
         this.painel = this.querySelector('.ct-header__painel');
         if (!this.botao || !this.painel) return;
         this.botao.addEventListener('click', () => this.alternar());
+        window.addEventListener('scroll', () => this.classList.add('ct-header--rolou'), { once: true, passive: true });
         window.addEventListener('resize', () => { if (!this.painel.hidden) this.ajustar(); });
         this.addEventListener('keyup', (e) => { if (e.key === 'Escape' && !this.painel.hidden) { this.alternar(false); this.botao.focus(); } });
       }
