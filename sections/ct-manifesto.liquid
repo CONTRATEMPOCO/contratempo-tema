@@ -1,0 +1,214 @@
+{{ 'ct-secoes.css' | asset_url | stylesheet_tag }}
+
+{%- liquid
+  assign total = section.blocks.size
+  assign fora = section.settings.tempo_fora | minus: 1
+-%}
+
+<ct-manifesto class="ct-manifesto" data-section="{{ section.id }}">
+  <section class="ct-manifesto__palco" aria-labelledby="ManifestoTitulo-{{ section.id }}">
+    <div class="ct-wrap ct-manifesto__palco-inner">
+      <div class="ct-manifesto__topo">
+        <span>{{ section.settings.rotulo }}</span>
+        <span aria-live="polite" data-progresso>Tempo 1 de {{ total }}</span>
+      </div>
+
+      <div>
+        {%- for block in section.blocks -%}
+          {%- case block.settings.esquema -%}
+            {%- when 'amarelo' -%}
+              {%- assign bg = '#F8D65B' -%}{%- assign fg = '#02070A' -%}{%- assign ac = '#CD6547' -%}
+            {%- when 'garrafa' -%}
+              {%- assign bg = '#0E2A1E' -%}{%- assign fg = '#EEE8DA' -%}{%- assign ac = '#90E04B' -%}
+            {%- when 'creme' -%}
+              {%- assign bg = '#EEE8DA' -%}{%- assign fg = '#02070A' -%}{%- assign ac = '#CD6547' -%}
+            {%- else -%}
+              {%- assign bg = '#02070A' -%}{%- assign fg = '#EEE8DA' -%}{%- assign ac = '#90E04B' -%}
+          {%- endcase -%}
+          <div
+            class="ct-manifesto__tempo"
+            data-tempo
+            data-bg="{{ bg }}"
+            data-fg="{{ fg }}"
+            data-ac="{{ ac }}"
+            {% unless forloop.first %}hidden{% endunless %}
+            {{ block.shopify_attributes }}
+          >
+            {%- if forloop.first -%}
+              <h1 id="ManifestoTitulo-{{ section.id }}" class="ct-manifesto__tempo-titulo">{{ block.settings.titulo }}</h1>
+            {%- else -%}
+              <p class="ct-manifesto__tempo-titulo h1">{{ block.settings.titulo }}</p>
+            {%- endif -%}
+            <p class="ct-manifesto__tempo-texto">{{ block.settings.texto }}</p>
+          </div>
+        {%- endfor -%}
+      </div>
+
+      {%- if total > 1 -%}
+        <div class="ct-manifesto__controles">
+          <div class="ct-manifesto__batidas" role="group" aria-label="Os {{ total }} tempos" style="--ct-m-qtd: {{ total }}">
+            {%- for block in section.blocks -%}
+              <button
+                type="button"
+                class="ct-manifesto__batida{% if forloop.index0 == fora %} is-fora{% endif %}{% if forloop.first %} is-visto{% endif %}"
+                data-batida="{{ forloop.index0 }}"
+                aria-label="Tempo {{ forloop.index }}{% if forloop.index0 == fora %}, o contratempo{% endif %}"
+                {% if forloop.first %}aria-current="step"{% endif %}
+              >
+                <span class="ct-manifesto__batida-rotulo">Tempo {{ forloop.index }}</span>
+                <span class="ct-manifesto__ponto" aria-hidden="true"></span>
+              </button>
+            {%- endfor -%}
+          </div>
+          <div class="ct-manifesto__botoes">
+            <button type="button" class="ct-manifesto__botao" data-anterior>← Tempo anterior</button>
+            <button type="button" class="ct-manifesto__botao ct-manifesto__botao--cheio" data-proximo>Próximo tempo →</button>
+            <button type="button" class="ct-manifesto__botao ct-manifesto__botao--destaque" data-tocar aria-pressed="false">Tocar o compasso</button>
+          </div>
+        </div>
+      {%- endif -%}
+    </div>
+  </section>
+
+  {%- if section.settings.mostrar_inteiro -%}
+    <section class="ct-manifesto__inteiro" aria-labelledby="ManifestoInteiro-{{ section.id }}">
+      <h2 id="ManifestoInteiro-{{ section.id }}">{{ section.settings.titulo_inteiro }}</h2>
+      <ol class="ct-manifesto__lista">
+        {%- for block in section.blocks -%}
+          <li class="ct-manifesto__item{% if forloop.index0 == fora %} is-fora{% endif %}">
+            <span class="ct-rotulo">Tempo {{ forloop.index }}</span>
+            <div>
+              <h3>{{ block.settings.titulo }}</h3>
+              <p>{{ block.settings.texto }}</p>
+            </div>
+          </li>
+        {%- endfor -%}
+      </ol>
+      {%- if section.settings.fecho != blank -%}
+        <p class="ct-manifesto__fecho">
+          {{ section.settings.fecho }}
+          {%- if section.settings.fecho_destaque != blank %} <span>{{ section.settings.fecho_destaque }}</span>{% endif -%}
+        </p>
+      {%- endif -%}
+      <div class="ct-manifesto__links">
+        {%- if section.settings.botao_1_texto != blank -%}
+          <a href="{{ section.settings.botao_1_link | default: routes.all_products_collection_url }}" class="ct-botao ct-botao--verde">{{ section.settings.botao_1_texto }}</a>
+        {%- endif -%}
+        {%- if section.settings.botao_2_texto != blank and section.settings.botao_2_link != blank -%}
+          <a href="{{ section.settings.botao_2_link }}" class="ct-botao ct-botao--contorno">{{ section.settings.botao_2_texto }}</a>
+        {%- endif -%}
+      </div>
+    </section>
+  {%- endif -%}
+</ct-manifesto>
+
+<script src="{{ 'ct-manifesto.js' | asset_url }}" defer="defer"></script>
+
+{% schema %}
+{
+  "name": "Manifesto CONTRATEMPO",
+  "tag": "div",
+  "class": "section-ct-manifesto",
+  "max_blocks": 8,
+  "settings": [
+    {
+      "type": "text",
+      "id": "rotulo",
+      "label": "Rótulo",
+      "default": "Manifesto · CONTRATEMPO©"
+    },
+    {
+      "type": "range",
+      "id": "tempo_fora",
+      "label": "Qual tempo sai do compasso",
+      "info": "O ponto desse tempo sobe, como uma nota fora do tempo.",
+      "min": 1,
+      "max": 8,
+      "step": 1,
+      "default": 3
+    },
+    {
+      "type": "checkbox",
+      "id": "mostrar_inteiro",
+      "label": "Mostrar o manifesto inteiro abaixo",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "titulo_inteiro",
+      "label": "Título do manifesto inteiro",
+      "default": "O manifesto inteiro"
+    },
+    {
+      "type": "text",
+      "id": "fecho",
+      "label": "Frase final",
+      "default": "A gente conhece bem"
+    },
+    {
+      "type": "text",
+      "id": "fecho_destaque",
+      "label": "Frase final (parte em destaque)",
+      "default": "os contratempos."
+    },
+    {
+      "type": "text",
+      "id": "botao_1_texto",
+      "label": "Botão 1: texto",
+      "default": "Conheça as peças →"
+    },
+    {
+      "type": "url",
+      "id": "botao_1_link",
+      "label": "Botão 1: link"
+    },
+    {
+      "type": "text",
+      "id": "botao_2_texto",
+      "label": "Botão 2: texto",
+      "default": "Sobre a marca"
+    },
+    {
+      "type": "url",
+      "id": "botao_2_link",
+      "label": "Botão 2: link"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "tempo",
+      "name": "Tempo",
+      "settings": [
+        {
+          "type": "text",
+          "id": "titulo",
+          "label": "Título",
+          "default": "Tudo tem um compasso."
+        },
+        {
+          "type": "textarea",
+          "id": "texto",
+          "label": "Texto"
+        },
+        {
+          "type": "select",
+          "id": "esquema",
+          "label": "Cor de fundo",
+          "options": [
+            { "value": "escuro", "label": "Preto" },
+            { "value": "amarelo", "label": "Amarelo" },
+            { "value": "garrafa", "label": "Verde-garrafa" },
+            { "value": "creme", "label": "Creme" }
+          ],
+          "default": "escuro"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Manifesto CONTRATEMPO"
+    }
+  ]
+}
+{% endschema %}

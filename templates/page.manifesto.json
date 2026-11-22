@@ -1,0 +1,53 @@
+{
+  "sections": {
+    "manifesto": {
+      "type": "ct-manifesto",
+      "blocks": {
+        "tempo-1": {
+          "type": "tempo",
+          "settings": {
+            "titulo": "Tudo tem um compasso.",
+            "texto": "O jeito certo de vestir. As referências de sempre. A tendência da estação, que vem de fora e vai embora antes de a gente se acostumar com ela.",
+            "esquema": "escuro"
+          }
+        },
+        "tempo-2": {
+          "type": "tempo",
+          "settings": {
+            "titulo": "E todo mundo marca o tempo forte.",
+            "texto": "Segue a batida, repete o passo, olha para o mesmo lugar. Funciona. Mas soa igual.",
+            "esquema": "escuro"
+          }
+        },
+        "tempo-3": {
+          "type": "tempo",
+          "settings": {
+            "titulo": "A gente prefere o contratempo.",
+            "texto": "Na música, contratempo é quando o som cai onde ninguém espera e o tempo forte fica em silêncio. É ele que dá balanço ao samba, ao choro, ao baião. A gente escolheu ser essa nota.",
+            "esquema": "amarelo"
+          }
+        },
+        "tempo-4": {
+          "type": "tempo",
+          "settings": {
+            "titulo": "É ali que o Brasil aparece.",
+            "texto": "Na placa da esquina, no letreiro pintado à mão, no cobogó, no domingo de jogo. Olhar com atenção e transformar em roupa feita para durar. Contra o tempo. No nosso próprio ritmo.",
+            "esquema": "garrafa"
+          }
+        }
+      },
+      "block_order": [
+        "tempo-1",
+        "tempo-2",
+        "tempo-3",
+        "tempo-4"
+      ],
+      "settings": {
+        "botao_2_link": "/pages/sobre"
+      }
+    }
+  },
+  "order": [
+    "manifesto"
+  ]
+}

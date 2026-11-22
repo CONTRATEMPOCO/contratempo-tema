@@ -1,0 +1,39 @@
+{{ 'ct-secoes.css' | asset_url | stylesheet_tag }}
+
+<div class="color-{{ section.settings.color_scheme }} gradient">
+  <div class="ct-wrap ct-abertura__inner">
+    {%- if section.settings.mostrar_trilha -%}
+      <nav class="ct-rotulo" aria-label="Trilha">
+        <a href="{{ routes.root_url }}" class="link link--text">Início</a> /
+        <span aria-current="page">{{ page.title | default: section.settings.titulo }}</span>
+      </nav>
+    {%- endif -%}
+    <h1 class="ct-titulo-xl">
+      {{ section.settings.titulo }}
+      {%- if section.settings.titulo_destaque != blank %} <span class="ct-destaque">{{ section.settings.titulo_destaque }}</span>{% endif -%}
+    </h1>
+    {%- if section.settings.texto_grande != blank or section.settings.texto != blank -%}
+      <div class="ct-grade-2 ct-abertura__textos">
+        <p class="ct-abertura__grande">{{ section.settings.texto_grande }}</p>
+        <p class="ct-abertura__texto">{{ section.settings.texto }}</p>
+      </div>
+    {%- endif -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Abertura",
+  "tag": "section",
+  "class": "section-ct-abertura",
+  "settings": [
+    { "type": "color_scheme", "id": "color_scheme", "label": "Esquema de cores", "default": "scheme-1" },
+    { "type": "checkbox", "id": "mostrar_trilha", "label": "Mostrar trilha (Início / página)", "default": true },
+    { "type": "text", "id": "titulo", "label": "Título", "default": "Feita daqui." },
+    { "type": "text", "id": "titulo_destaque", "label": "Título (parte em destaque)", "default": "Para circular por aí." },
+    { "type": "textarea", "id": "texto_grande", "label": "Texto de destaque" },
+    { "type": "textarea", "id": "texto", "label": "Texto" }
+  ],
+  "presets": [{ "name": "Abertura" }]
+}
+{% endschema %}

@@ -1,0 +1,127 @@
+{
+  "sections": {
+    "abertura": {
+      "type": "ct-abertura",
+      "settings": {
+        "titulo": "Feita daqui.",
+        "titulo_destaque": "Para circular por aí.",
+        "texto_grande": "A CONTRATEMPO© é uma marca brasileira de moda urbana que olha para o Brasil com atenção, repertório e ambição.",
+        "texto": "Começou com a vontade de vestir estampas que a gente não encontrava em lugar nenhum: referências daqui, tratadas com o mesmo cuidado que as marcas de fora dão às delas. A gente não precisa provar que o Brasil é extraordinário. Só mostrar o que acontece quando alguém para e repara."
+      }
+    },
+    "imagens": {
+      "type": "ct-imagens",
+      "blocks": {
+        "img-1": {
+          "type": "imagem",
+          "settings": {}
+        },
+        "img-2": {
+          "type": "imagem",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "img-1",
+        "img-2"
+      ],
+      "settings": {}
+    },
+    "acredita": {
+      "type": "ct-cards",
+      "blocks": {
+        "c1": {
+          "type": "card",
+          "settings": {
+            "numero": "01",
+            "titulo": "Repertório daqui",
+            "texto": "Só referências brasileiras: a placa da esquina, o letreiro pintado à mão, o cobogó, o jogo de domingo. Nada de inglês na estampa, nada de cartão-postal."
+          }
+        },
+        "c2": {
+          "type": "card",
+          "settings": {
+            "numero": "02",
+            "titulo": "Bonita de longe. Interessante de perto.",
+            "texto": "Cada estampa tem duas leituras. De longe, presença e cor. De perto, a data, o lugar e a legenda que só quem repara encontra."
+          }
+        },
+        "c3": {
+          "type": "card",
+          "settings": {
+            "numero": "03",
+            "titulo": "Feita para durar",
+            "texto": "Malha penteada fio 30.1, modelagem pensada e peças que não dependem da tendência da estação. Moda atemporal, identidade brasileira."
+          }
+        }
+      },
+      "block_order": [
+        "c1",
+        "c2",
+        "c3"
+      ],
+      "settings": {
+        "titulo": "No que a gente acredita",
+        "estilo": "lista"
+      }
+    },
+    "quem-faz": {
+      "type": "ct-imagem-texto",
+      "settings": {
+        "rotulo": "Quem faz",
+        "titulo": "A gente achou que isso merecia virar camiseta.",
+        "texto": "<p>A CONTRATEMPO é feita por uma equipe pequena, de gente que pesquisa, cria e repara no Brasil de perto: na rua, no boteco, na arquibancada, no trânsito. Cada estampa nasce de uma referência boa demais para passar batido. E a equipe segue aberta: se você cria, fotografa ou tem uma boa história para contar, fala com a gente.</p>",
+        "botao_texto": "Ler o manifesto →",
+        "botao_link": "/pages/manifesto"
+      }
+    },
+    "sob-pedido": {
+      "type": "ct-cards",
+      "blocks": {
+        "p1": {
+          "type": "card",
+          "settings": {
+            "numero": "1",
+            "titulo": "Você escolhe",
+            "texto": "A estampa, a cor da malha e o tamanho."
+          }
+        },
+        "p2": {
+          "type": "card",
+          "settings": {
+            "numero": "2",
+            "titulo": "A gente imprime",
+            "texto": "Sua peça é produzida depois do pedido, uma por uma."
+          }
+        },
+        "p3": {
+          "type": "card",
+          "settings": {
+            "numero": "3",
+            "titulo": "Chega até você",
+            "texto": "Pronta em 3 a 5 dias úteis e enviada para todo o Brasil."
+          }
+        }
+      },
+      "block_order": [
+        "p1",
+        "p2",
+        "p3"
+      ],
+      "settings": {
+        "titulo": "Feita sob pedido",
+        "subtitulo": "Sem estoque parado, sem sobra. Cada peça existe porque alguém pediu.",
+        "estilo": "cartoes",
+        "botao_texto": "Conheça as peças →",
+        "botao_cor": "amarelo"
+      }
+    }
+  },
+  "order": [
+    "abertura",
+    "imagens",
+    "acredita",
+    "quem-faz",
+    "sob-pedido"
+  ]
+}

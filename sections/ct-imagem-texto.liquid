@@ -1,0 +1,50 @@
+{{ 'ct-secoes.css' | asset_url | stylesheet_tag }}
+
+{%- liquid
+  assign mostrar_midia = true
+  if section.settings.imagem == blank and request.design_mode == false
+    assign mostrar_midia = false
+  endif
+-%}
+<div class="color-{{ section.settings.color_scheme }} gradient">
+  <div class="ct-wrap {% if mostrar_midia %}ct-grade-2 {% endif %}ct-imagem-texto__inner">
+    {%- if mostrar_midia -%}
+    <div class="ct-imagem-texto__midia">
+      {%- if section.settings.imagem != blank -%}
+        {{ section.settings.imagem | image_url: width: 1400 | image_tag: loading: 'lazy', widths: '375, 550, 750, 1100, 1400', sizes: '(min-width: 750px) 50vw, 100vw' }}
+      {%- else -%}
+        <div class="ct-espaco-imagem" style="height: 100%">{{ section.settings.texto_sem_imagem }}</div>
+      {%- endif -%}
+    </div>
+    {%- endif -%}
+    <div class="ct-imagem-texto__conteudo"{% unless mostrar_midia %} style="max-width: 80rem"{% endunless %}>
+      {%- if section.settings.rotulo != blank -%}
+        <span class="ct-rotulo ct-rotulo--verde">{{ section.settings.rotulo }}</span>
+      {%- endif -%}
+      <h2 class="ct-titulo-l">{{ section.settings.titulo }}</h2>
+      <div class="ct-imagem-texto__texto rte">{{ section.settings.texto }}</div>
+      {%- if section.settings.botao_texto != blank and section.settings.botao_link != blank -%}
+        <a href="{{ section.settings.botao_link }}" class="ct-botao ct-botao--verde">{{ section.settings.botao_texto }}</a>
+      {%- endif -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Imagem com texto",
+  "tag": "section",
+  "class": "section-ct-imagem-texto",
+  "settings": [
+    { "type": "color_scheme", "id": "color_scheme", "label": "Esquema de cores", "default": "scheme-3" },
+    { "type": "image_picker", "id": "imagem", "label": "Imagem" },
+    { "type": "text", "id": "texto_sem_imagem", "label": "Texto do espaço sem imagem", "default": "Bastidores da criação" },
+    { "type": "text", "id": "rotulo", "label": "Rótulo", "default": "Quem faz" },
+    { "type": "text", "id": "titulo", "label": "Título", "default": "A gente achou que isso merecia virar camiseta." },
+    { "type": "richtext", "id": "texto", "label": "Texto" },
+    { "type": "text", "id": "botao_texto", "label": "Botão: texto", "default": "Ler o manifesto →" },
+    { "type": "url", "id": "botao_link", "label": "Botão: link" }
+  ],
+  "presets": [{ "name": "Imagem com texto" }]
+}
+{% endschema %}

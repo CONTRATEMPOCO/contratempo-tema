@@ -1,0 +1,77 @@
+{{ 'ct-secoes.css' | asset_url | stylesheet_tag }}
+
+<div class="color-{{ section.settings.color_scheme }} gradient ct-cards--{{ section.settings.estilo }}">
+  <div class="ct-wrap ct-cards__inner">
+    {%- if section.settings.titulo != blank or section.settings.subtitulo != blank -%}
+      <div class="ct-cards__topo">
+        <h2 class="ct-titulo-l">{{ section.settings.titulo }}</h2>
+        {%- if section.settings.subtitulo != blank -%}
+          <p class="ct-cards__subtitulo">{{ section.settings.subtitulo }}</p>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+    <ol class="ct-cards__lista ct-grade-3">
+      {%- for block in section.blocks -%}
+        <li class="ct-card" {{ block.shopify_attributes }}>
+          {%- if block.settings.numero != blank -%}
+            <span class="ct-card__numero">{{ block.settings.numero }}</span>
+          {%- endif -%}
+          <h3 class="ct-card__titulo">{{ block.settings.titulo }}</h3>
+          <p class="ct-card__texto">{{ block.settings.texto }}</p>
+        </li>
+      {%- endfor -%}
+    </ol>
+    {%- if section.settings.botao_texto != blank -%}
+      <a href="{{ section.settings.botao_link | default: routes.all_products_collection_url }}" class="ct-botao ct-botao--{{ section.settings.botao_cor }}">{{ section.settings.botao_texto }}</a>
+    {%- endif -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Cartões numerados",
+  "tag": "section",
+  "class": "section-ct-cards",
+  "max_blocks": 6,
+  "settings": [
+    { "type": "color_scheme", "id": "color_scheme", "label": "Esquema de cores", "default": "scheme-1" },
+    {
+      "type": "select",
+      "id": "estilo",
+      "label": "Estilo",
+      "options": [
+        { "value": "lista", "label": "Texto com número pequeno" },
+        { "value": "cartoes", "label": "Cartões creme com número grande" }
+      ],
+      "default": "lista"
+    },
+    { "type": "text", "id": "titulo", "label": "Título", "default": "No que a gente acredita" },
+    { "type": "textarea", "id": "subtitulo", "label": "Subtítulo" },
+    { "type": "text", "id": "botao_texto", "label": "Botão: texto" },
+    { "type": "url", "id": "botao_link", "label": "Botão: link" },
+    {
+      "type": "select",
+      "id": "botao_cor",
+      "label": "Botão: cor",
+      "options": [
+        { "value": "verde", "label": "Verde" },
+        { "value": "amarelo", "label": "Amarelo" },
+        { "value": "contorno", "label": "Contorno" }
+      ],
+      "default": "amarelo"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "card",
+      "name": "Cartão",
+      "settings": [
+        { "type": "text", "id": "numero", "label": "Número", "default": "01" },
+        { "type": "text", "id": "titulo", "label": "Título", "default": "Título" },
+        { "type": "textarea", "id": "texto", "label": "Texto" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "Cartões numerados", "blocks": [{ "type": "card" }, { "type": "card" }, { "type": "card" }] }]
+}
+{% endschema %}
