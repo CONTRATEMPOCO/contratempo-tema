@@ -17,17 +17,38 @@
 .ct-header__menu-botao {
   display: inline-flex;
   align-items: center;
-  gap: 1rem;
-  min-height: 4.4rem;
-  padding: 0 1.2rem 0 0.6rem;
+  justify-content: center;
+  width: 4.4rem;
+  height: 4.4rem;
+  margin-left: -1rem;
+  padding: 0;
   border: 0;
   background: transparent;
   color: rgb(var(--color-foreground));
   cursor: pointer;
-  font-family: var(--ct-mono);
-  font-size: 1.2rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+}
+
+.ct-header__hamburguer { position: relative; display: block; width: 2.2rem; height: 1.4rem; }
+
+.ct-header__hamburguer span {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 0.16rem;
+  background: currentColor;
+  transition: transform 0.35s cubic-bezier(0.6, 0, 0.3, 1), opacity 0.2s ease, top 0.35s cubic-bezier(0.6, 0, 0.3, 1);
+}
+
+.ct-header__hamburguer span:nth-child(1) { top: 0; }
+.ct-header__hamburguer span:nth-child(2) { top: calc(50% - 0.08rem); }
+.ct-header__hamburguer span:nth-child(3) { top: calc(100% - 0.16rem); }
+
+[aria-expanded='true'] .ct-header__hamburguer span:nth-child(1) { top: calc(50% - 0.08rem); transform: rotate(45deg); }
+[aria-expanded='true'] .ct-header__hamburguer span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+[aria-expanded='true'] .ct-header__hamburguer span:nth-child(3) { top: calc(50% - 0.08rem); transform: rotate(-45deg); }
+
+@media (prefers-reduced-motion: reduce) {
+  .ct-header__hamburguer span { transition: none; }
 }
 
 .ct-header__nav { display: flex; gap: 2.2rem; }
@@ -48,7 +69,7 @@
 .ct-header__logo { display: flex; justify-content: center; text-decoration: none; color: rgb(var(--color-foreground)); }
 .ct-header__logo:hover { color: rgb(var(--color-foreground)); }
 
-.ct-header__icones { display: flex; align-items: center; justify-content: flex-end; }
+.ct-header__icones { display: flex; align-items: center; justify-content: flex-end; margin-right: -1rem; }
 
 .ct-header__icone {
   position: relative;
@@ -136,6 +157,14 @@
 }
 
 @media screen and (max-width: 559px) {
-  .ct-header__opcional { display: none; }
+  .ct-header__icone { width: 3.8rem; }
   .ct-header__barra { padding: 0.6rem 1.2rem; }
+}
+
+@media screen and (max-width: 419px) {
+  .ct-header__barra { gap: 0.4rem; padding: 0.6rem 0.8rem; }
+  .ct-header__menu-botao { margin-left: 0; width: 4rem; }
+  .ct-header__icones { margin-right: 0; }
+  .ct-header__icone { width: 3.4rem; }
+  .ct-header__logo .ct-logo__nome { font-size: 1.5rem; }
 }

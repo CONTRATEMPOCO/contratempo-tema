@@ -185,20 +185,21 @@ a:not(.button):hover {
 .ct-logo__nome {
   font-family: var(--font-heading-family);
   font-weight: 700;
-  font-size: 1.8rem;
-  letter-spacing: 0.1em;
+  font-size: 2rem;
+  text-transform: uppercase;
+  letter-spacing: -0.045em;
   white-space: nowrap;
   line-height: 1;
 }
 
 .ct-logo__c {
-  font-size: 0.55em;
+  font-size: 0.4em;
   vertical-align: super;
   letter-spacing: 0;
 }
 
 @media screen and (max-width: 749px) {
-  .ct-logo__nome { font-size: 1.5rem; }
+  .ct-logo__nome { font-size: 1.7rem; }
 }
 
 /* Cabeçalho: menu em mono */

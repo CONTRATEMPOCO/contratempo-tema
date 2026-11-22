@@ -454,6 +454,55 @@
 
 .ct-carrossel__controles {
   position: absolute;
+  right: clamp(2.4rem, 3.5vw, 4.8rem);
+  bottom: 1.6rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  z-index: 2;
+  color: var(--ct-creme);
+}
+.ct-carrossel__pontos { display: flex; }
+.ct-carrossel__pontos button { display: inline-flex; align-items: center; justify-content: center; width: 2.4rem; height: 3.2rem; border: 0; background: transparent; cursor: pointer; padding: 0; }
+.ct-carrossel__pontos span { display: block; width: 0.6rem; height: 0.2rem; background: currentColor; opacity: 0.4; transition: width 0.3s ease, opacity 0.3s ease; }
+.ct-carrossel__pontos [aria-current='true'] span { width: 1.8rem; opacity: 1; }
+.ct-carrossel__botoes { display: flex; }
+.ct-carrossel__botoes button {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 3.2rem; height: 3.2rem; padding: 0;
+  border: 0; background: transparent; color: currentColor; opacity: 0.6; cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+.ct-carrossel__botoes button:hover, .ct-carrossel__botoes button:focus-visible { opacity: 1; }
+.ct-carrossel__tocar .ct-ic-pausar, .ct-carrossel__tocar[aria-pressed='true'] .ct-ic-tocar { display: none; }
+.ct-carrossel__tocar[aria-pressed='true'] .ct-ic-pausar { display: block; }
+
+.ct-hero2__c { grid-column: 1 / 8; grid-row: 2; }
+.ct-hero2__b { grid-column: 8 / 13; grid-row: 1 / 3; position: relative; min-height: 60rem; overflow: hidden; background: var(--ct-miniatura); }
+.ct-hero2--sem-lateral .ct-hero2__a,
+.ct-hero2--sem-lateral .ct-hero2__c { grid-column: 1 / -1; }
+
+.ct-slide { position: absolute; inset: 0; }
+.ct-slide[hidden] { display: none; }
+.ct-slide__img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.ct-slide__veu { position: absolute; inset: 0; }
+.ct-slide__conteudo {
+  position: relative;
+  height: 100%;
+  box-sizing: border-box;
+  padding: clamp(2.4rem, 3.5vw, 4.8rem) clamp(2.4rem, 3.5vw, 4.8rem) 9.6rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 2.8rem;
+}
+.ct-slide__rotulo { font-family: var(--ct-mono); font-size: 1.1rem; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(238, 232, 218, 0.75); }
+.ct-slide__texto { display: flex; flex-direction: column; gap: 1.8rem; max-width: 64rem; }
+.ct-slide__titulo { margin: 0; font-size: clamp(3.4rem, 5.2vw, 7.4rem); line-height: 0.98; color: var(--ct-creme); }
+.ct-slide__sub { margin: 0; font-size: 1.6rem; line-height: 1.6; max-width: 44rem; color: var(--ct-creme); }
+
+.ct-carrossel__controles {
+  position: absolute;
   left: clamp(2.4rem, 3.5vw, 4.8rem);
   right: clamp(2.4rem, 3.5vw, 4.8rem);
   bottom: 2.4rem;
@@ -529,3 +578,6 @@
 .ct-lanc__texto { display: flex; flex-direction: column; gap: 1.6rem; }
 .ct-lanc .ct-produto-topo { color: var(--ct-creme); margin: 0; }
 .ct-lanc .ct-lancamento__titulo, .ct-lanc .ct-lancamento__sub { color: var(--ct-creme); }
+
+/* O Dawn esconde div vazia; os véus das imagens precisam aparecer */
+.ct-slide__veu:empty, .ct-lanc__veu:empty { display: block; }

@@ -14,11 +14,15 @@
       "blocks": {
         "img-1": {
           "type": "imagem",
-          "settings": {}
+          "settings": {
+            "imagem": "shopify://shop_images/ct-sobre-estampa.jpg"
+          }
         },
         "img-2": {
           "type": "imagem",
-          "settings": {}
+          "settings": {
+            "imagem": "shopify://shop_images/ct-de-perto.jpg"
+          }
         }
       },
       "block_order": [
@@ -72,7 +76,8 @@
         "titulo": "A gente achou que isso merecia virar camiseta.",
         "texto": "<p>A CONTRATEMPO é feita por uma equipe pequena, de gente que pesquisa, cria e repara no Brasil de perto: na rua, no boteco, na arquibancada, no trânsito. Cada estampa nasce de uma referência boa demais para passar batido. E a equipe segue aberta: se você cria, fotografa ou tem uma boa história para contar, fala com a gente.</p>",
         "botao_texto": "Ler o manifesto →",
-        "botao_link": "/pages/manifesto"
+        "botao_link": "/pages/manifesto",
+        "imagem": "shopify://shop_images/ct-de-longe.jpg"
       }
     },
     "sob-pedido": {

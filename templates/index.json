@@ -15,7 +15,9 @@
             "botao1_cor": "verde",
             "botao2_texto": "O que é contratempo",
             "botao2_link": "/pages/manifesto",
-            "escurecer": 55
+            "escurecer": 55,
+            "imagem": "shopify://shop_images/ct-hero-rua.jpg",
+            "botao1_link": "/collections/all"
           }
         },
         "s2": {
@@ -31,7 +33,8 @@
             "botao1_cor": "creme",
             "botao2_texto": "Sobre a marca",
             "botao2_link": "/pages/sobre",
-            "escurecer": 35
+            "escurecer": 35,
+            "imagem": "shopify://shop_images/ct-hero-calcada.jpg"
           }
         },
         "s3": {
@@ -47,7 +50,9 @@
             "botao1_cor": "verde",
             "botao2_texto": "Ver coleções",
             "botao2_link": "/collections",
-            "escurecer": 25
+            "escurecer": 25,
+            "imagem": "shopify://shop_images/ct-hero-loja.jpg",
+            "botao1_link": "/collections/all"
           }
         }
       },
@@ -58,7 +63,10 @@
       ],
       "settings": {
         "card_rotulo": "Fig. 01 · Orelhão",
-        "card_frase": "Contra o tempo."
+        "card_frase": "Contra o tempo.",
+        "card_imagem": "shopify://shop_images/ct-orelhao.jpg",
+        "imagem_lateral": "shopify://shop_images/ct-hero-lateral.jpg",
+        "produto_lateral": "peca-de-teste"
       }
     },
     "beneficios": {
@@ -104,7 +112,9 @@
     "lancamento": {
       "type": "ct-lancamento",
       "settings": {
-        "texto": ""
+        "imagem": "shopify://shop_images/ct-lancamento-rio.jpg",
+        "produto": "peca-de-teste",
+        "texto": "Estampa grande nas costas. Na frente, a assinatura na malha escura e o mascote na malha branca."
       }
     },
     "featured_collection": {
@@ -148,14 +158,16 @@
           "type": "imagem",
           "settings": {
             "rotulo": "De longe",
-            "legenda": "presença, composição, cor."
+            "legenda": "presença, composição, cor.",
+            "imagem": "shopify://shop_images/ct-de-longe.jpg"
           }
         },
         "i2": {
           "type": "imagem",
           "settings": {
             "rotulo": "De perto",
-            "legenda": "o que só quem repara encontra."
+            "legenda": "o que só quem repara encontra.",
+            "imagem": "shopify://shop_images/ct-de-perto.jpg"
           }
         }
       },

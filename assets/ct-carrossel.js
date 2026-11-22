@@ -31,12 +31,12 @@ if (!customElements.get('ct-carrossel')) {
       }
       iniciar() {
         this.timer = setInterval(() => this.ir(this.atual + 1), 5000);
-        if (this.tocar) { this.tocar.setAttribute('aria-pressed', 'true'); this.tocar.textContent = 'Pausar'; }
+        if (this.tocar) { this.tocar.setAttribute('aria-pressed', 'true'); this.tocar.setAttribute('aria-label', 'Pausar slides'); }
       }
       parar() {
         if (this.timer) clearInterval(this.timer);
         this.timer = null;
-        if (this.tocar) { this.tocar.setAttribute('aria-pressed', 'false'); this.tocar.textContent = 'Tocar'; }
+        if (this.tocar) { this.tocar.setAttribute('aria-pressed', 'false'); this.tocar.setAttribute('aria-label', 'Tocar slides'); }
       }
     }
   );

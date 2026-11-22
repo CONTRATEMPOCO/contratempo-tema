@@ -3,9 +3,8 @@
 <ct-header class="ct-header color-{{ section.settings.color_scheme }} gradient">
   <div class="ct-header__barra">
     <div class="ct-header__esq">
-      <button type="button" class="ct-header__menu-botao" aria-expanded="false" aria-controls="CtMenu-{{ section.id }}" data-menu-botao>
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true" focusable="false"><path d="M3 6h18"></path><path d="M3 12h18"></path><path d="M3 18h18"></path></svg>
-        <span data-menu-rotulo>Menu</span>
+      <button type="button" class="ct-header__menu-botao" aria-expanded="false" aria-controls="CtMenu-{{ section.id }}" aria-label="Abrir menu" data-menu-botao>
+        <span class="ct-header__hamburguer" aria-hidden="true"><span></span><span></span><span></span></span>
       </button>
       {%- if section.settings.menu_topo != blank -%}
         <nav class="ct-header__nav" aria-label="Principal">
@@ -25,20 +24,16 @@
     </a>
 
     <div class="ct-header__icones">
-      <a href="{{ routes.search_url }}" class="ct-header__icone ct-header__opcional" aria-label="Buscar">
+      <a href="{{ routes.search_url }}" class="ct-header__icone" aria-label="Buscar">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="square" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.5-3.5"></path></svg>
       </a>
       {%- if shop.customer_accounts_enabled -%}
-        <a href="{{ routes.account_url }}" class="ct-header__icone ct-header__opcional" aria-label="Minha conta">
+        <a href="{{ routes.account_url }}" class="ct-header__icone" aria-label="Minha conta">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="square" aria-hidden="true" focusable="false"><circle cx="12" cy="8" r="4"></circle><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"></path></svg>
         </a>
       {%- endif -%}
       <a href="{{ routes.cart_url }}" class="ct-header__icone ct-header__sacola header__icon--cart" id="cart-icon-bubble">
-        {%- if cart == empty -%}
-          <span class="svg-wrapper">{{ 'icon-cart-empty.svg' | inline_asset_content }}</span>
-        {%- else -%}
-          <span class="svg-wrapper">{{ 'icon-cart.svg' | inline_asset_content }}</span>
-        {%- endif -%}
+        {%- render 'ct-icone-sacola' -%}
         <span class="visually-hidden">{{ 'templates.cart.cart' | t }}</span>
         {%- if cart != empty -%}
           <div class="cart-count-bubble">
@@ -83,7 +78,6 @@
     customElements.define('ct-header', class extends HTMLElement {
       connectedCallback() {
         this.botao = this.querySelector('[data-menu-botao]');
-        this.rotulo = this.querySelector('[data-menu-rotulo]');
         this.painel = this.querySelector('.ct-header__painel');
         if (!this.botao || !this.painel) return;
         this.botao.addEventListener('click', () => this.alternar());
@@ -93,7 +87,7 @@
         const aberto = typeof abrir === 'boolean' ? abrir : this.painel.hidden;
         this.painel.hidden = !aberto;
         this.botao.setAttribute('aria-expanded', aberto ? 'true' : 'false');
-        if (this.rotulo) this.rotulo.textContent = aberto ? 'Fechar' : 'Menu';
+        this.botao.setAttribute('aria-label', aberto ? 'Fechar menu' : 'Abrir menu');
       }
     });
   }
@@ -106,7 +100,7 @@
   "class": "section-ct-header",
   "settings": [
     { "type": "color_scheme", "id": "color_scheme", "label": "Esquema de cores", "default": "scheme-1" },
-    { "type": "link_list", "id": "menu_topo", "label": "Links ao lado do botão Menu", "info": "Aparecem só no computador." },
+    { "type": "link_list", "id": "menu_topo", "label": "Links ao lado do botão de menu", "info": "Aparecem só no computador." },
     { "type": "link_list", "id": "menu", "label": "Menu completo (painel)", "default": "main-menu" },
     { "type": "text", "id": "titulo_ajuda", "label": "Título da coluna de ajuda", "default": "Ajuda" },
     { "type": "link_list", "id": "menu_ajuda", "label": "Menu de ajuda (painel)" }
