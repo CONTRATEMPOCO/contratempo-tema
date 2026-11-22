@@ -1,0 +1,52 @@
+{{ 'ct-secoes.css' | asset_url | stylesheet_tag }}
+
+<div class="color-{{ section.settings.color_scheme }} gradient">
+  <div class="ct-wrap ct-erro">
+    <div class="ct-conceito__pontos" aria-hidden="true">
+      <span></span><span></span><span class="pulo-g"></span><span></span>
+    </div>
+    <div class="ct-erro__texto">
+      <span class="ct-rotulo ct-rotulo--verde">{{ section.settings.rotulo }}</span>
+      <h1 class="ct-erro__titulo">{{ section.settings.titulo }}</h1>
+      <p class="ct-erro__sub">{{ section.settings.texto }}</p>
+    </div>
+    <div class="ct-hero__botoes">
+      <a href="{{ routes.root_url }}" class="ct-botao ct-botao--amarelo">Voltar ao início</a>
+      <a href="{{ routes.all_products_collection_url }}" class="ct-botao ct-botao--contorno">Ver a loja</a>
+    </div>
+    <form action="{{ routes.search_url }}" method="get" role="search" class="ct-erro__busca">
+      <label for="Busca404-{{ section.id }}" class="ct-rotulo">Ou busque o que você procurava</label>
+      <div class="ct-footer__campo">
+        <input id="Busca404-{{ section.id }}" type="search" name="q" placeholder="Peça, coleção ou código">
+        <input type="hidden" name="options[prefix]" value="last">
+        <button type="submit" class="button">Buscar</button>
+      </div>
+    </form>
+    {%- if section.settings.menu != blank -%}
+      <nav class="ct-erro__caminhos" aria-label="{{ section.settings.titulo_menu | escape }}">
+        <span class="ct-rotulo">{{ section.settings.titulo_menu }}</span>
+        <ul role="list">
+          {%- for link in section.settings.menu.links -%}
+            <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+          {%- endfor -%}
+        </ul>
+      </nav>
+    {%- endif -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Página não encontrada",
+  "tag": "section",
+  "class": "section-ct-404",
+  "settings": [
+    { "type": "color_scheme", "id": "color_scheme", "label": "Esquema de cores", "default": "scheme-1" },
+    { "type": "text", "id": "rotulo", "label": "Rótulo", "default": "Erro 404 · página não encontrada" },
+    { "type": "text", "id": "titulo", "label": "Título", "default": "Saiu do compasso." },
+    { "type": "textarea", "id": "texto", "label": "Texto", "default": "Esta página não existe ou mudou de endereço. Acontece. A gente conhece bem os contratempos." },
+    { "type": "text", "id": "titulo_menu", "label": "Título dos caminhos", "default": "Caminhos que costumam dar certo" },
+    { "type": "link_list", "id": "menu", "label": "Menu de caminhos" }
+  ]
+}
+{% endschema %}

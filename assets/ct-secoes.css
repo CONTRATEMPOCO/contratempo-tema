@@ -394,3 +394,20 @@
   .ct-hero--com-imagens { grid-template-columns: 1fr; }
 }
 @media (prefers-reduced-motion: reduce) { .ct-cor__amostra { transition: none; } }
+
+/* 404 */
+.ct-erro { padding-top: 9.6rem; padding-bottom: 12rem; display: flex; flex-direction: column; gap: 4rem; }
+.ct-erro__texto { display: flex; flex-direction: column; gap: 2rem; }
+.ct-erro__titulo { margin: 0; font-size: clamp(5.6rem, 10vw, 15.2rem); line-height: 0.88; max-width: 110rem; }
+.ct-erro__sub { margin: 0; max-width: 56rem; font-size: 1.8rem; line-height: 1.6; }
+.ct-erro__busca { display: flex; flex-direction: column; gap: 0.8rem; max-width: 56rem; }
+.ct-erro__caminhos { display: flex; flex-direction: column; gap: 1.4rem; border-top: 0.1rem solid var(--ct-linha); padding-top: 2.4rem; }
+.ct-erro__caminhos ul { list-style: none; margin: 0; padding: 0; display: flex; gap: 1rem 2.8rem; flex-wrap: wrap; }
+.ct-erro__caminhos a { color: inherit; font-size: 1.6rem; text-underline-offset: 0.4rem; }
+
+/* Em breve (página com senha) */
+.ct-breve { min-height: 70vh; padding-top: 5.6rem; padding-bottom: 5.6rem; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: 2.8rem; }
+.ct-breve__titulo { margin: 0; font-size: clamp(5.2rem, 9vw, 13.6rem); line-height: 0.88; max-width: 110rem; }
+.ct-breve__sub { margin: 0; max-width: 52rem; font-size: 1.7rem; line-height: 1.6; }
+.ct-breve__form { width: 100%; max-width: 56rem; text-align: left; }
+.ct-breve__selo { margin-top: 2.4rem; }

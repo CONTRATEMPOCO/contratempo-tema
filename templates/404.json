@@ -1,7 +1,10 @@
 {
   "sections": {
     "main": {
-      "type": "main-404"
+      "type": "ct-404",
+      "settings": {
+        "menu": "menu-ajuda"
+      }
     }
   },
   "order": [

@@ -1,0 +1,45 @@
+{{ 'ct-secoes.css' | asset_url | stylesheet_tag }}
+{{ 'ct-footer.css' | asset_url | stylesheet_tag }}
+
+<div class="color-{{ section.settings.color_scheme }} gradient">
+  <div class="ct-wrap ct-breve">
+    <span class="ct-rotulo ct-rotulo--verde">{{ section.settings.rotulo }}</span>
+    <h1 class="ct-breve__titulo">{{ section.settings.titulo }}</h1>
+    {%- if section.settings.texto != blank -%}
+      <p class="ct-breve__sub">{{ section.settings.texto }}</p>
+    {%- endif -%}
+    {%- form 'customer', id: 'ct-cadastro-breve', class: 'ct-footer__form ct-breve__form' -%}
+      <input type="hidden" name="contact[tags]" value="newsletter, lancamento">
+      {%- if form.posted_successfully? -%}
+        <p class="ct-footer__ok ct-mono" role="status" tabindex="-1" autofocus>Pronto. Você vai saber primeiro.</p>
+      {%- else -%}
+        <label for="ct-email-breve" class="ct-mono-sm">{{ section.settings.rotulo_campo }}</label>
+        <div class="ct-footer__campo">
+          <input id="ct-email-breve" type="email" name="contact[email]" autocomplete="email" placeholder="nome@email.com" required {% if form.errors %}aria-invalid="true" aria-describedby="ct-email-breve-erro"{% endif %}>
+          <button type="submit" class="button">{{ section.settings.botao }}</button>
+        </div>
+        {%- if form.errors -%}
+          <p id="ct-email-breve-erro" class="ct-footer__erro" role="alert">Confira o e-mail digitado.</p>
+        {%- endif -%}
+      {%- endif -%}
+    {%- endform -%}
+    <div class="ct-breve__selo">{%- render 'ct-selo', tamanho: 112 -%}</div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Em breve",
+  "tag": "section",
+  "class": "section-ct-em-breve",
+  "enabled_on": { "templates": ["password"] },
+  "settings": [
+    { "type": "color_scheme", "id": "color_scheme", "label": "Esquema de cores", "default": "scheme-1" },
+    { "type": "text", "id": "rotulo", "label": "Rótulo", "default": "Coleção 001 · em breve" },
+    { "type": "text", "id": "titulo", "label": "Título", "default": "O Brasil no nosso próprio ritmo." },
+    { "type": "textarea", "id": "texto", "label": "Texto", "default": "A loja abre em breve. Deixe seu e-mail e a gente avisa no dia, antes de todo mundo." },
+    { "type": "text", "id": "rotulo_campo", "label": "Rótulo do campo", "default": "Seu e-mail · um aviso, sem enxurrada" },
+    { "type": "text", "id": "botao", "label": "Botão", "default": "Quero ser avisado" }
+  ]
+}
+{% endschema %}
