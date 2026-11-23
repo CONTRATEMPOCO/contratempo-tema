@@ -177,3 +177,8 @@
   font-family: var(--ct-mono); font-size: 1rem; font-weight: 500; line-height: 1;
   transform: none;
 }
+
+/* Manifesto: título na cor do texto do tempo e respiro entre os tempos e os botões */
+.ct-manifesto .ct-manifesto__tempo-titulo { color: var(--ct-m-fg); transition: color 0.5s ease; }
+.ct-manifesto .ct-manifesto__batida { height: auto; min-height: 15rem; padding-bottom: 2.4rem; }
+.ct-manifesto .ct-manifesto__controles { gap: 3.2rem; }
