@@ -204,3 +204,6 @@
 .ct-manifesto .ct-manifesto__batida[aria-current='step'] .ct-manifesto__ponto { transform: none; }
 .ct-manifesto .ct-manifesto__batida.is-fora.is-visto .ct-manifesto__ponto,
 .ct-manifesto .ct-manifesto__batida.is-fora[aria-current='step'] .ct-manifesto__ponto { transform: translateY(-5.6rem); }
+
+/* Manifesto: mais altura na coluna para o ponto do contratempo subir sem encostar no rótulo */
+.ct-manifesto .ct-manifesto__ponto { margin-top: 7.6rem; }
