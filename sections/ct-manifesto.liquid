@@ -19,7 +19,7 @@
             {%- when 'amarelo' -%}
               {%- assign bg = '#F8D65B' -%}{%- assign fg = '#02070A' -%}{%- assign ac = '#CD6547' -%}
             {%- when 'garrafa' -%}
-              {%- assign bg = '#0E2A1E' -%}{%- assign fg = '#EEE8DA' -%}{%- assign ac = '#90E04B' -%}
+              {%- assign bg = '#0E2A1E' -%}{%- assign fg = '#EEE8DA' -%}{%- assign ac = '#F8D65B' -%}
             {%- when 'laranja' -%}
               {%- assign bg = '#CD6547' -%}{%- assign fg = '#02070A' -%}{%- assign ac = '#F8D65B' -%}
             {%- when 'creme' -%}
@@ -36,10 +36,18 @@
             {% unless forloop.first %}hidden{% endunless %}
             {{ block.shopify_attributes }}
           >
+            {%- liquid
+              assign titulo_tempo = block.settings.titulo | escape
+              if block.settings.destaque != blank
+                assign palavra = block.settings.destaque | escape
+                assign marcada = '<span class="ct-manifesto__destaque">' | append: palavra | append: '</span>'
+                assign titulo_tempo = titulo_tempo | replace_first: palavra, marcada
+              endif
+            -%}
             {%- if forloop.first -%}
-              <h1 id="ManifestoTitulo-{{ section.id }}" class="ct-manifesto__tempo-titulo">{{ block.settings.titulo }}</h1>
+              <h1 id="ManifestoTitulo-{{ section.id }}" class="ct-manifesto__tempo-titulo">{{ titulo_tempo }}</h1>
             {%- else -%}
-              <p class="ct-manifesto__tempo-titulo h1">{{ block.settings.titulo }}</p>
+              <p class="ct-manifesto__tempo-titulo h1">{{ titulo_tempo }}</p>
             {%- endif -%}
             <p class="ct-manifesto__tempo-texto">{{ block.settings.texto }}</p>
           </div>
@@ -52,7 +60,7 @@
             {%- for block in section.blocks -%}
               <button
                 type="button"
-                class="ct-manifesto__batida{% if forloop.index0 == fora %} is-fora{% endif %}{% if forloop.first %} is-visto{% endif %}"
+                class="ct-manifesto__batida{% if forloop.index0 == fora %} is-fora{% endif %}{% if forloop.first %} is-visto{% endif %}{% if block.settings.losango %} is-bandeira{% endif %}"
                 data-batida="{{ forloop.index0 }}"
                 aria-label="Tempo {{ forloop.index }}{% if forloop.index0 == fora %}, o contratempo{% endif %}"
                 {% if forloop.first %}aria-current="step"{% endif %}
@@ -201,6 +209,18 @@
           "type": "textarea",
           "id": "texto",
           "label": "Texto"
+        },
+        {
+          "type": "text",
+          "id": "destaque",
+          "label": "Palavra do título em destaque",
+          "info": "Aparece na cor de destaque do tempo. Ex.: Brasil"
+        },
+        {
+          "type": "checkbox",
+          "id": "losango",
+          "label": "Losango da bandeira em volta do ponto",
+          "default": false
         },
         {
           "type": "select",

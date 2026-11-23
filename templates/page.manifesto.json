@@ -32,7 +32,9 @@
           "settings": {
             "titulo": "É ali que o Brasil aparece.",
             "texto": "Na placa da esquina, no letreiro pintado à mão, no cobogó, no domingo de jogo. Olhar com atenção e transformar em roupa feita para durar. Contra o tempo. No nosso próprio ritmo.",
-            "esquema": "garrafa"
+            "esquema": "garrafa",
+            "destaque": "Brasil",
+            "losango": true
           }
         }
       },

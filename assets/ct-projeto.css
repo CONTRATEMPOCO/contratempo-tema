@@ -182,3 +182,20 @@
 .ct-manifesto .ct-manifesto__tempo-titulo { color: var(--ct-m-fg); transition: color 0.5s ease; }
 .ct-manifesto .ct-manifesto__batida { height: auto; min-height: 15rem; padding-bottom: 2.4rem; }
 .ct-manifesto .ct-manifesto__controles { gap: 3.2rem; }
+
+/* Manifesto: palavra em destaque e o losango da bandeira em volta do ponto */
+.ct-manifesto .ct-manifesto__destaque { color: var(--ct-m-ac); transition: color 0.5s ease; }
+.ct-manifesto .is-bandeira .ct-manifesto__ponto { position: relative; }
+.ct-manifesto .is-bandeira .ct-manifesto__ponto::before {
+  content: '';
+  position: absolute;
+  inset: -0.7rem;
+  border: 0.2rem solid var(--ct-amarelo);
+  transform: rotate(45deg) scale(0.6);
+  opacity: 0;
+  transition: transform 0.6s var(--ct-curva), opacity 0.4s ease;
+}
+.ct-manifesto .is-bandeira.is-visto .ct-manifesto__ponto::before { transform: rotate(45deg) scale(1); opacity: 1; }
+@media (prefers-reduced-motion: reduce) {
+  .ct-manifesto .is-bandeira .ct-manifesto__ponto::before { transition: none; }
+}
