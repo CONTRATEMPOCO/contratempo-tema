@@ -46,13 +46,18 @@ if (!customElements.get('ct-manifesto')) {
         if (this.progresso) this.progresso.textContent = 'Tempo ' + (this.atual + 1) + ' de ' + total;
       }
 
+      textoTocar(texto) {
+        const alvo = this.botaoTocar && this.botaoTocar.querySelector('[data-tocar-texto]');
+        if (alvo) alvo.textContent = texto;
+      }
+
       alternar() {
         if (this.timer) {
           this.parar();
         } else {
           this.timer = setInterval(() => this.ir(this.atual + 1), 3200);
           this.botaoTocar.setAttribute('aria-pressed', 'true');
-          this.botaoTocar.textContent = 'Pausar';
+          this.textoTocar('Pausar');
         }
       }
 
@@ -61,7 +66,7 @@ if (!customElements.get('ct-manifesto')) {
         this.timer = null;
         if (this.botaoTocar) {
           this.botaoTocar.setAttribute('aria-pressed', 'false');
-          this.botaoTocar.textContent = 'Tocar o compasso';
+          this.textoTocar('Tocar o compasso');
         }
       }
     }

@@ -61,9 +61,19 @@
             {%- endfor -%}
           </div>
           <div class="ct-manifesto__botoes">
-            <button type="button" class="ct-manifesto__botao" data-anterior>← Tempo anterior</button>
-            <button type="button" class="ct-manifesto__botao ct-manifesto__botao--cheio" data-proximo>Próximo tempo →</button>
-            <button type="button" class="ct-manifesto__botao ct-manifesto__botao--destaque" data-tocar aria-pressed="false">Tocar o compasso</button>
+            <button type="button" class="ct-manifesto__botao" data-anterior>
+              <svg class="ct-manifesto__ic" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true" focusable="false"><path d="M20 12H5"></path><path d="M11 6l-6 6 6 6"></path></svg>
+              <span class="ct-manifesto__txt">Tempo anterior</span>
+            </button>
+            <button type="button" class="ct-manifesto__botao ct-manifesto__botao--cheio" data-proximo>
+              <span class="ct-manifesto__txt">Próximo tempo</span>
+              <svg class="ct-manifesto__ic" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true" focusable="false"><path d="M4 12h15"></path><path d="M13 6l6 6-6 6"></path></svg>
+            </button>
+            <button type="button" class="ct-manifesto__botao ct-manifesto__botao--destaque" data-tocar aria-pressed="false">
+              <svg class="ct-manifesto__ic ct-manifesto__ic-tocar" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M7 4l13 8-13 8z"></path></svg>
+              <svg class="ct-manifesto__ic ct-manifesto__ic-pausar" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M6 4h4v16H6zM14 4h4v16h-4z"></path></svg>
+              <span class="ct-manifesto__txt" data-tocar-texto>Tocar o compasso</span>
+            </button>
           </div>
         </div>
       {%- endif -%}
