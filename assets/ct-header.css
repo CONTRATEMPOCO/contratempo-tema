@@ -212,7 +212,8 @@
 /* O Dawn puxa o ícone da sacola 1,2rem para fora; aqui ele respeita a margem da página */
 .ct-header__sacola.header__icon--cart { margin-right: 0; }
 .ct-header__sacola .svg-wrapper { margin-right: -0.3rem; }
-.ct-header__sacola .cart-count-bubble { right: -0.2rem; top: 0.3rem; }
+.ct-header__sacola .cart-count-bubble { left: auto; bottom: auto; right: 0; top: 0.2rem; transform: none; }
+.ct-header__sacola { overflow: visible; }
 
 /* Menu aberto: painel fixo logo abaixo da barra, em qualquer ponto da rolagem */
 .ct-header__painel {
