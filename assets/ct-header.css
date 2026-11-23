@@ -187,7 +187,6 @@
 
 /* Painel do menu rola por dentro e trava o fundo */
 .ct-header__painel { max-height: calc(100vh - 6rem); max-height: calc(100dvh - 6rem); overflow-y: auto; overscroll-behavior: contain; -webkit-overflow-scrolling: touch; }
-html.ct-menu-aberto, html.ct-menu-aberto body { overflow: hidden; }
 @media screen and (max-height: 500px) {
   .ct-header__painel-grade { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 2.4rem; padding: 2.4rem 2rem 3.2rem; }
   .ct-header__grande a { font-size: 2.8rem; }
@@ -209,3 +208,26 @@ html.ct-menu-aberto, html.ct-menu-aberto body { overflow: hidden; }
 
 /* A sacola tem respiro interno no desenho; compensa para alinhar à margem */
 .ct-header__sacola .svg-wrapper { margin-right: -0.45rem; }
+
+/* O Dawn puxa o ícone da sacola 1,2rem para fora; aqui ele respeita a margem da página */
+.ct-header__sacola.header__icon--cart { margin-right: 0; }
+.ct-header__sacola .svg-wrapper { margin-right: -0.3rem; }
+.ct-header__sacola .cart-count-bubble { right: -0.2rem; top: 0.3rem; }
+
+/* Menu aberto: painel fixo logo abaixo da barra, em qualquer ponto da rolagem */
+.ct-header__painel {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: var(--ct-painel-topo, 6.4rem);
+  bottom: 0;
+  max-height: none;
+  z-index: 5;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  background: rgb(var(--color-background));
+}
+.ct-header__painel[hidden] { display: none; }
+/* Sempre 1px mais alto que o painel: o toque rola o painel, não a página de fundo */
+.ct-header__painel-grade { min-height: calc(100% + 0.1rem); box-sizing: border-box; align-content: start; }

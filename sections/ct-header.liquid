@@ -83,6 +83,8 @@
         this.botao.addEventListener('click', () => this.alternar());
         window.addEventListener('scroll', () => this.classList.add('ct-header--rolou'), { once: true, passive: true });
         window.addEventListener('resize', () => { if (!this.painel.hidden) this.ajustar(); });
+        window.addEventListener('scroll', () => { if (!this.painel.hidden) this.ajustar(); }, { passive: true });
+        this.painel.addEventListener('click', (e) => { if (e.target.closest('a')) this.alternar(false); });
         this.addEventListener('keyup', (e) => { if (e.key === 'Escape' && !this.painel.hidden) { this.alternar(false); this.botao.focus(); } });
       }
       alternar(abrir) {
@@ -90,12 +92,12 @@
         this.painel.hidden = !aberto;
         this.botao.setAttribute('aria-expanded', aberto ? 'true' : 'false');
         this.botao.setAttribute('aria-label', aberto ? 'Fechar menu' : 'Abrir menu');
-        document.documentElement.classList.toggle('ct-menu-aberto', aberto);
         if (aberto) this.ajustar();
       }
       ajustar() {
-        const topo = this.painel.getBoundingClientRect().top;
-        this.painel.style.maxHeight = Math.max(window.innerHeight - topo, 200) + 'px';
+        const barra = this.querySelector('.ct-header__barra');
+        const topo = Math.max(barra ? barra.getBoundingClientRect().bottom : 0, 0);
+        this.painel.style.setProperty('--ct-painel-topo', topo + 'px');
       }
     });
   }
