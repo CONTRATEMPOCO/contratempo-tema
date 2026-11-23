@@ -199,3 +199,8 @@
 @media (prefers-reduced-motion: reduce) {
   .ct-manifesto .is-bandeira .ct-manifesto__ponto::before { transition: none; }
 }
+
+/* Manifesto: o ponto do tempo atual não cresce; todos do mesmo tamanho */
+.ct-manifesto .ct-manifesto__batida[aria-current='step'] .ct-manifesto__ponto { transform: none; }
+.ct-manifesto .ct-manifesto__batida.is-fora.is-visto .ct-manifesto__ponto,
+.ct-manifesto .ct-manifesto__batida.is-fora[aria-current='step'] .ct-manifesto__ponto { transform: translateY(-5.6rem); }
