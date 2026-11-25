@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "hero": {
@@ -6,24 +15,30 @@
         "s1": {
           "type": "slide",
           "settings": {
-            "rotulo": "Coleção 001",
-            "titulo": "O Brasil no nosso",
-            "destaque": "próprio ritmo.",
-            "cor_destaque": "verde",
-            "texto": "Camisetas de criação autoral com o repertório daqui. Moda atemporal, identidade brasileira.",
-            "botao1_texto": "Comprar a coleção 001",
-            "botao1_cor": "verde",
-            "botao2_texto": "O que é contratempo",
-            "botao2_link": "/pages/manifesto",
-            "escurecer": 55,
             "imagem": "shopify://shop_images/ct-hero-rua.jpg",
-            "botao1_link": "/collections/all"
+            "enquadramento": "object-position: center center",
+            "escurecer": 55,
+            "rotulo": "NOVIDADE",
+            "rotulo_destaque": false,
+            "titulo": "Início de",
+            "destaque": "tudo.",
+            "cor_destaque": "verde",
+            "texto": "Camisetas de criação autoral com o repertório daqui. Moda atemporal, identidade autoral e brasileira.",
+            "botao1_texto": "Vem conferir",
+            "botao1_link": "/collections/all",
+            "botao1_cor": "verde",
+            "botao2_texto": "Sobre nós",
+            "botao2_link": "/pages/manifesto"
           }
         },
         "s2": {
           "type": "slide",
           "settings": {
+            "imagem": "shopify://shop_images/ct-hero-calcada.jpg",
+            "enquadramento": "object-position: center center",
+            "escurecer": 35,
             "rotulo": "Fig. 02 · Calçada, 23h",
+            "rotulo_destaque": false,
             "titulo": "A gente conhece bem",
             "destaque": "os contratempos.",
             "cor_destaque": "terracota",
@@ -32,14 +47,15 @@
             "botao1_link": "/pages/manifesto",
             "botao1_cor": "creme",
             "botao2_texto": "Sobre a marca",
-            "botao2_link": "/pages/sobre",
-            "escurecer": 35,
-            "imagem": "shopify://shop_images/ct-hero-calcada.jpg"
+            "botao2_link": "/pages/sobre"
           }
         },
         "s3": {
           "type": "slide",
           "settings": {
+            "imagem": "shopify://shop_images/ct-hero-loja.jpg",
+            "enquadramento": "object-position: center center",
+            "escurecer": 25,
             "rotulo": "Lançamento",
             "rotulo_destaque": true,
             "titulo": "",
@@ -47,12 +63,10 @@
             "cor_destaque": "verde",
             "texto": "A loja está no ar. Estampas autorais, cores de malha pensadas e tudo feito no Brasil.",
             "botao1_texto": "Entrar na loja",
+            "botao1_link": "/collections/all",
             "botao1_cor": "verde",
             "botao2_texto": "Ver coleções",
-            "botao2_link": "/collections",
-            "escurecer": 25,
-            "imagem": "shopify://shop_images/ct-hero-loja.jpg",
-            "botao1_link": "/collections/all"
+            "botao2_link": "/collections"
           }
         }
       },
@@ -62,6 +76,8 @@
         "s3"
       ],
       "settings": {
+        "color_scheme": "",
+        "autoplay": false,
         "card_rotulo": "Fig. 01 · Orelhão",
         "card_frase": "Contra o tempo.",
         "card_imagem": "shopify://shop_images/ct-orelhao.jpg",
@@ -107,22 +123,33 @@
         "b3",
         "b4"
       ],
-      "settings": {}
+      "settings": {
+        "color_scheme": ""
+      }
     },
     "lancamento": {
       "type": "ct-lancamento",
       "settings": {
-        "imagem": "shopify://shop_images/ct-lancamento-rio.jpg",
+        "color_scheme": "",
         "produto": "peca-de-teste",
+        "imagem": "shopify://shop_images/ct-lancamento-rio.jpg",
+        "enquadramento": "object-position: 70% center",
+        "cor_fundo": "#1f002e",
+        "escurecer": 55,
+        "selo": "Lançamento",
         "texto": "Estampa grande nas costas. Na frente, a assinatura na malha escura e o mascote na malha branca.",
-        "colecao": "rio"
+        "botao_texto": "Garantir a minha",
+        "colecao": "rio",
+        "botao2_texto": "Ver a coleção"
       }
     },
     "featured_collection": {
       "type": "ct-destaques",
       "settings": {
+        "color_scheme": "",
         "rotulo": "Destaques da loja",
         "titulo": "Camisetas",
+        "colecao": "",
         "quantidade": 8,
         "botao_texto": "Ver todas as peças →"
       }
@@ -130,6 +157,7 @@
     "conceito": {
       "type": "ct-conceito",
       "settings": {
+        "color_scheme": "",
         "titulo": "Contratempo é o som",
         "destaque": "fora do tempo forte.",
         "texto": "É o que dá balanço ao samba, ao choro e ao baião. É também o nosso jeito de olhar o Brasil: sair do lugar esperado para enxergar o que sempre esteve ali.",
@@ -144,17 +172,17 @@
         "i1": {
           "type": "imagem",
           "settings": {
+            "imagem": "shopify://shop_images/ct-de-longe.jpg",
             "rotulo": "De longe",
-            "legenda": "presença, composição, cor.",
-            "imagem": "shopify://shop_images/ct-de-longe.jpg"
+            "legenda": "presença, composição, cor."
           }
         },
         "i2": {
           "type": "imagem",
           "settings": {
+            "imagem": "shopify://shop_images/ct-de-perto.jpg",
             "rotulo": "De perto",
-            "legenda": "o que só quem repara encontra.",
-            "imagem": "shopify://shop_images/ct-de-perto.jpg"
+            "legenda": "o que só quem repara encontra."
           }
         }
       },
@@ -163,9 +191,10 @@
         "i2"
       ],
       "settings": {
+        "color_scheme": "",
         "titulo": "Parece simples.",
-        "espaco_abaixo": 88,
-        "destaque": "Olha de novo."
+        "destaque": "Olha de novo.",
+        "espaco_abaixo": 88
       }
     },
     "cores": {
@@ -175,35 +204,40 @@
           "type": "cor",
           "settings": {
             "nome": "Verde-garrafa",
-            "cor": "#0E2A1E"
+            "cor": "#0e2a1e",
+            "link": ""
           }
         },
         "c2": {
           "type": "cor",
           "settings": {
             "nome": "Terracota",
-            "cor": "#CD6547"
+            "cor": "#cd6547",
+            "link": ""
           }
         },
         "c3": {
           "type": "cor",
           "settings": {
             "nome": "Bordô",
-            "cor": "#421210"
+            "cor": "#421210",
+            "link": ""
           }
         },
         "c4": {
           "type": "cor",
           "settings": {
             "nome": "Preto",
-            "cor": "#02070A"
+            "cor": "#02070a",
+            "link": ""
           }
         },
         "c5": {
           "type": "cor",
           "settings": {
             "nome": "Creme",
-            "cor": "#EEE8DA"
+            "cor": "#eee8da",
+            "link": ""
           }
         }
       },
@@ -214,7 +248,10 @@
         "c4",
         "c5"
       ],
-      "settings": {}
+      "settings": {
+        "color_scheme": "",
+        "titulo": "Escolha pela cor da malha"
+      }
     },
     "detalhes": {
       "type": "ct-cards",
@@ -259,9 +296,14 @@
         "d4"
       ],
       "settings": {
-        "titulo": "Vestir bem começa nos detalhes.",
+        "color_scheme": "",
         "estilo": "lista",
-        "colunas": "4"
+        "colunas": "4",
+        "titulo": "Vestir bem começa nos detalhes.",
+        "subtitulo": "",
+        "botao_texto": "",
+        "botao_link": "",
+        "botao_cor": "amarelo"
       }
     }
   },
